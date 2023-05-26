@@ -35,7 +35,7 @@ function Login() {
     <div className="wrapper">
       <div className="loginContainer">
         <div className="containerForm">
-          <h2>Iniciar sesión</h2>
+          <h2>Hey, bienvenido &#x1F44B;</h2>
             {error && (
               <div className="error-alert">
                 {error}
@@ -70,7 +70,7 @@ function Login() {
               />
             </div>
             <button type="submit" className="btn btn-primary">
-              Ingresar
+            Iniciar sesión
             </button>
           </form>
         </div>

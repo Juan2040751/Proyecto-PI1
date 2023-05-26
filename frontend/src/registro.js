@@ -28,7 +28,7 @@ function Register() {
     <div className="wrapper">
       <div className="registerContainer">
         <div className="containerForm">
-          <h2>Registro&#128075; </h2>
+          <h2>Registro de Usuario</h2>
           <form onSubmit={handleRegister}>
             <div className="mb-3">
               <label htmlFor="username" className="form-label">
@@ -79,7 +79,7 @@ function Register() {
               />
             </div>
             <button type="submit" className="btn btn-primary">
-              Registrarse
+              Registrarme
             </button>
           </form>
         </div>
