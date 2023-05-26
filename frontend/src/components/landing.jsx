@@ -21,8 +21,8 @@ function Landing() {
       />
 
       <Html position={[-4, 0, 3]}>
-        <h1 style={{ fontSize: 90, margin: 0, color: "white" }}>La primera</h1>
-        <h1 style={{ fontSize: 130, margin: 0, color: "white" }}>
+        <h1 style={{ fontSize: 90, margin: 0, color: "white", fontFamily: "Tenor Sans, sans-serif" }}>La primera</h1>
+        <h1 style={{ fontSize: 130, margin: 0, color: "white", fontFamily: "Tenor Sans, sans-serif" }}>
           Civilización
         </h1>
       </Html>
