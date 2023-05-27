@@ -14,20 +14,20 @@ function Register() {
   const [exito, setExito] = useState("");
   const navigate = useNavigate();
 
-  const handleRegister = async (e) =>  {
+  const handleRegister = async (e) => {
     e.preventDefault();
     await axios
       .post("http://localhost:8000/usuarios/registro", { username, email, password, confirmation })
       .then((response) => {
         console.log(response.data);
-        if(response.data.message === "Registration successful."){
+        if (response.data.message === "Registration successful.") {
           setExito("Te has registrado exitosamente");
           setTimeout(() => {
             navigate("/");
           }, 2200);
-        }else{
+        } else {
           setError(response.data.message);
-        }  
+        }
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -35,12 +35,20 @@ function Register() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="registerContainer">
-        <div className="containerForm">
+    <div className="wrapper" style={{
+      display: "flex"
+    }}>
+      <div className="registerContainer" style={{ width: "50%" }}>
+
+        <div className="containerForm" style={{ display: "grid" }}>
+          <img src="./static/sumerios.jpg" style={{
+            width: "400px",
+            margin: "auto",
+            padding: "40px",
+          }}></img>
           <h2>Registro de Usuario</h2>
-          { error && (<div className="error-alert"> {error} </div>) }
-          { exito && (<div className="success-alert alert alert-success text-center"> {exito} </div>) }
+          {error && (<div className="error-alert"> {error} </div>)}
+          {exito && (<div className="success-alert alert alert-success text-center"> {exito} </div>)}
           <form onSubmit={handleRegister}>
             <div className="mb-3">
               <label htmlFor="username" className="form-label">
@@ -97,12 +105,12 @@ function Register() {
         </div>
       </div>
       <div style={{
-        width: "50%", 
+        width: "50%",
         backgroundImage: "url('./static/Lateral.jpg')",
         backgroundPosition: "center",
         backgroundSize: "cover",
-        }}>
-        
+      }}>
+
       </div>
     </div>
   );
