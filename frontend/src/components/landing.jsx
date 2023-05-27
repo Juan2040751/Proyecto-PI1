@@ -1,5 +1,6 @@
 import { Html, useGLTF } from "@react-three/drei";
 import React, { useRef } from "react";
+import "./events/events.css";
 
 function Landing() {
   const lamussu = useGLTF("/static/lamussu.glb");
@@ -22,12 +23,27 @@ function Landing() {
       />
 
       <Html position={[-4, 0, 3]}>
-        <h1 style={{ fontSize: 90, margin: 0, color: "black", fontFamily: "Tenor Sans, sans-serif" }}>La primera</h1>
-        <h1 style={{ fontSize: 130, margin: 0, color: "black", fontFamily: "Tenor Sans, sans-serif" }}>
+        <h1
+          style={{
+            fontSize: 90,
+            margin: 0,
+            color: "black",
+            fontFamily: "Tenor Sans, sans-serif",
+          }}
+        >
+          La primera
+        </h1>
+        <h1
+          style={{
+            fontSize: 130,
+            margin: 0,
+            color: "black",
+            fontFamily: "Tenor Sans, sans-serif",
+          }}
+        >
           Civilización
         </h1>
       </Html>
-
     </>
   );
 }

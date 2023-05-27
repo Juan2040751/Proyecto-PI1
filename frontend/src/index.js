@@ -11,7 +11,7 @@ import EventOne from "./components/events/event_one"
 import EventTwo from "./components/events/event_two"
 import Register from "./registro";
 import Login from "./login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>

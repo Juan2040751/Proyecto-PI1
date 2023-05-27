@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import { Html } from "@react-three/drei";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -32,6 +33,8 @@ function Login() {
   };
 
   return (
+    <>
+    <Html fullscreen >
     <div className="wrapper">
       <div className="loginContainer">
         <div className="containerForm">
@@ -76,6 +79,9 @@ function Login() {
         </div>
       </div>
     </div>
+    </Html>
+    </>
+    
   );
 }
 

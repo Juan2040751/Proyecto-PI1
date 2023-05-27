@@ -14,7 +14,7 @@ function App({ children }) {
       }}
     >
       <SceneContent />
-      <Html>
+      <Html fullscreen>
         <div className="canvas-content">
           <Toolbar />
         </div>
