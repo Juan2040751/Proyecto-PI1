@@ -25,9 +25,17 @@ function Register() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="registerContainer">
-        <div className="containerForm">
+    <div className="wrapper"  style={{
+      display: "flex"
+  }}> 
+      <div className="registerContainer"   style={{width: "50%"}}>
+
+        <div className="containerForm" style={{display:"grid"}}>
+           <img src = "./static/sumerios.jpg" style = {{
+    width: "400px",
+    margin: "auto",
+    padding: "40px",
+  }}></img>
           <h2>Registro de Usuario</h2>
           <form onSubmit={handleRegister}>
             <div className="mb-3">
@@ -83,6 +91,14 @@ function Register() {
             </button>
           </form>
         </div>
+      </div>
+      <div style={{
+        width: "50%", 
+        backgroundImage: "url('./static/Lateral.jpg')",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        }}>
+        
       </div>
     </div>
   );

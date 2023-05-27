@@ -32,9 +32,21 @@ function Login() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="loginContainer">
-        <div className="containerForm">
+    <div className="" style={{
+      display: "flex"
+  }}>
+      <div className="loginContainer"
+      
+      style={{width: "50%"}}
+      >
+        <div className="containerForm" style = {{
+          display: "grid"
+        }}>
+          <img src = "./static/sumerios.jpg" style = {{
+                width: "400px",
+                margin: "auto",
+                padding: "40px",
+              }}></img>
           <h2>Hey, bienvenido &#x1F44B;</h2>
             {error && (
               <div className="error-alert">
@@ -75,6 +87,15 @@ function Login() {
           </form>
         </div>
       </div>
+      <div style={{
+        width: "50%", 
+        backgroundImage: "url('./static/Lateral.jpg')",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        }}>
+        
+      </div>
+
     </div>
   );
 }
