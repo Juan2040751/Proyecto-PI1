@@ -17,7 +17,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:8000/usuarios/registro", {
+      .post("https://proy-pi1-back.vercel.app/usuarios/registro", {
         username,
         email,
         password,

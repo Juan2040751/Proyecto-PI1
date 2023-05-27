@@ -14,7 +14,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:8000/usuarios/login", { email, password })
+      .post("https://proy-pi1-back.vercel.app/usuarios/login", { email, password })
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Login successful") {
