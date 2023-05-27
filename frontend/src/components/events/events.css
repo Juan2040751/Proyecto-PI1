@@ -80,9 +80,3 @@ p{
    
    }
 
-.elemento-con-fondo {
-  background-image: url('D:\Programing\Proyecto integrador 1\Proyecto-PI1\frontend\public\img\overlay.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
