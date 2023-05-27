@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -13,13 +13,13 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:8000/usuarios/login", { username, password })
+      .post("http://localhost:8000/usuarios/login", { email, password })
       .then((response) => {
         console.log(response.data);
-        if(response.data.message === "Login successful"){
-            navigate("/");
-        }else{
-            setError("Acceso inválido. Por favor, inténtelo otra vez.");
+        if (response.data.message === "Login successful") {
+          navigate("/");
+        } else {
+          setError("Acceso inválido. Por favor, inténtelo otra vez.");
         }
       })
       .catch((error) => {
@@ -48,25 +48,25 @@ function Login() {
                 padding: "40px",
               }}></img>
           <h2>Hey, bienvenido &#x1F44B;</h2>
-            {error && (
-              <div className="error-alert">
-                {error}
-                <button className="close-btn" onClick={closeError}>
-                  X
-                </button>
-              </div>
+          {error && (
+            <div className="error-alert">
+              {error}
+              <button className="close-btn" onClick={closeError}>
+                X
+              </button>
+            </div>
           )}
           <form onSubmit={handleLogin}>
             <div className="mb-3">
               <label htmlFor="id" className="form-label">
-                Nombre de Usuario:
+                Correo electrónico:
               </label>
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 id="id"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -82,7 +82,7 @@ function Login() {
               />
             </div>
             <button type="submit" className="btn btn-primary">
-            Iniciar sesión
+              Iniciar sesión
             </button>
           </form>
         </div>

@@ -37,6 +37,17 @@ body,
   width: 400px;
 }
 
+.success-alert {
+  background-color: rgb(13, 110, 253);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
 .error-alert {
   background-color: #f8d7da;
   color: #721c24;
@@ -56,4 +67,23 @@ body,
   font-weight: bold;
   font-size: 18px;
   margin-left: 10px;
+}
+
+.containerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.containerImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerImage img {
+  max-width: 100%;
+  height: auto;
 }
