@@ -1,11 +1,65 @@
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
 import App from "./app";
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <>
-   <App/> 
-  </>
+import Landing from './components/landing';
+import Featured from "./components/featured_event";
+import EventFour from "./components/events/event_four";
+import EventThree from "./components/events/event_three"
+import EventOne from "./components/events/event_one"
+import EventTwo from "./components/events/event_two"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <App>
+            <Landing/>
+          </App>
+        }
+      />
+      <Route
+        path="/featured"
+        element={
+          <App>
+            <Featured />
+          </App>
+        }
+      />
+      <Route
+        path="/event_one"
+        element={
+          <App>
+            <EventOne />
+          </App>
+        }
+      />
+      <Route
+        path="/event_two"
+        element={
+          <App>
+            <EventTwo />
+          </App>
+        }
+      />
+      <Route
+        path="/event_three"
+        element={
+          <App>
+            <EventThree />
+          </App>
+        }
+      />
+      <Route
+        path="/event_four"
+        element={
+          <App>
+            <EventFour />
+          </App>
+        }
+      />
+    </Routes>
+  </BrowserRouter>
 );

@@ -1,8 +1,10 @@
 import React from "react";
 import "./events.css";
+import { Html } from "@react-three/drei";
 
-function Event_two() {
+function EventTwo() {
   return (
+    <Html fullscreen style={{ overflow: "auto", maxHeight: "100vh" }} >
     <div className="container">
       <div className="lateral">
         <img
@@ -49,7 +51,8 @@ function Event_two() {
         ></iframe>
       </div>
     </div>
+    </Html>
   );
 }
 
-export default Event_two;
+export default EventTwo;
