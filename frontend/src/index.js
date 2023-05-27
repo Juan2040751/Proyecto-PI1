@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 import App from "./app";
 import Landing from './components/landing';
 import Featured from "./components/featured_event";
@@ -8,6 +9,8 @@ import EventFour from "./components/events/event_four";
 import EventThree from "./components/events/event_three"
 import EventOne from "./components/events/event_one"
 import EventTwo from "./components/events/event_two"
+import Register from "./registro";
+import Login from "./login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -20,6 +23,23 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </App>
         }
       />
+      <Route path="/registro" 
+        element={
+          <App>
+            <Register />
+          </App>
+        } 
+      />
+
+      <Route path="/login" 
+        element={
+          <App>
+            <Login />
+          </App>
+        
+        } 
+      />
+      
       <Route
         path="/featured"
         element={
