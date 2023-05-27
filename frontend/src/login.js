@@ -17,9 +17,11 @@ function Login() {
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Login successful") {
+          localStorage.setItem('isLogged', 'true'); ///////
           navigate("/");
         } else {
           setError("Acceso inválido. Por favor, inténtelo otra vez.");
+          localStorage.setItem('isLogged', 'false'); //////////
         }
       })
       .catch((error) => {
@@ -81,9 +83,18 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit" className="btn btn-success w-100 mb-3">
               Iniciar sesión
             </button>
+            <div className="text-center">
+              <button
+                onClick={() => navigate("/registro")}
+                className="btn btn-primary mb-3"
+              >
+                Crear cuenta nueva
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -95,7 +106,6 @@ function Login() {
         }}>
         
       </div>
-
     </div>
   );
 }

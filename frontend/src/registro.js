@@ -22,11 +22,13 @@ function Register() {
         console.log(response.data);
         if (response.data.message === "Registration successful.") {
           setExito("Te has registrado exitosamente");
+          localStorage.setItem('isLogged', 'true'); ///////////
           setTimeout(() => {
             navigate("/");
           }, 2200);
         } else {
           setError(response.data.message);
+          localStorage.setItem('isLogged', 'true'); ///////
         }
       })
       .catch((error) => {
@@ -98,9 +100,17 @@ function Register() {
                 onChange={(e) => setConfirmation(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-success w-100 mb-3">
               Registrarme
             </button>
+            <div className="text-center">
+              <button
+                onClick={() => navigate("/login")}
+                className="btn btn-primary mb-3"
+              >
+                Ir al inicio de sesión
+              </button>
+            </div>
           </form>
         </div>
       </div>
