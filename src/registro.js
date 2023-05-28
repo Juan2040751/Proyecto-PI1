@@ -18,7 +18,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:8000/usuarios/registro", { username, email, password, confirmation })
+      .post("/api/usuarios/registro", { username, email, password, confirmation })
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Registration successful.") {
