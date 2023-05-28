@@ -14,7 +14,13 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     await axios
-      .post("https://pi1-backend.onrender.com/usuarios/login", { email, password })
+      .post("https://pi1-backend.onrender.com/usuarios/login", { email, password }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Login successful") {
@@ -34,54 +40,54 @@ function Login() {
 
   return (
     <>
-    <Html fullscreen >
-    <div className="wrapper">
-      <div className="loginContainer">
-        <div className="containerForm">
-          <h2>Hey, bienvenido &#x1F44B;</h2>
-          {error && (
-            <div className="error-alert">
-              {error}
-              <button className="close-btn" onClick={closeError}>
-                X
-              </button>
+      <Html fullscreen >
+        <div className="wrapper">
+          <div className="loginContainer">
+            <div className="containerForm">
+              <h2>Hey, bienvenido &#x1F44B;</h2>
+              {error && (
+                <div className="error-alert">
+                  {error}
+                  <button className="close-btn" onClick={closeError}>
+                    X
+                  </button>
+                </div>
+              )}
+              <form onSubmit={handleLogin}>
+                <div className="mb-3">
+                  <label htmlFor="id" className="form-label">
+                    Correo electrónico:
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="id"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="exampleInputPassword1" className="form-label">
+                    Contraseña:
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="exampleInputPassword1"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Iniciar sesión
+                </button>
+              </form>
             </div>
-          )}
-          <form onSubmit={handleLogin}>
-            <div className="mb-3">
-              <label htmlFor="id" className="form-label">
-                Correo electrónico:
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="id"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="exampleInputPassword1" className="form-label">
-                Contraseña:
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="exampleInputPassword1"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Iniciar sesión
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
-    </Html>
+      </Html>
     </>
-    
+
   );
 }
 

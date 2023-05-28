@@ -22,6 +22,12 @@ function Register() {
         email,
         password,
         confirmation,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Access-Control-Allow-Origin': '*'
+        }
       })
       .then((response) => {
         console.log(response.data);
