@@ -17,11 +17,17 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:8000/usuarios/registro", {
+      .post("/api/usuarios/registro", {
         username,
         email,
         password,
         confirmation,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Access-Control-Allow-Origin': '*'
+        }
       })
       .then((response) => {
         console.log(response.data);
