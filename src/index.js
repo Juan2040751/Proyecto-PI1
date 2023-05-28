@@ -21,7 +21,6 @@ const CheckAuthentication = ({ children }) => {
     const isLogged = localStorage.getItem('isLogged');
     if (isLogged !== 'true') {
       navigate('/login');
-      console.log(isLogged);
     }    
   }, [navigate]);
 
