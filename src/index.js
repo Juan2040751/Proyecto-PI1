@@ -11,6 +11,8 @@ import EventOne from "./components/events/event_one"
 import EventTwo from "./components/events/event_two"
 import Register from "./registro";
 import Login from "./login";
+import { ScrollControls, Scroll } from "@react-three/drei";
+import Home from "./home";
 
 const CheckAuthentication = ({ children }) => {
   const navigate = useNavigate();
@@ -34,7 +36,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         element={
           <CheckAuthentication>
             <App>
-              <Landing/>
+              < Home />
             </App>
           </CheckAuthentication>
         }

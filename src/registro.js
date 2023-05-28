@@ -46,7 +46,7 @@ function Register() {
           <div className="registerContainer" style={{ width: "50%" }}>
 
             <div className="containerForm" style={{ display: "grid" }}>
-              <img src="./static/sumerios.jpg" style={{
+              <img src="./static/Sumerios.jpg" style={{
                 width: "400px",
                 margin: "auto",
                 padding: "40px",

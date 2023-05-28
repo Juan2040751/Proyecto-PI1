@@ -1,12 +1,55 @@
-import { Html, useGLTF } from "@react-three/drei";
-import React, { useRef } from "react";
+import { Html, useGLTF, useScroll } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import gsap from "gsap";
+import React, { useLayoutEffect, useRef } from "react";
 import "./events/events.css";
 
 function Landing() {
   const lamussu = useGLTF("/static/lamussu.glb");
   const polRef = useRef();
+  const scroll = useScroll();
+  const tl = useRef();
+
+  console.log({scroll, polRef});
+
+  useFrame(() => {
+    tl.current.seek(scroll.offset * tl.current.duration());
+  });
+
+  useLayoutEffect(() => {
+    tl.current = gsap.timeline();
+    tl.current.to(
+      polRef.current.position,
+      {
+        duration: 2,
+        x: -10,
+  
+      },
+      -3
+    );
+    tl.current.to(
+      polRef.current.scale,
+      {
+        duration: 4,
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      -3
+    );
+    tl.current.to(
+      polRef.current.rotation,
+      {
+        duration: 2,
+        _y: 0.2,
+      },
+      -3
+    );
+  }, []);
+
   return (
     <>
+    <group position={0}>
       <directionalLight
         castShadow
         shadow-normalBias={0.04}
@@ -44,6 +87,8 @@ function Landing() {
           Civilización
         </h1>
       </Html>
+      </group>
+    
     </>
   );
 }
