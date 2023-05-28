@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom"
 import App from "./app";
 import Landing from './components/landing';
 import Featured from "./components/featured_event";
@@ -12,17 +12,34 @@ import EventTwo from "./components/events/event_two"
 import Register from "./registro";
 import Login from "./login";
 
+const CheckAuthentication = ({ children }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isLogged = localStorage.getItem('isLogged');
+    if (isLogged !== 'true') {
+      navigate('/login');
+      console.log(isLogged);
+    }    
+  }, [navigate]);
+
+  return children;
+};
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
       <Route
         path="/"
         element={
-          <App>
-            <Landing/>
-          </App>
+          <CheckAuthentication>
+            <App>
+              <Landing/>
+            </App>
+          </CheckAuthentication>
         }
       />
+
       <Route path="/registro" 
         element={
           <App>
@@ -43,41 +60,55 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route
         path="/featured"
         element={
-          <App>
-            <Featured />
-          </App>
+          <CheckAuthentication>
+            <App>
+              <Featured />
+            </App>
+          </CheckAuthentication>
         }
       />
+
       <Route
         path="/event_one"
         element={
-          <App>
-            <EventOne />
-          </App>
+          <CheckAuthentication>
+            <App>
+              <EventOne />
+            </App>
+          </CheckAuthentication>
         }
       />
+
       <Route
         path="/event_two"
         element={
-          <App>
-            <EventTwo />
-          </App>
+          <CheckAuthentication>
+            <App>
+              <EventTwo />
+            </App>
+          </CheckAuthentication>
         }
       />
+
       <Route
         path="/event_three"
         element={
-          <App>
-            <EventThree />
-          </App>
+          <CheckAuthentication>
+            <App>
+              <EventThree />
+            </App>
+          </CheckAuthentication>
         }
       />
+
       <Route
         path="/event_four"
         element={
-          <App>
-            <EventFour />
-          </App>
+          <CheckAuthentication>
+            <App>
+              <EventFour />
+            </App>
+          </CheckAuthentication>
         }
       />
     </Routes>
