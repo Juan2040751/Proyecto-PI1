@@ -24,8 +24,8 @@ function Featured() {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
@@ -68,7 +68,7 @@ function Featured() {
         }}
       >
         <Slider {...settings}>
-          <Grid item xs={10} sm={4} md={2} sx={{ margin: "10px" }}>
+          <Grid item xs={10} sm={4} md={2} sx={{ margin: "10px", maxWidth: "450px" }}>
             <Card
               sx={{
                 transition: "0.2s",
@@ -108,7 +108,7 @@ function Featured() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={10} sm={4} md={2}  sx={{ margin: "10px" }}>
+          <Grid item xs={10} sm={4} md={2}  sx={{ margin: "10px", maxWidth: "450px" }}>
             <Card
               sx={{
                 transition: "0.2s",
@@ -145,7 +145,7 @@ function Featured() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={10} sm={4} md={2} >
+          <Grid item xs={10} sm={4} md={2} sx={{ margin: "10px", maxWidth: "450px" }}>
             <Card
               sx={{
                 transition: "0.2s",
@@ -185,7 +185,7 @@ function Featured() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={10} sm={4} md={2} >
+          <Grid item xs={10} sm={4} md={2} sx={{ margin: "10px", maxWidth: "450px" }}>
             <Card
               sx={{
                 transition: "0.2s",

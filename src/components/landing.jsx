@@ -22,7 +22,7 @@ function Landing() {
       polRef.current.position,
       {
         duration: 2,
-        x: -10,
+        x: -1,
   
       },
       -3
@@ -65,7 +65,7 @@ function Landing() {
         position={[3, -2, -2.5]}
       />
 
-      <Html position={[-4, 0, 3]}>
+      <Html position={[-4.5, 1, 3]}>
         <h1
           style={{
             fontSize: 90,
