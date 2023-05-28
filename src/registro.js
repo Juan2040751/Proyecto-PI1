@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { Html } from "@react-three/drei";
 
+
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -17,27 +18,18 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     await axios
-      .post("https://pi1-backend.onrender.com/usuarios/registro", {
-        username,
-        email,
-        password,
-        confirmation,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
+      .post("http://localhost:8000/usuarios/registro", { username, email, password, confirmation })
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Registration successful.") {
           setExito("Te has registrado exitosamente");
+          localStorage.setItem('isLogged', 'true');
           setTimeout(() => {
             navigate("/");
           }, 2200);
         } else {
           setError(response.data.message);
+          localStorage.setItem('isLogged', 'true');
         }
       })
       .catch((error) => {
@@ -48,17 +40,20 @@ function Register() {
   return (
     <>
       <Html fullscreen>
-        <div className="wrapper containerFlex">
-          <div className="registerContainer">
-            <div className="containerForm">
+        <div className="wrapper" style={{
+          display: "flex"
+        }}>
+          <div className="registerContainer" style={{ width: "50%" }}>
+
+            <div className="containerForm" style={{ display: "grid" }}>
+              <img src="./static/sumerios.jpg" style={{
+                width: "400px",
+                margin: "auto",
+                padding: "40px",
+              }}></img>
               <h2>Registro de Usuario</h2>
-              {error && <div className="error-alert"> {error} </div>}
-              {exito && (
-                <div className="success-alert alert alert-success text-center">
-                  {" "}
-                  {exito}{" "}
-                </div>
-              )}
+              {error && (<div className="error-alert"> {error} </div>)}
+              {exito && (<div className="success-alert alert alert-success text-center"> {exito} </div>)}
               <form onSubmit={handleRegister}>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">
@@ -108,11 +103,27 @@ function Register() {
                     onChange={(e) => setConfirmation(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-success w-100 mb-3">
                   Registrarme
                 </button>
+                <div className="text-center">
+                  <button
+                    onClick={() => navigate("/login")}
+                    className="btn btn-primary mb-3"
+                  >
+                    Ir al inicio de sesión
+                  </button>
+                </div>
               </form>
             </div>
+          </div>
+          <div style={{
+            width: "50%",
+            backgroundImage: "url('./static/Lateral.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}>
+
           </div>
         </div>
       </Html>

@@ -14,19 +14,15 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     await axios
-      .post("https://pi1-backend.onrender.com/usuarios/login", { email, password }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
+      .post("http://localhost:8000/usuarios/login", { email, password })
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Login successful") {
+          localStorage.setItem('isLogged', 'true');
           navigate("/");
         } else {
           setError("Acceso inválido. Por favor, inténtelo otra vez.");
+          localStorage.setItem('isLogged', 'false');
         }
       })
       .catch((error) => {
@@ -40,10 +36,22 @@ function Login() {
 
   return (
     <>
-      <Html fullscreen >
-        <div className="wrapper">
-          <div className="loginContainer">
-            <div className="containerForm">
+      <Html fullscreen>
+        <div className="" style={{
+          display: "flex"
+        }}>
+          <div className="loginContainer"
+
+            style={{ width: "50%" }}
+          >
+            <div className="containerForm" style={{
+              display: "grid"
+            }}>
+              <img src="./static/sumerios.jpg" style={{
+                width: "400px",
+                margin: "auto",
+                padding: "40px",
+              }}></img>
               <h2>Hey, bienvenido &#x1F44B;</h2>
               {error && (
                 <div className="error-alert">
@@ -78,16 +86,32 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="submit" className="btn btn-success w-100 mb-3">
                   Iniciar sesión
                 </button>
+                <div className="text-center">
+                  <button
+                    onClick={() => navigate("/registro")}
+                    className="btn btn-primary mb-3"
+                  >
+                    Crear cuenta nueva
+                  </button>
+                </div>
               </form>
             </div>
+          </div>
+          <div style={{
+            width: "50%",
+            backgroundImage: "url('./static/Lateral.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}>
+
           </div>
         </div>
       </Html>
     </>
-
   );
 }
 
