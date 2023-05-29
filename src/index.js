@@ -57,61 +57,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         
         } 
       />
-      
-      <Route
-        path="/featured"
-        element={
-          <CheckAuthentication>
-            <App>
-              <Featured />
-            </App>
-          </CheckAuthentication>
-        }
-      />
-
-      <Route
-        path="/event_one"
-        element={
-          <CheckAuthentication>
-            <App>
-              <EventOne />
-            </App>
-          </CheckAuthentication>
-        }
-      />
-
-      <Route
-        path="/event_two"
-        element={
-          <CheckAuthentication>
-            <App>
-              <EventTwo />
-            </App>
-          </CheckAuthentication>
-        }
-      />
-
-      <Route
-        path="/event_three"
-        element={
-          <CheckAuthentication>
-            <App>
-              <EventThree />
-            </App>
-          </CheckAuthentication>
-        }
-      />
-
-      <Route
-        path="/event_four"
-        element={
-          <CheckAuthentication>
-            <App>
-              <EventFour />
-            </App>
-          </CheckAuthentication>
-        }
-      />
     </Routes>
   </BrowserRouter>
 );
