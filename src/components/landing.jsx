@@ -4,13 +4,12 @@ import gsap from "gsap";
 import React, { useLayoutEffect, useRef } from "react";
 import "./events/events.css";
 
+
 function Landing() {
   const lamussu = useGLTF("/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
   const tl = useRef();
-
-  console.log({scroll, polRef});
 
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());

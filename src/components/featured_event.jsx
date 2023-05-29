@@ -5,21 +5,29 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Container,
   Grid,
 } from "@mui/material";
 import { Html } from "@react-three/drei";
-import * as React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-
-import Slider from "react-slick";
+import EventFour from "./events/event_four";
+import EventOne from "./events/event_one";
+import EventThree from "./events/event_three";
+import EventTwo from "./events/event_two";
 import "./events/events.css";
-import { auto } from "@popperjs/core";
 
 function Featured() {
   const navigate = useNavigate();
+  const [events, setEvents] = useState({
+    uno: false,
+    dos: false,
+    tres: false,
+    cuatro: false,
+  });
   var settings = {
     dots: true,
     infinite: false,
@@ -55,6 +63,7 @@ function Featured() {
     ],
   };
 
+
   return (
     <Html fullscreen style={{ top: "100vh", padding: "2%" }}>
       <div className="titulo">
@@ -68,7 +77,13 @@ function Featured() {
         }}
       >
         <Slider {...settings}>
-          <Grid item xs={10} sm={4} md={2} sx={{ margin: "10px", maxWidth: "450px" }}>
+          <Grid
+            item
+            xs={10}
+            sm={4}
+            md={2}
+            sx={{ margin: "10px", maxWidth: "450px" }}
+          >
             <Card
               sx={{
                 transition: "0.2s",
@@ -101,14 +116,20 @@ function Featured() {
               <CardActions>
                 <Button
                   variant="contained"
-                  onClick={() => navigate("/event_one")}
+                  onClick={() => setEvents({ ...events, uno: true })}
                 >
                   Conocer más
                 </Button>
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={10} sm={4} md={2}  sx={{ margin: "10px", maxWidth: "450px" }}>
+          <Grid
+            item
+            xs={10}
+            sm={4}
+            md={2}
+            sx={{ margin: "10px", maxWidth: "450px" }}
+          >
             <Card
               sx={{
                 transition: "0.2s",
@@ -138,14 +159,20 @@ function Featured() {
               <CardActions>
                 <Button
                   variant="contained"
-                  onClick={() => navigate("/event_two")}
+                  onClick={() => setEvents({ ...events, dos: true })}
                 >
                   Conocer mas
                 </Button>
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={10} sm={4} md={2} sx={{ margin: "10px", maxWidth: "450px" }}>
+          <Grid
+            item
+            xs={10}
+            sm={4}
+            md={2}
+            sx={{ margin: "10px", maxWidth: "450px" }}
+          >
             <Card
               sx={{
                 transition: "0.2s",
@@ -178,14 +205,20 @@ function Featured() {
               <CardActions>
                 <Button
                   variant="contained"
-                  onClick={() => navigate("/event_three")}
+                  onClick={() => setEvents({ ...events, tres: true })}
                 >
                   Conocer mas
                 </Button>
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={10} sm={4} md={2} sx={{ margin: "10px", maxWidth: "450px" }}>
+          <Grid
+            item
+            xs={10}
+            sm={4}
+            md={2}
+            sx={{ margin: "10px", maxWidth: "450px" }}
+          >
             <Card
               sx={{
                 transition: "0.2s",
@@ -218,7 +251,7 @@ function Featured() {
               <CardActions>
                 <Button
                   variant="contained"
-                  onClick={() => navigate("/event_four")}
+                  onClick={() => setEvents({ ...events, cuatro: true })}
                 >
                   Conocer mas
                 </Button>
@@ -227,6 +260,70 @@ function Featured() {
           </Grid>
         </Slider>
       </div>
+      <Modal
+        show={events.uno}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+          })
+        }
+      >
+        <Modal.Header closeButton />
+        <Modal.Body>{<EventOne />}</Modal.Body>
+      </Modal>
+      <Modal
+        show={events.dos}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+          })
+        }
+      >
+        <Modal.Header closeButton />
+        <Modal.Body>{<EventTwo />}</Modal.Body>
+      </Modal>
+      <Modal
+        show={events.tres}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+          })
+        }
+      >
+        <Modal.Header closeButton />
+        <Modal.Body>{<EventThree />}</Modal.Body>
+      </Modal>
+      <Modal
+        show={events.cuatro}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+          })
+        }
+      >
+        <Modal.Header closeButton />
+        <Modal.Body>{<EventFour />}</Modal.Body>
+      </Modal>
     </Html>
   );
 }

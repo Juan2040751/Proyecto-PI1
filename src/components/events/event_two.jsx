@@ -4,7 +4,6 @@ import { Html } from "@react-three/drei";
 
 function EventTwo() {
   return (
-    <Html fullscreen style={{ overflow: "auto", maxHeight: "100vh" }} >
     <div className="container">
       <div className="lateral">
         <img
@@ -51,7 +50,7 @@ function EventTwo() {
         ></iframe>
       </div>
     </div>
-    </Html>
+
   );
 }
 
