@@ -1,6 +1,6 @@
 import React from "react";
 import "./events.css";
-import { Html } from "@react-three/drei";
+
 
 function EventOne() {
   return (
