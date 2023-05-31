@@ -3,7 +3,7 @@ import "./events.css";
 
 function EventFour() {
   return (
-    <div className="container">
+    <div className="container_events">
       <div className="lateral">
         <img
           className="img_lateral"
@@ -13,7 +13,7 @@ function EventFour() {
       </div>
 
       <div className="titulo">
-        <h1>Sistema Númerico</h1>
+        <h1 className="titulo_events">Sistema Númerico</h1>
       </div>
       <div className="descripcion">
         {/* <img
