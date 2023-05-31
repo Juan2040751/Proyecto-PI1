@@ -4,7 +4,7 @@ import "./events.css";
 
 function EventOne() {
   return (
-    <div className="container">
+    <div className="container_events">
         <div className="lateral">
           <img
             className="img_lateral"
@@ -14,7 +14,7 @@ function EventOne() {
         </div>
 
         <div className="titulo">
-          <h1>Ciudades Sumerias</h1>
+          <h1 className="titulo_events">Ciudades Sumerias</h1>
         </div>
         <div className="descripcion">
           <img

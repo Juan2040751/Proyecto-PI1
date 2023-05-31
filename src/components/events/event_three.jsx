@@ -3,7 +3,7 @@ import "./events.css";
 
 function EventThree() {
   return (
-    <div className="container">
+    <div className="container_events">
       <div className="lateral">
         <img
           className="img_lateral"
@@ -13,7 +13,7 @@ function EventThree() {
       </div>
 
       <div className="titulo">
-        <h1>Juego Real de Ur</h1>
+        <h1 className="titulo_events">Juego Real de Ur</h1>
       </div>
       <div className="descripcion">
         <img
