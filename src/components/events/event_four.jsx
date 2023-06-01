@@ -12,15 +12,14 @@ function EventFour() {
         />
       </div>
 
+      <div className="contenido">
+
       <div className="titulo">
         <h1 className="titulo_events">Sistema Númerico</h1>
       </div>
       <div className="descripcion">
-        {/* <img
-          className="imagenes"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Clay_cone_Telloh_Louvre_AO13239.jpg/399px-Clay_cone_Telloh_Louvre_AO13239.jpg"
-          alt="Escritura"
-        /> */}
+      
+        
         <p>
           Uruk fue una antigua ciudad sumeria. Se encontraba en la orilla del
           río Éufrates y vivió su máximo esplendor en el tercer milenio antes de
@@ -51,11 +50,13 @@ function EventFour() {
           sesenta utilizaban repeticiones de símbolos anteriores, siendo la
           posición de las cifras la que definía la cantidad exacta.
         </p>
+        <div className="Imagen_desc">
         <img
           className="imagenes"
           src="https://ulum.es/wp-content/uploads/2014/10/sumerios.png"
           alt="Numeros Sumerios"
         />
+        </div>
         <h4>
           Figura 1. Números del uno al 60 en el sistema numeral sumerio. El
           número 60, como se puede observar, reinicia el ciclo de generación de
@@ -78,11 +79,13 @@ function EventFour() {
           sexagesimal, ya que doce falanges por cinco dedos levantados son igual
           a sesenta.
         </p>
+        <div className="Imagen_desc">
         <img
           className="imagenes"
           src="https://ulum.es/wp-content/uploads/2014/10/tmano-sumeria.jpg"
           alt="Sistema de conteo con la mano"
         />
+        </div>
         <h4>
           Figura 2. Esquematización de cómo contaban los sumerios utilizando las
           falanges de una mano. Ilustración hecha por @marianocollante
@@ -107,10 +110,12 @@ function EventFour() {
           aproximación a una de las dos funciones que tiene nuestro cero, en
           concreto la función posicional. Pongamos un ejemplo.
         </p>
+        <div className="Imagen_desc">
         <img
           src="https://ulum.es/wp-content/uploads/2014/10/tabla.jpg"
           alt=""
         />
+        </div>
         <p>
           La primera posición está ocupada por el símbolo que significaría tres
           en nuestro sistema numérico. La primera posición indica que no hay que
@@ -126,10 +131,12 @@ function EventFour() {
           hacemos exactamente igual. Observemos el proceso lógico que usaríamos
           nosotros para escribir el mismo número.
         </p>
+        <div className="Imagen_desc">
         <img
           src="https://ulum.es/wp-content/uploads/2014/10/1-copia.jpg"
           alt=""
         />
+        </div>
         <p>
           En este caso, la primera posición indicaría que no hay que multiplicar
           esa cifra, es decir, <b>3 = 3</b>. La segunda posición está ocupada
@@ -141,6 +148,7 @@ function EventFour() {
           construir números, como podemos observar, es muy parecida a la de los
           sumerios.
         </p>
+        <div className="video">
         <iframe
           width="560"
           height="315"
@@ -150,6 +158,8 @@ function EventFour() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
+        </div>
+      </div>
       </div>
     </div>
   );
