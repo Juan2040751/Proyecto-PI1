@@ -12,15 +12,19 @@ function EventThree() {
         />
       </div>
 
+      <div className="contenido">
+
       <div className="titulo">
         <h1 className="titulo_events">Juego Real de Ur</h1>
       </div>
       <div className="descripcion">
+      <div className="Imagen_desc">
         <img
           className="imagenes"
           src="https://consolaytablero.com/wp-content/uploads/2016/04/juego-real-de-ur.jpg"
           alt="Escritura"
         />
+        </div>
         <h4>
           Ejemplar del Juego Real de Ur (2600-2.400 a.C.), en el Museo
           Británico.
@@ -116,6 +120,7 @@ function EventThree() {
           <br />
           <br />- Tablero
         </p>
+        <div className="video">
         <iframe
           width="560"
           height="315"
@@ -125,6 +130,8 @@ function EventThree() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
+        </div>
+      </div>
       </div>
     </div>
   );

@@ -1,27 +1,28 @@
 import React from "react";
 import "./events.css";
-import { Html } from "@react-three/drei";
+
 
 function EventOne() {
   return (
     <div className="container_events">
         <div className="lateral">
-          <img
-            className="img_lateral"
-            src="http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg"
-            alt="Img lateral"
-          />
+          <img className="img_lateral"/>
         </div>
+
+        <div className="contenido">
 
         <div className="titulo">
           <h1 className="titulo_events">Ciudades Sumerias</h1>
         </div>
+
         <div className="descripcion">
+          <div className="Imagen_desc">
           <img
             className="imagenes"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Early_Dynastic-es.svg/220px-Early_Dynastic-es.svg.png"
             alt="Principales ciudades sumerios"
           />
+          </div>
           <h4>
             Situación de las principales ciudades sumerias y alcance de esta
             cultura durante el período dinástico arcaico.
@@ -80,7 +81,7 @@ function EventOne() {
           <li>Bab-Tibira</li>
           <li>Larsa</li>
           <li>Eridu</li>
-          <p></p>
+          <div className="video">
           <iframe
             width="560"
             height="315"
@@ -90,6 +91,8 @@ function EventOne() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
+          </div>
+        </div>
         </div>
       </div>
   );

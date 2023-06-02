@@ -1,3 +1,111 @@
+.container_events {
+    /* Estilos para el contenedor principal */
+    /* Por ejemplo: */
+    position: relative;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  .lateral {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    background-image: url("http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg");
+    background-repeat: repeat-y; /* Repetir verticalmente */
+    /* Resto de estilos para el elemento lateral */
+  }
+
+  .contenido{
+    position: relative;
+    margin-left: 15%;
+  }
+
+  .img_lateral {
+    /* Estilos para la imagen lateral */
+    /* Por ejemplo: */
+    width: auto;
+    height: auto;
+  }
+
+  .titulo_events {
+    /* Estilos para el título de los eventos */
+    /* Por ejemplo: */
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .descripcion {
+    /* Estilos para la descripción */
+    /* Por ejemplo: */
+    margin-top: 20px;
+  }
+
+  .Imagen_desc{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .imagenes {
+    /* Estilos para las imágenes */
+    /* Por ejemplo: */
+    max-width: 100%;
+    height: 400px;
+    
+  }
+
+  .titulo{
+    text-align: center;
+    padding: 30px;
+    grid-area: n2;
+    color: #676867;
+}
+
+.video{
+    text-align: center;
+}
+
+.CardContent {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+  h2{
+    color: #33383b;
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+h4{
+    font-family: 'Tenor Sans', sans-serif;
+    color: #33383b;
+    font-weight: 20;
+}
+
+p{
+    padding-top: 40px;
+    text-align: justify;
+    font-size: 20px;
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+  li {
+    /* Estilos para las viñetas */
+    /* Por ejemplo: */
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  iframe {
+    /* Estilos para el iframe de YouTube */
+    /* Por ejemplo: */
+    margin-top: 20px;
+  }
+/*
 .container_events{
     display: grid;
     width: 100%;
@@ -46,7 +154,7 @@ h4{
     border-radius: 3%;
     width: 80%;
     height: 100%;
-    /* clip-path: inset(0px 0px 0px 0px); */
+    
 }
 
 .titulo{
@@ -75,6 +183,6 @@ p{
     width: 200px;
     
 }
-
+*/
 
  
