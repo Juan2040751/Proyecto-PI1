@@ -16,14 +16,14 @@ import Home from "./home";
 
 const CheckAuthentication = ({ children }) => {
   const navigate = useNavigate();
-/*
+
   useEffect(() => {
     const isLogged = localStorage.getItem('isLogged');
     if (isLogged !== 'true') {
       navigate('/login');
     }    
   }, [navigate]);
-*/
+
   return children;
 };
 
