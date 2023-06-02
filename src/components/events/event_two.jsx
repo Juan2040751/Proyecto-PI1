@@ -4,7 +4,7 @@ import { Html } from "@react-three/drei";
 
 function EventTwo() {
   return (
-    <div className="container">
+    <div className="container_events">
       <div className="lateral">
         <img
           className="img_lateral"
@@ -14,7 +14,7 @@ function EventTwo() {
       </div>
 
       <div className="titulo">
-        <h1>La Escritura Cuneiforme</h1>
+        <h1 className="titulo_events">La Escritura Cuneiforme</h1>
       </div>
       <div className="descripcion">
         <img
