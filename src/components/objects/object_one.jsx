@@ -1,7 +1,5 @@
-import { Html, useGLTF, useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import gsap from "gsap";
-import React, { useLayoutEffect, useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import React from "react";
 import "../events/events.css";
 
 export function ObjectOne(props) {
