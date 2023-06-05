@@ -2,10 +2,11 @@ import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { Toolbar } from "@mui/material";
-
+import { ResizeObserver } from "@juggle/resize-observer";
 function App({ children }) {
   return (
     <Canvas
+      resize={{ polyfill: ResizeObserver }}
       flat
       color="CB4154"
       shadows
@@ -27,11 +28,7 @@ function App({ children }) {
 const SceneContent = () => {
   // Lógica adicional de la escena 3D, como el uso de hooks de R3F o la configuración de objetos y luces
 
-  return (
-    <group>
-      {/* Contenido adicional de la escena 3D */}
-    </group>
-  );
+  return <group>{/* Contenido adicional de la escena 3D */}</group>;
 };
 
 const Content = ({ children }) => {
@@ -46,4 +43,3 @@ const Content = ({ children }) => {
 };
 
 export default App;
-
