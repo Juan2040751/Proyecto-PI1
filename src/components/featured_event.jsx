@@ -1,9 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Grid
-} from "@mui/material";
+import { Card, CardContent, CardMedia, Grid } from "@mui/material";
 import { Html } from "@react-three/drei";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
@@ -14,6 +9,12 @@ import EventThree from "./events/event_three";
 import EventTwo from "./events/event_two";
 import "./events/events.css";
 
+/**
+ * Componente Featured
+ *
+ * Este componente muestra los eventos destacados de la civilización sumeria, incluyendo descubrimientos,
+ * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11.
+ */
 function Featured() {
   const [events, setEvents] = useState({
     uno: false,
@@ -21,8 +22,6 @@ function Featured() {
     tres: false,
     cuatro: false,
   });
-
-  
 
   var settings = {
     dots: true,
@@ -62,11 +61,8 @@ function Featured() {
     ],
   };
 
-
-
   return (
     <Html fullscreen style={{ top: "100vh", padding: "2%" }}>
-
       <div className="titulo">
         <h1>EVENTOS HISTORICOS</h1>
       </div>
@@ -100,12 +96,11 @@ function Featured() {
                 alt="Card Image"
               />
               <CardContent
-                sx=
-                {{
+                sx={{
                   maxHeight: "350px",
                   overflow: "hidden",
                 }}
-                >
+              >
                 <h2>Ciudades Sumerias</h2>
                 <p>
                   Sobre el cuarto milenio a.C. se produjo en la Antigua
@@ -143,7 +138,6 @@ function Featured() {
                   transform: "scale(1.05)",
                 },
               }}
-             
             >
               <CardMedia
                 component="img"
@@ -152,11 +146,10 @@ function Featured() {
                 alt="Escritura"
               />
               <CardContent
-              sx=
-              {{
-                maxHeight: "350px",
-                overflow: "hidden",
-              }}
+                sx={{
+                  maxHeight: "350px",
+                  overflow: "hidden",
+                }}
               >
                 <h2>La Escritura Cuneiforme</h2>
                 <p>
@@ -193,7 +186,6 @@ function Featured() {
                   transform: "scale(1.05)",
                 },
               }}
-              
             >
               <CardMedia
                 component="img"
@@ -202,10 +194,10 @@ function Featured() {
                 alt="Juego Real de Ur"
               />
               <CardContent
-              sx={{
-                maxHeight: "350px",
-                overflow: "hidden",
-              }}
+                sx={{
+                  maxHeight: "350px",
+                  overflow: "hidden",
+                }}
               >
                 <h2>Juego Real de Ur</h2>
                 <p>
@@ -245,7 +237,6 @@ function Featured() {
                   transform: "scale(1.05)",
                 },
               }}
-              
             >
               <CardMedia
                 component="img"
@@ -254,10 +245,10 @@ function Featured() {
                 alt="Numeros Sumerios"
               />
               <CardContent
-              sx={{
-                maxHeight: "350px",
-                overflow: "hidden",
-              }}
+                sx={{
+                  maxHeight: "350px",
+                  overflow: "hidden",
+                }}
               >
                 <h2>Sistema Numerico</h2>
                 <p>

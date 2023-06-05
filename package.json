@@ -2,6 +2,7 @@
   "name": "tarea1",
   "version": "0.1.0",
   "jest": {
+    "testEnvironment": "jsdom",
     "setupFiles": [
       "<rootDir>/test-setup.js"
     ],

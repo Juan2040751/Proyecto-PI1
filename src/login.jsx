@@ -5,6 +5,13 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Html } from "@react-three/drei";
 
+/**
+ * Componente Login
+ * 
+ * Este componente representa la página de inicio de sesión de usuarios.
+ * Forma parte de la historia de usuario PI1-20
+ */
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
