@@ -1,7 +1,14 @@
 import React from "react";
 import "./events.css";
-import { Html } from "@react-three/drei";
 
+/**
+ * Componente EventTwo
+ * 
+ * Este componente muestra información detallada sobre la escritura cuneiforme,
+ * uno de los logros más destacados de la cultura sumeria. Incluye una descripción,
+ * imágenes, videos y ejemplos de escritura cuneiforme.
+ * Pertenece a la historia de usuario PI1-13.
+ */
 function EventTwo() {
   return (
     <div className="container_events">

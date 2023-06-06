@@ -1,6 +1,13 @@
 import React from "react";
 import "./events.css";
 
+/**
+ * Componente EventThree
+ * 
+ * Este componente muestra información detallada sobre el Juego Real de Ur,
+ * un antiguo juego de mesa jugado en la cultura sumeria. 
+ * Pertenece a la historia de usuario PI1-13.
+ */
 function EventThree() {
   return (
     <div className="container_events">

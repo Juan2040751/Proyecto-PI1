@@ -1,6 +1,13 @@
 import React from "react";
 import "./events.css";
 
+/**
+ * Componente EventOne
+ * 
+ * Este componente muestra información detallada sobre las ciudades sumerias,
+ * incluyendo una descripción, imágenes, videos y detalles históricos.
+ * Pertenece a la historia de usuario PI1-13
+ */
 
 function EventOne() {
   return (
@@ -87,9 +94,9 @@ function EventOne() {
             height="315"
             src="https://www.youtube.com/embed/TQeP8tWtT48"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
           </div>
         </div>
