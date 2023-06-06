@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Grid } from "@mui/material";
-import { Html } from "@react-three/drei";
-import React from "react";
+import { Html, OrbitControls } from "@react-three/drei";
+import React, { useRef } from "react";
 import Modal from "react-bootstrap/Modal";
 import Slider from "react-slick";
 import "./events/events.css";
@@ -9,6 +9,8 @@ import ObjectOne from "./objects/object_one";
 import ObjectThree from "./objects/object_three";
 import ObjectTwo from "./objects/object_two";
 import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
+
 
 function Museum() {
   const [obj3d, setObj3d] = useState({
@@ -17,6 +19,17 @@ function Museum() {
     tres: false,
     cuatro: false,
   });
+
+  const canvasRef = useRef();
+
+  const toggleFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      canvasRef.current.requestFullscreen();
+    }
+  };
+
   var settings3d = {
     dots: true,
     arrows: true, // Habilitar las flechas
@@ -54,6 +67,7 @@ function Museum() {
       },
     ],
   };
+
   return (
     <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
 
@@ -239,26 +253,46 @@ function Museum() {
           </Grid>
         </Slider>
       </div>
+
       <Modal
-        show={obj3d.uno}
-        size="xl"
-        animation
-        onHide={() =>
-          setObj3d({
-            uno: false,
-            dos: false,
-            tres: false,
-            cuatro: false,
-          })
-        }
-      >
-        <Modal.Header closeButton />
-        <Modal.Body>{<ObjectOne />}</Modal.Body>
-      </Modal>
+  show={obj3d.uno}
+  size="xl"
+  animation
+  dialogClassName="modal-fullscreen"
+  onHide={() =>
+    setObj3d({
+      uno: false,
+      dos: false,
+      tres: false,
+      cuatro: false,
+    })
+  }
+>
+  <Modal.Header closeButton />
+  <Modal.Body>
+    <Canvas
+      ref={canvasRef}
+      className='canvas'
+      shadows={true}
+      camera={{ position: [-10, 15, 35], fov: 10 }}
+    >
+      <OrbitControls/>
+      <ObjectOne />
+    </Canvas>
+    {/* 
+    <button onClick={toggleFullscreen}>
+        Alternar pantalla completa
+      </button>
+      */}
+  </Modal.Body>
+</Modal>
+
+
       <Modal
         show={obj3d.dos}
         size="xl"
         animation
+        dialogClassName="modal-fullscreen"
         onHide={() =>
           setObj3d({
             uno: false,
@@ -269,12 +303,25 @@ function Museum() {
         }
       >
         <Modal.Header closeButton />
-        <Modal.Body>{<ObjectTwo />}</Modal.Body>
+        <Modal.Body>{
+          
+          <Canvas
+      ref={canvasRef}
+      className='canvas'
+      shadows={true}
+      camera={{ position: [-10, 15, 35], fov: 10 }}
+    >
+      <OrbitControls/>
+      <ObjectTwo />
+    </Canvas> 
+          
+          }</Modal.Body>
       </Modal>
       <Modal
         show={obj3d.tres}
         size="xl"
         animation
+        dialogClassName="modal-fullscreen"
         onHide={() =>
           setObj3d({
             uno: false,
@@ -285,12 +332,23 @@ function Museum() {
         }
       >
         <Modal.Header closeButton />
-        <Modal.Body>{<ObjectThree />}</Modal.Body>
+        <Modal.Body>{
+          <Canvas
+          ref={canvasRef}
+          className='canvas'
+          shadows={true}
+          camera={{ position: [10, -15, 45], fov: 10 }}
+        >
+          <OrbitControls/>
+          <ObjectThree />
+        </Canvas> 
+          }</Modal.Body>
       </Modal>
       <Modal
         show={obj3d.cuatro}
         size="xl"
         animation
+        dialogClassName="modal-fullscreen"
         onHide={() =>
           setObj3d({
             uno: false,
@@ -301,7 +359,17 @@ function Museum() {
         }
       >
         <Modal.Header closeButton />
-        <Modal.Body>{<ObjectFour />}</Modal.Body>
+        <Modal.Body>{
+          <Canvas
+          ref={canvasRef}
+          className='canvas'
+          shadows={true}
+          camera={{ position: [10, -15, 45], fov: 10 }}
+        >
+          <OrbitControls/>
+          <ObjectFour />
+        </Canvas> 
+          }</Modal.Body>
       </Modal>
     </Html>
   );

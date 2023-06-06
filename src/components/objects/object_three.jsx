@@ -6,7 +6,7 @@ export function ObjectThree(props) {
     const { nodes, materials } = useGLTF("../static/standard_of_ur.glb");
     return (
       <group {...props} dispose={null}>
-        <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[-Math.PI / 2, 0, 0]} position={[0,0,0]}>
           <mesh
             castShadow
             receiveShadow
