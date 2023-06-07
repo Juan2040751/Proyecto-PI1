@@ -14,7 +14,7 @@ const CheckAuthentication = ({ children }) => {
     const isLogged = localStorage.getItem('isLogged');
     if (isLogged !== 'true') {
       navigate('/login');
-    }    
+    }
   }, [navigate]);
 
   return children;
@@ -34,21 +34,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         }
       />
 
-      <Route path="/registro" 
+      <Route path="/registro"
         element={
-          <App>
-            <Register />
-          </App>
-        } 
+          <Register />
+        }
       />
 
-      <Route path="/login" 
+      <Route path="/login"
         element={
-          <App>
-            <Login />
-          </App>
-        
-        } 
+          <Login />
+        }
       />
     </Routes>
   </BrowserRouter>

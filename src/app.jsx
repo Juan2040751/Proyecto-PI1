@@ -2,26 +2,27 @@ import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { Toolbar } from "@mui/material";
-import { ResizeObserver } from "@juggle/resize-observer";
+import NavbarApp from "./components/navbar"
+
 function App({ children }) {
   return (
-    <Canvas
-      resize={{ polyfill: ResizeObserver }}
-      flat
-      color="CB4154"
-      shadows
-      camera={{
-        position: [2, 0, 6],
-      }}
-    >
-      <SceneContent />
-      <Html fullscreen>
-        <div className="canvas-content">
-          <Toolbar />
-        </div>
-      </Html>
-      <Content>{children}</Content>
-    </Canvas>
+    <>
+      <NavbarApp />
+      <div style={{ width: "100vw", height: "100vh", top: "70px" }}>
+        <Canvas
+          flat
+          color="CB4154"
+          shadows
+          camera={{
+            position: [2, 0, 6],
+          }}
+        >
+
+          <Content>{children}</Content>
+        </Canvas>
+      </div>
+    </>
+
   );
 }
 
