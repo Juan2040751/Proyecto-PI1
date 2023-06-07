@@ -1,29 +1,36 @@
 import { Card, CardContent, CardMedia, Grid } from "@mui/material";
-import { Html } from "@react-three/drei";
-import { useState } from "react";
+import { Html, OrbitControls } from "@react-three/drei";
+import React, { useRef } from "react";
 import Modal from "react-bootstrap/Modal";
 import Slider from "react-slick";
-import EventFour from "./events/event_four";
-import EventOne from "./events/event_one";
-import EventThree from "./events/event_three";
-import EventTwo from "./events/event_two";
 import "./events/events.css";
+import ObjectFour from "./objects/object_four";
+import ObjectOne from "./objects/object_one";
+import ObjectThree from "./objects/object_three";
+import ObjectTwo from "./objects/object_two";
+import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
 
-/**
- * Componente Featured
- *
- * Este componente muestra los eventos destacados de la civilización sumeria, incluyendo descubrimientos,
- * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11.
- */
-function Featured() {
-  const [events, setEvents] = useState({
+
+function Museum() {
+  const [obj3d, setObj3d] = useState({
     uno: false,
     dos: false,
     tres: false,
     cuatro: false,
   });
 
-  var settings = {
+  const canvasRef = useRef();
+
+  const toggleFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      canvasRef.current.requestFullscreen();
+    }
+  };
+
+  var settings3d = {
     dots: true,
     arrows: true, // Habilitar las flechas
     infinite: false,
@@ -62,18 +69,18 @@ function Featured() {
   };
 
   return (
-    <Html fullscreen style={{ top: "100vh", padding: "2%" }}>
-      <div className="titulo">
-        <h1>EVENTOS HISTORICOS</h1>
-      </div>
+    <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
 
+      <div className="titulo">
+        <h1>MUSEO</h1>
+      </div>
       <div
         style={{
           position: "relative",
           padding: "2%",
         }}
       >
-        <Slider {...settings}>
+        <Slider {...settings3d}>
           <Grid
             item
             xs={10}
@@ -97,26 +104,18 @@ function Featured() {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  maxHeight: "200px",
                   overflow: "hidden",
                 }}
               >
-                <h2>Ciudades Sumerias</h2>
-                <p>
-                  Sobre el cuarto milenio a.C. se produjo en la Antigua
-                  Mesopotamia el tránsito de los asentamientos neolíticos a la
-                  aparición de las primeras ciudades de la Historia. Las
-                  ciudades comenzaron a ser el centro de actividad principal y
-                  sus habitantes comenzaron una intensa especialización en el
-                  trabajo, de forma que cada persona únicamente sabía realizar
-                  una actividad.
-                </p>
+                <h2>Nombre del objeto</h2>
+                <p>breve descripcion</p>
               </CardContent>
               <div className="d-grid gap-2">
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, uno: true })}
+                  onClick={() => setObj3d({ ...obj3d, uno: true })}
                 >
                   Conocer más
                 </button>
@@ -147,24 +146,19 @@ function Featured() {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  maxHeight: "200px",
                   overflow: "hidden",
                 }}
               >
-                <h2>La Escritura Cuneiforme</h2>
-                <p>
-                  Sobre el año 3300 a.C. Los Sumerios inventaron un sistema de
-                  escritura que consistía en la utilización de unas cuñas que
-                  permitían grabar signos sobre unas tablillas de arcilla blanda
-                  las cuales después se endurecen en un horno.
-                </p>
+                <h2>Object 2</h2>
+                <p>desc object 2</p>
               </CardContent>
 
               <div className="d-grid gap-2">
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, dos: true })}
+                  onClick={() => setObj3d({ ...obj3d, dos: true })}
                 >
                   Conocer más
                 </button>
@@ -195,27 +189,19 @@ function Featured() {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  maxHeight: "200px",
                   overflow: "hidden",
                 }}
               >
-                <h2>Juego Real de Ur</h2>
-                <p>
-                  En la década de 1920, el arqueólogo británico Leonard Woolley
-                  descubrió una serie de tumbas en las ruinas de la antigua
-                  ciudad sumeria de Ur, en el actual Irak. Las sepulturas más
-                  ornamentadas del hallazgo, que pasarían a conocerse como las
-                  Tumbas Reales de Ur, contenían toda clase de joyas,
-                  vestimenta, armas, cuerpos de sirvientes… y hasta un juego de
-                  mesa.
-                </p>
+                <h2>object 3</h2>
+                <p>desc object 3</p>
               </CardContent>
 
               <div className="d-grid gap-2">
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, tres: true })}
+                  onClick={() => setObj3d({ ...obj3d, tres: true })}
                 >
                   Conocer más
                 </button>
@@ -246,27 +232,19 @@ function Featured() {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  maxHeight: "200px",
                   overflow: "hidden",
                 }}
               >
-                <h2>Sistema Numerico</h2>
-                <p>
-                  Uruk fue una antigua ciudad sumeria. Se encontraba en la
-                  orilla del río Éufrates y vivió su máximo esplendor en el
-                  tercer milenio antes de Cristo. Una de sus características más
-                  llamativas era su muralla, que rodeaba una zona de unos siete
-                  kilómetros cuadrados donde vivían ochenta mil personas. Es
-                  decir, era la mayor ciudad que el mundo había conocido hasta
-                  entonces.
-                </p>
+                <h2>object 4</h2>
+                <p>desct pbject 4</p>
               </CardContent>
 
               <div className="d-grid gap-2">
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, cuatro: true })}
+                  onClick={() => setObj3d({ ...obj3d, cuatro: true })}
                 >
                   Conocer más
                 </button>
@@ -277,11 +255,46 @@ function Featured() {
       </div>
 
       <Modal
-        show={events.uno}
+  show={obj3d.uno}
+  size="xl"
+  animation
+  dialogClassName="modal-fullscreen"
+  onHide={() =>
+    setObj3d({
+      uno: false,
+      dos: false,
+      tres: false,
+      cuatro: false,
+    })
+  }
+>
+  <Modal.Header closeButton />
+  <Modal.Body>
+    <Canvas
+      ref={canvasRef}
+      className='canvas'
+      shadows={true}
+      camera={{ position: [-10, 15, 35], fov: 10 }}
+    >
+      <OrbitControls/>
+      <ObjectOne />
+    </Canvas>
+    {/* 
+    <button onClick={toggleFullscreen}>
+        Alternar pantalla completa
+      </button>
+      */}
+  </Modal.Body>
+</Modal>
+
+
+      <Modal
+        show={obj3d.dos}
         size="xl"
         animation
+        dialogClassName="modal-fullscreen"
         onHide={() =>
-          setEvents({
+          setObj3d({
             uno: false,
             dos: false,
             tres: false,
@@ -290,14 +303,27 @@ function Featured() {
         }
       >
         <Modal.Header closeButton />
-        <Modal.Body>{<EventOne />}</Modal.Body>
+        <Modal.Body>{
+          
+          <Canvas
+      ref={canvasRef}
+      className='canvas'
+      shadows={true}
+      camera={{ position: [-10, 15, 35], fov: 10 }}
+    >
+      <OrbitControls/>
+      <ObjectTwo />
+    </Canvas> 
+          
+          }</Modal.Body>
       </Modal>
       <Modal
-        show={events.dos}
+        show={obj3d.tres}
         size="xl"
         animation
+        dialogClassName="modal-fullscreen"
         onHide={() =>
-          setEvents({
+          setObj3d({
             uno: false,
             dos: false,
             tres: false,
@@ -306,14 +332,25 @@ function Featured() {
         }
       >
         <Modal.Header closeButton />
-        <Modal.Body>{<EventTwo />}</Modal.Body>
+        <Modal.Body>{
+          <Canvas
+          ref={canvasRef}
+          className='canvas'
+          shadows={true}
+          camera={{ position: [10, -15, 45], fov: 10 }}
+        >
+          <OrbitControls/>
+          <ObjectThree />
+        </Canvas> 
+          }</Modal.Body>
       </Modal>
       <Modal
-        show={events.tres}
+        show={obj3d.cuatro}
         size="xl"
         animation
+        dialogClassName="modal-fullscreen"
         onHide={() =>
-          setEvents({
+          setObj3d({
             uno: false,
             dos: false,
             tres: false,
@@ -322,26 +359,20 @@ function Featured() {
         }
       >
         <Modal.Header closeButton />
-        <Modal.Body>{<EventThree />}</Modal.Body>
-      </Modal>
-      <Modal
-        show={events.cuatro}
-        size="xl"
-        animation
-        onHide={() =>
-          setEvents({
-            uno: false,
-            dos: false,
-            tres: false,
-            cuatro: false,
-          })
-        }
-      >
-        <Modal.Header closeButton />
-        <Modal.Body>{<EventFour />}</Modal.Body>
+        <Modal.Body>{
+          <Canvas
+          ref={canvasRef}
+          className='canvas'
+          shadows={true}
+          camera={{ position: [10, -15, 45], fov: 10 }}
+        >
+          <OrbitControls/>
+          <ObjectFour />
+        </Canvas> 
+          }</Modal.Body>
       </Modal>
     </Html>
   );
 }
 
-export default Featured;
+export default Museum;

@@ -5,6 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 
 
+/**
+ * Componente Register
+ * 
+ * Este componente representa la página de registro de usuarios.
+ * Forma parte de la historia de usuario PI1-19: Como usuario, deseo poder crear una cuenta en 
+ * la página para acceder a la información exclusiva que se presenta en ella.
+ */
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

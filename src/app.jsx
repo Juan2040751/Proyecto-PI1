@@ -29,11 +29,7 @@ function App({ children }) {
 const SceneContent = () => {
   // Lógica adicional de la escena 3D, como el uso de hooks de R3F o la configuración de objetos y luces
 
-  return (
-    <group>
-      {/* Contenido adicional de la escena 3D */}
-    </group>
-  );
+  return <group>{/* Contenido adicional de la escena 3D */}</group>;
 };
 
 const Content = ({ children }) => {
@@ -48,4 +44,3 @@ const Content = ({ children }) => {
 };
 
 export default App;
-

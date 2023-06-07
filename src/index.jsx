@@ -1,18 +1,11 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import "./style.css";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import App from "./app";
-import Landing from './components/landing';
-import Featured from "./components/featured_event";
-import EventFour from "./components/events/event_four";
-import EventThree from "./components/events/event_three"
-import EventOne from "./components/events/event_one"
-import EventTwo from "./components/events/event_two"
-import Register from "./registro";
-import Login from "./login";
-import { ScrollControls, Scroll } from "@react-three/drei";
 import Home from "./home";
+import Login from "./login";
+import Register from "./registro";
+import "./style.css";
 
 const CheckAuthentication = ({ children }) => {
   const navigate = useNavigate();
