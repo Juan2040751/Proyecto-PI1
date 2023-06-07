@@ -1,49 +1,30 @@
-import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React from "react";
-import { Toolbar } from "@mui/material";
+import React, { useRef, useState } from "react";
+import NavbarApp from "./components/navbar";
+import Home from "./home";
 
-function App({ children }) {
+function App() {
+  const LandingRef = useRef();
+  const FeaturedRef = useRef();
+  const MuseumRef = useRef();
+  const references = [FeaturedRef, MuseumRef]
   return (
-    <Canvas
-      flat
-      color="CB4154"
-      shadows
-      camera={{
-        position: [2, 0, 6],
-      }}
-    >
-      <SceneContent />
-      <Html fullscreen>
-        <div className="canvas-content">
-          <Toolbar />
-        </div>
-      </Html>
-      <Content>{children}</Content>
-    </Canvas>
+    <>
+      <NavbarApp references={references} LandingRef={LandingRef}/>
+      <div style={{ width: "100vw", height: "calc(100vh - 60px)", top: "60px", position: "fixed" }}>
+        <Canvas
+          flat
+          color="CB4154"
+          shadows
+          camera={{
+            position: [2, 0, 6],
+          }}
+        >
+          <Home references={references} LandingRef={LandingRef}/>
+        </Canvas>
+      </div>
+    </>
   );
 }
 
-const SceneContent = () => {
-  // Lógica adicional de la escena 3D, como el uso de hooks de R3F o la configuración de objetos y luces
-
-  return (
-    <group>
-      {/* Contenido adicional de la escena 3D */}
-    </group>
-  );
-};
-
-const Content = ({ children }) => {
-  // Lógica adicional relacionada con el contenido de la escena 3D, como el uso de hooks de React
-
-  return (
-    <group>
-      {/* Contenido adicional de la escena 3D */}
-      {children}
-    </group>
-  );
-};
-
 export default App;
-

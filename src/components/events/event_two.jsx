@@ -1,27 +1,36 @@
 import React from "react";
 import "./events.css";
-import { Html } from "@react-three/drei";
 
+/**
+ * Componente EventTwo
+ * 
+ * Este componente muestra información detallada sobre la escritura cuneiforme,
+ * uno de los logros más destacados de la cultura sumeria. Incluye una descripción,
+ * imágenes, videos y ejemplos de escritura cuneiforme.
+ * Pertenece a la historia de usuario PI1-13.
+ */
 function EventTwo() {
   return (
     <div className="container_events">
       <div className="lateral">
         <img
           className="img_lateral"
-          src="http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg"
-          alt="Img lateral"
         />
       </div>
+
+      <div className="contenido">
 
       <div className="titulo">
         <h1 className="titulo_events">La Escritura Cuneiforme</h1>
       </div>
       <div className="descripcion">
+      <div className="Imagen_desc">
         <img
           className="imagenes"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Clay_cone_Telloh_Louvre_AO13239.jpg/399px-Clay_cone_Telloh_Louvre_AO13239.jpg"
           alt="Escritura"
         />
+        </div>
         <h4>El cuneiforme es uno de los sistemas de escritura más longevos en la historia de la humanidad</h4>
         <p>
           Sobre el año 3300 a.C. Los Sumerios inventaron un sistema de escritura
@@ -39,6 +48,7 @@ function EventTwo() {
           escritura. No está del todo claro si este tipo de escritura es la mas
           antigua o lo es la jeroglífica egipcia.
         </p>
+        <div className="video">
         <iframe
           width="560"
           height="315"
@@ -48,6 +58,8 @@ function EventTwo() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
+        </div>
+      </div>
       </div>
     </div>
 
