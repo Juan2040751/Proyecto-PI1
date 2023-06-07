@@ -12,7 +12,7 @@ import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 
 
-function Museum() {
+function Museum({reference}) {
   const [obj3d, setObj3d] = useState({
     uno: false,
     dos: false,
@@ -71,7 +71,7 @@ function Museum() {
   return (
     <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
 
-      <div className="titulo">
+      <div className="titulo" ref={reference}>
         <h1>MUSEO</h1>
       </div>
       <div
