@@ -1,25 +1,49 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import React from "react";
-import logoapp from "../images/Sumerios.jpg"
-
-function NavbarApp({ window }) {
-  const pages = ["Historia", "Ubicación", "Lengua", "Datos de interés"];
+import { useIsVisible } from "react-is-visible";
+import logoapp from "../images/Sumerios.jpg";
+function Section({ page, reference }) {
+  const isVisible = useIsVisible(reference);
+  const handleClick = () => {
+    reference?.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  return (
+    <Button
+      onClick={handleClick}
+      style={{backgroundColor: isVisible? "#0d6efd": "transparent"}} 
+      sx={{
+        my: 2,
+        color: "black",
+        display: "block",
+        fontSize: 14,
+        fontWeight: "bold",
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: "#e0e0e0",
+        },
+      }}
+    >
+      {page}
+    </Button>
+  );
+}
+function NavbarApp({ window, references, LandingRef }) {
+  const pages = ["Destacado", "Museo"];
 
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
 
   return (
-
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar color="inherit" sx={{ height: 60 }}>
         <Container maxWidth="xl">
-          <Toolbar sx={{ height: 0, justifyContent: 'center' }}>
+          <Toolbar sx={{ height: 0, justifyContent: "center" }}>
             <Box
               sx={{
                 display: { xs: "flex", md: "flex" },
@@ -28,24 +52,17 @@ function NavbarApp({ window }) {
                 alignItems: "center",
               }}
             >
-              <Typography
-                variant="h4"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 1,
-                  display: { xs: "flex", md: "flex" },
-                  fontFamily: "Tenor Sans, sans-serif",
-                  fontWeight: 500,
-                  color: "inherit",
-                  textDecoration: "none",
-                  textTransform: "none",
-                  alignItems: "center",
+              <Button
+                onClick={() => {
+                  LandingRef?.current?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <img src={logoapp} alt="logo" style={{ height: 40, marginRight: 8 }} />
-              </Typography>
+                <img
+                  src={logoapp}
+                  alt="logo"
+                  style={{ height: 40, marginRight: 8 }}
+                />
+              </Button>
             </Box>
 
             <Box
@@ -55,30 +72,14 @@ function NavbarApp({ window }) {
                 justifyContent: "right",
               }}
             >
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  sx={{
-                    my: 2,
-                    color: "black",
-                    display: "block",
-                    fontSize: 14,
-                    fontWeight: "bold",
-                    textTransform: "none",
-                    "&:hover": {
-                      backgroundColor: "#e0e0e0",
-                    },
-                  }}
-                >
-                  {page}
-                </Button>
+              {pages.map((page, index) => (
+                <Section key={page} page={page} reference={references[index]} />
               ))}
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
     </Slide>
-
   );
 }
 

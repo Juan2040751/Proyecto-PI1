@@ -27,9 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         path="/"
         element={
           <CheckAuthentication>
-            <App>
-              < Home />
-            </App>
+            <App/>
           </CheckAuthentication>
         }
       />
