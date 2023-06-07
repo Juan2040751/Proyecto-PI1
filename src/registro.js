@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { Html } from "@react-three/drei";
 
 
 function Register() {
@@ -39,94 +38,93 @@ function Register() {
 
   return (
     <>
-      <Html fullscreen>
-        <div className="wrapper" style={{
-          display: "flex"
-        }}>
-          <div className="registerContainer" style={{ width: "50%" }}>
 
-            <div className="containerForm" style={{ display: "grid" }}>
-              <img src="./static/Sumerios.jpg" style={{
-                width: "400px",
-                margin: "auto",
-                padding: "40px",
-              }}></img>
-              <h2>Registro de Usuario</h2>
-              {error && (<div className="error-alert"> {error} </div>)}
-              {exito && (<div className="success-alert alert alert-success text-center"> {exito} </div>)}
-              <form onSubmit={handleRegister}>
-                <div className="mb-3">
-                  <label htmlFor="username" className="form-label">
-                    Nombre de usuario:
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Correo electrónico:
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
-                    Contraseña:
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="confirmation" className="form-label">
-                    Confirmar contraseña:
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="confirmation"
-                    value={confirmation}
-                    onChange={(e) => setConfirmation(e.target.value)}
-                  />
-                </div>
-                <button type="submit" className="btn btn-success w-100 mb-3">
-                  Registrarme
+      <div className="wrapper" style={{
+        display: "flex"
+      }}>
+        <div className="registerContainer" style={{ width: "50%" }}>
+
+          <div className="containerForm" style={{ display: "grid" }}>
+            <img src="./static/Sumerios.jpg" style={{
+              width: "400px",
+              margin: "auto",
+              padding: "40px",
+            }}></img>
+            <h2>Registro de Usuario</h2>
+            {error && (<div className="error-alert"> {error} </div>)}
+            {exito && (<div className="success-alert alert alert-success text-center"> {exito} </div>)}
+            <form onSubmit={handleRegister}>
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label">
+                  Nombre de usuario:
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                  Correo electrónico:
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
+                  Contraseña:
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="confirmation" className="form-label">
+                  Confirmar contraseña:
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="confirmation"
+                  value={confirmation}
+                  onChange={(e) => setConfirmation(e.target.value)}
+                />
+              </div>
+              <button type="submit" className="btn btn-success w-100 mb-3">
+                Registrarme
+              </button>
+              <div className="text-center">
+                <button
+                  onClick={() => navigate("/login")}
+                  className="btn btn-primary mb-3"
+                >
+                  Ir al inicio de sesión
                 </button>
-                <div className="text-center">
-                  <button
-                    onClick={() => navigate("/login")}
-                    className="btn btn-primary mb-3"
-                  >
-                    Ir al inicio de sesión
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div style={{
-            width: "50%",
-            backgroundImage: "url('./static/Lateral.jpg')",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}>
-
+              </div>
+            </form>
           </div>
         </div>
-      </Html>
+        <div style={{
+          width: "50%",
+          backgroundImage: "url('./static/Lateral.jpg')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}>
+
+        </div>
+      </div>
     </>
   );
 }

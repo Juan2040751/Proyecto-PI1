@@ -4,19 +4,21 @@ import gsap from "gsap";
 import React, { useLayoutEffect, useRef } from "react";
 import "./events/events.css";
 
-
 function Landing() {
   const lamussu = useGLTF("/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
   const tl = useRef();
 
+  
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());
   });
 
+
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
+    console.log(scroll.scroll.current)
     tl.current.to(
       polRef.current.position,
       {
@@ -61,10 +63,10 @@ function Landing() {
         object={lamussu.scene}
         scale={0.3}
         rotation-y={-0.2}
-        position={[3, -2, -2.5]}
+        position={[5, -3, -2.5]}
       />
 
-      <Html position={[-4.5, 1, 3]}>
+      <Html position={[-6, 1, 3]}>
         <h1
           style={{
             fontSize: 90,

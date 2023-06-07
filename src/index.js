@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
-import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom"
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
 import App from "./app";
 import Landing from './components/landing';
 import Featured from "./components/featured_event";
@@ -21,7 +21,7 @@ const CheckAuthentication = ({ children }) => {
     const isLogged = localStorage.getItem('isLogged');
     if (isLogged !== 'true') {
       navigate('/login');
-    }    
+    }
   }, [navigate]);
 
   return children;
@@ -41,21 +41,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         }
       />
 
-      <Route path="/registro" 
+      <Route path="/registro"
         element={
-          <App>
-            <Register />
-          </App>
-        } 
+          <Register />
+        }
       />
 
-      <Route path="/login" 
+      <Route path="/login"
         element={
-          <App>
-            <Login />
-          </App>
-        
-        } 
+          <Login />
+        }
       />
     </Routes>
   </BrowserRouter>
