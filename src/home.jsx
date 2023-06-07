@@ -1,7 +1,7 @@
 import { ScrollControls } from "@react-three/drei"
 import Featured from "./components/featured_event"
 import Landing from "./components/landing"
-import NavbarApp from "./components/navbar"
+import Museum from "./components/museum"
 
 function Home() {
     return (
@@ -10,6 +10,7 @@ function Home() {
             <ScrollControls pages={1} damping={0.1}>
                 <Landing />
                 <Featured style={{ top: "100vh" }} />
+                <Museum />
             </ScrollControls>
         </>
     );
