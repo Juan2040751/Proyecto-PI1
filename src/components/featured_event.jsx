@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Grid } from "@mui/material";
-import { Html, useScroll } from "@react-three/drei";
-import { useEffect, useState } from "react";
+import { Html } from "@react-three/drei";
+import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Slider from "react-slick";
 import EventFour from "./events/event_four";
@@ -259,7 +259,8 @@ function Featured({reference}) {
                   llamativas era su muralla, que rodeaba una zona de unos siete
                   kilómetros cuadrados donde vivían ochenta mil personas. Es
                   decir, era la mayor ciudad que el mundo había conocido hasta
-                  entonces.
+                  en
+                  tonces.
                 </p>
               </CardContent>
 
@@ -281,6 +282,7 @@ function Featured({reference}) {
         show={events.uno}
         size="xl"
         animation
+        
         onHide={() =>
           setEvents({
             uno: false,
