@@ -11,6 +11,7 @@ import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import "./events/events.css";
 
+
 /**
  * Componente Museum
  *
@@ -79,7 +80,9 @@ function Museum() {
 
   return (
     <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
+
       <div className="titulo">
+
         <h1>MUSEO</h1>
       </div>
       <div
