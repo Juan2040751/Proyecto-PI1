@@ -1,6 +1,16 @@
 import { Html, useGLTF, useScroll } from "@react-three/drei";
 import "../events/events.css";
 
+/**
+ * Componente Object_one
+ *
+ * Este componente representa el objeto número uno de nuestro museo de objeto.
+ * Este objeto 3d muestra un soldado sumerio.
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ * poder admirar el objeto en diferentes ángulos.
+ */
+
 export function DescriptionOne() {
   <main className="app">
     <section className="hero">
@@ -32,11 +42,9 @@ export function ObjectOne() {
 
   return (
     <>
-      <Html position={[-4.5, 1, 3]}>
-        
-      </Html>
+      <Html position={[-4.5, 1, 3]}></Html>
 
-      <group position={[0,-0.5,0]}>
+      <group position={[0, -0.5, 0]}>
         <directionalLight
           castShadow
           shadow-normalBias={0.04}
@@ -44,17 +52,17 @@ export function ObjectOne() {
           intensity={1.5}
         />
         <directionalLight
-        castShadow
-        shadow-normalBias={0.04}
-        position={[1, 2, -3]}
-        intensity={1.5}
-      />
+          castShadow
+          shadow-normalBias={0.04}
+          position={[1, 2, -3]}
+          intensity={1.5}
+        />
         <color attach="background" args={["#DC7633"]} />
         <primitive
           object={guerrero.scene}
           scale={2}
           rotation-y={-0.2}
-          position={[0,0,0]}
+          position={[0, 0, 0]}
         />
       </group>
     </>

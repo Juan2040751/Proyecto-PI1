@@ -2,6 +2,16 @@ import { useGLTF } from "@react-three/drei";
 import React from "react";
 import "../events/events.css";
 
+/**
+ * Componente Object_three
+ *
+ * Este componente representa el objeto número tres de nuestro museo de objetos.
+ * Este objeto 3d muestra una Tabla Estandar de Ur Sumeria.
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ * poder admirar el objeto en diferentes ángulos.
+ */
+
 export function DescriptionThree() {
   <main className="app">
     <section className="hero">

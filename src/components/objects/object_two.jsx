@@ -2,6 +2,16 @@ import { Html, useGLTF } from "@react-three/drei";
 import React from "react";
 import "../events/events.css";
 
+/**
+ * Componente Object_two
+ *
+ * Este componente representa el objeto número dos de nuestro museo de objetos.
+ * Este objeto 3d muestra una tabla de arcilla sumeria.
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ * poder admirar el objeto en diferentes ángulos.
+ */
+
 export function DescriptionTwo() {
   <main className="app">
     <section className="hero">
