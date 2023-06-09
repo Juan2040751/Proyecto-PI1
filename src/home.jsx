@@ -2,6 +2,7 @@ import { ScrollControls } from "@react-three/drei";
 import Featured from "./components/featured_event";
 import Landing from "./components/landing";
 import Museum from "./components/museum";
+import Gastronomy from "./components/Gastronomy";
 
 function Home({ references, LandingRef}) {
   return (
@@ -9,6 +10,7 @@ function Home({ references, LandingRef}) {
       <Landing reference={LandingRef}/>
       <Featured reference={references[0]} />
       <Museum reference={references[1]} />
+      <Gastronomy reference={references[2]}/>
     </ScrollControls>
   );
 }
