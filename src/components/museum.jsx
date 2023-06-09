@@ -11,7 +11,18 @@ import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import "./events/events.css";
 
-function Museum({reference}) {
+
+/**
+ * Componente Museum
+ *
+ * Este componente representa un museo para mostrar los objetos 3d con la ayuda de modals.
+ *
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ * poder admirar el objeto en diferentes ángulos.
+ */
+
+function Museum() {
   const [obj3d, setObj3d] = useState({
     uno: false,
     dos: false,
