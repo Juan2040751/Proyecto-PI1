@@ -7,6 +7,7 @@ import "../events/events.css";
  *
  * Este componente representa el objeto número cuatro de nuestro museo de objetos.
  * Este objeto 3d muestra una lista sumeria real.
+ * 
  * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
  * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
  * poder admirar el objeto en diferentes ángulos.
