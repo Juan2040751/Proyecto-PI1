@@ -1,5 +1,5 @@
-import { useAnimations, useGLTF } from "@react-three/drei";
-import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import React from "react";
 import "../events/events.css";
 
 /**

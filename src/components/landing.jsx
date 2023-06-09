@@ -1,7 +1,7 @@
 import { Html, useGLTF, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import "./events/events.css";
 
 function Landing({ reference }) {
@@ -47,7 +47,7 @@ function Landing({ reference }) {
   return (
     <>
       <group position={0}>
-      <Html position={[0,5,0]} ref={reference} scale={0}></Html>
+        <Html position={[0, 5, 0]} ref={reference} scale={0}></Html>
         <directionalLight
           castShadow
           shadow-normalBias={0.04}
@@ -64,7 +64,7 @@ function Landing({ reference }) {
           position={[4, -2.5, -2.5]}
         />
 
-        <Html position={[-5, 1, 3]} >
+        <Html position={[-5, 1, 3]}>
           <h1
             style={{
               fontSize: 90,
