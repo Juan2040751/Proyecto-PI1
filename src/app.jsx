@@ -7,7 +7,8 @@ function App() {
   const LandingRef = useRef();
   const FeaturedRef = useRef();
   const MuseumRef = useRef();
-  const references = [FeaturedRef, MuseumRef];
+  const GastronomyRef = useRef();
+  const references = [FeaturedRef, MuseumRef, GastronomyRef];
   return (
     <>
       <NavbarApp references={references} LandingRef={LandingRef} />

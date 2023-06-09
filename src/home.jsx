@@ -10,7 +10,7 @@ function Home({ references, LandingRef}) {
       <Landing reference={LandingRef}/>
       <Featured reference={references[0]} />
       <Museum reference={references[1]} />
-      <Gastronomy reference = {references[2]}/>
+      <Gastronomy reference={references[2]}/>
     </ScrollControls>
   );
 }

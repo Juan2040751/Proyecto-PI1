@@ -37,7 +37,7 @@ function Section({ page, reference }) {
   );
 }
 function NavbarApp({ window, references, LandingRef }) {
-  const pages = ["Destacado", "Museo"];
+  const pages = ["Destacado", "Museo", "Gastronomía"];
 
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
