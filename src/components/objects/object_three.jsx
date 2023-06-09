@@ -7,9 +7,9 @@ import "../events/events.css";
  *
  * Este componente representa el objeto número tres de nuestro museo de objetos.
  * Este objeto 3d muestra una Tabla Estandar de Ur Sumeria.
- * 
- * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
- * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ *
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para
  * poder admirar el objeto en diferentes ángulos.
  */
 
@@ -40,9 +40,9 @@ export function DescriptionThree() {
 }
 
 export function ObjectThree(props) {
-    const ur = useGLTF("../static/standard_of_ur.glb");
-    return (
-      <group position={[-2.5,5.5,-7]}>
+  const ur = useGLTF("../static/standard_of_ur.glb");
+  return (
+    <group position={[-2.5, 5.5, -7]}>
       <directionalLight
         castShadow
         shadow-normalBias={0.04}
@@ -56,13 +56,9 @@ export function ObjectThree(props) {
         intensity={1.5}
       />
       <color attach="background" args={["#DC7633"]} />
-      <primitive
-        object={ur.scene}
-        scale={0.5}
-        position={[0, 0, 0]}
-      />
+      <primitive object={ur.scene} scale={0.5} position={[0, 0, 0]} />
     </group>
-    );
-  }
-  
-  useGLTF.preload("../static/standard_of_ur.glb");
+  );
+}
+
+useGLTF.preload("../static/standard_of_ur.glb");

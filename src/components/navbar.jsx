@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
+import "intersection-observer";
 import React from "react";
 import { useIsVisible } from "react-is-visible";
 import logoapp from "../images/Sumerios.jpg";
@@ -15,7 +16,10 @@ function Section({ page, reference }) {
   return (
     <Button
       onClick={handleClick}
-      style={{backgroundColor: isVisible? "#0d6efd": "transparent"}} 
+      style={{
+        backgroundColor: isVisible ? "#0d6efd" : "transparent",
+        color: isVisible ? "white" : "black",
+      }}
       sx={{
         my: 2,
         color: "black",

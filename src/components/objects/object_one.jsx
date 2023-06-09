@@ -1,4 +1,4 @@
-import { Html, useGLTF, useScroll } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import "../events/events.css";
 
 /**
@@ -6,12 +6,11 @@ import "../events/events.css";
  *
  * Este componente representa el objeto número uno de nuestro museo de objeto.
  * Este objeto 3d muestra un soldado sumerio.
- * 
- * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
- * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ *
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para
  * poder admirar el objeto en diferentes ángulos.
  */
-
 export function DescriptionOne() {
   <main className="app">
     <section className="hero">

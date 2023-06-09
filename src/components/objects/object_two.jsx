@@ -1,4 +1,4 @@
-import { Html, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import React from "react";
 import "../events/events.css";
 
@@ -7,9 +7,9 @@ import "../events/events.css";
  *
  * Este componente representa el objeto número dos de nuestro museo de objetos.
  * Este objeto 3d muestra una tabla de arcilla sumeria.
- * 
- * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
- * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ *
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para
  * poder admirar el objeto en diferentes ángulos.
  */
 
@@ -42,7 +42,7 @@ export function DescriptionTwo() {
 export function ObjectTwo(props) {
   const { nodes, materials } = useGLTF("../static/arcilla_tablemit.glb");
   return (
-    <group {...props} dispose={null} position={[0,1,0]}>
+    <group {...props} dispose={null} position={[0, 1, 0]}>
       <directionalLight
         castShadow
         shadow-normalBias={0.04}
@@ -55,7 +55,7 @@ export function ObjectTwo(props) {
         position={[1, 2, -3]}
         intensity={1.5}
       />
-      <group position={[0,0,0]} rotation={[-1.61, 0, 0]}>
+      <group position={[0, 0, 0]} rotation={[-1.61, 0, 0]}>
         <mesh
           scale={0.02}
           castShadow
@@ -64,7 +64,6 @@ export function ObjectTwo(props) {
           material={materials["Default_OBJ.001"]}
         />
       </group>
-     
     </group>
   );
 }

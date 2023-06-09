@@ -1,28 +1,25 @@
 import { Card, CardContent, CardMedia, Grid } from "@mui/material";
-import { Html, OrbitControls, ScrollControls } from "@react-three/drei";
-import React, { useRef } from "react";
+import { Html, OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import React, { useRef, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Slider from "react-slick";
-import { ObjectOne, DescriptionOne } from "./objects/object_one";
-import { ObjectTwo, DescriptionTwo } from "./objects/object_two";
-import { ObjectThree, DescriptionThree } from "./objects/object_three";
-import { ObjectFour, DescriptionFour } from "./objects/object_four";
-import { useState } from "react";
-import { Canvas } from "@react-three/fiber";
 import "./events/events.css";
-
+import { ObjectFour } from "./objects/object_four";
+import { ObjectOne } from "./objects/object_one";
+import { ObjectThree } from "./objects/object_three";
+import { ObjectTwo } from "./objects/object_two";
 
 /**
  * Componente Museum
  *
  * Este componente representa un museo para mostrar los objetos 3d con la ayuda de modals.
  *
- * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
- * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para
  * poder admirar el objeto en diferentes ángulos.
  */
-
-function Museum() {
+function Museum({ reference }) {
   const [obj3d, setObj3d] = useState({
     uno: false,
     dos: false,
@@ -31,7 +28,7 @@ function Museum() {
   });
 
   const canvasRef = useRef();
-
+/** 
   const toggleFullscreen = () => {
     if (document.fullscreenElement) {
       document.exitFullscreen();
@@ -39,6 +36,7 @@ function Museum() {
       canvasRef.current.requestFullscreen();
     }
   };
+*/
 
   var settings3d = {
     dots: true,
@@ -80,9 +78,7 @@ function Museum() {
 
   return (
     <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
-
-      <div className="titulo">
-
+      <div className="titulo" ref={reference}>
         <h1>MUSEO</h1>
       </div>
       <div

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import App from "./app";
-import Home from "./home";
 import Login from "./login";
 import Register from "./registro";
 import "./style.css";
@@ -11,9 +10,9 @@ const CheckAuthentication = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLogged = localStorage.getItem('isLogged');
-    if (isLogged !== 'true') {
-      navigate('/login');
+    const isLogged = localStorage.getItem("isLogged");
+    if (isLogged !== "true") {
+      navigate("/login");
     }
   }, [navigate]);
 
@@ -27,22 +26,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         path="/"
         element={
           <CheckAuthentication>
-            <App/>
+            <App />
           </CheckAuthentication>
         }
       />
 
-      <Route path="/registro"
-        element={
-          <Register />
-        }
-      />
+      <Route path="/registro" element={<Register />} />
 
-      <Route path="/login"
-        element={
-          <Login />
-        }
-      />
+      <Route path="/login" element={<Login />} />
     </Routes>
   </BrowserRouter>
 );
