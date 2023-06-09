@@ -5,19 +5,14 @@
 
 import ReactThreeTestRenderer from '@react-three/test-renderer';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from "@testing-library/react";
-import Featured from "./components/featured_event";
-import EventOne from './components/events/event_one';
-import { Html } from '@react-three/drei';
-import Landing from './components/landing';
-import Register from './registro';
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from 'react-router-dom';
-import Login from './login';
-import NavbarApp from './components/navbar';
-import { ObjectOne } from './components/objects/object_one';
-import Museum from './components/museum';
 import Gastronomy from './components/Gastronomy';
-import Home from './home';
+import EventOne from './components/events/event_one';
+import Featured from "./components/featured_event";
+import Museum from './components/museum';
+import Login from './login';
+import Register from './registro';
 
 describe("Pruebas HU Sprint 1", () => {
 
@@ -64,7 +59,7 @@ describe("Pruebas HU Sprint 2", () => {
     })
     test('PI1-14', async () => {
         const renderer = await ReactThreeTestRenderer.create(
-           <Museum/>
+            <Museum />
         )
         console.log(renderer.getInstance().type)
         expect(renderer.getInstance().type).toBe('Group')
