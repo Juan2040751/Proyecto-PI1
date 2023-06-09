@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Grid } from "@mui/material";
-import { Html } from "@react-three/drei";
-import { useState } from "react";
+import { Html, useScroll } from "@react-three/drei";
+import { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Slider from "react-slick";
 import EventFour from "./events/event_four";
@@ -15,7 +15,7 @@ import "./events/events.css";
  * Este componente muestra los eventos destacados de la civilización sumeria, incluyendo descubrimientos,
  * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11.
  */
-function Featured() {
+function Featured({reference}) {
   const [events, setEvents] = useState({
     uno: false,
     dos: false,
@@ -61,9 +61,10 @@ function Featured() {
     ],
   };
 
+
   return (
     <Html fullscreen style={{ top: "100vh", padding: "2%" }}>
-      <div className="titulo">
+      <div className="titulo" ref={reference}>
         <h1>EVENTOS HISTORICOS</h1>
       </div>
 

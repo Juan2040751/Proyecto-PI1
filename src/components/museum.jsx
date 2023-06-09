@@ -11,7 +11,7 @@ import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import "./events/events.css";
 
-function Museum() {
+function Museum({reference}) {
   const [obj3d, setObj3d] = useState({
     uno: false,
     dos: false,
@@ -69,7 +69,9 @@ function Museum() {
 
   return (
     <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
+
       <div className="titulo">
+
         <h1>MUSEO</h1>
       </div>
       <div
