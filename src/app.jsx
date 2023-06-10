@@ -5,9 +5,9 @@ import Home from "./home";
 
 function App() {
   const LandingRef = useRef();
-  const FeaturedRef = useRef();
-  const MuseumRef = useRef();
-  const GastronomyRef = useRef();
+  const FeaturedRef = useRef(null);
+  const MuseumRef = useRef(null);
+  const GastronomyRef = useRef(null);
   const references = [FeaturedRef, MuseumRef, GastronomyRef];
   return (
     <>

@@ -21,9 +21,7 @@ function EventThree() {
 
       <div className="contenido">
 
-      <div className="titulo">
-        <h1 className="titulo_events">Juego Real de Ur</h1>
-      </div>
+      
       <div className="descripcion">
       <div className="Imagen_desc">
         <img

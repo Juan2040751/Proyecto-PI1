@@ -60,7 +60,7 @@ export function ObjectFour(props) {
         object={king_list.scene}
         scale={2}
         rotation-y={-10}
-        position={[15,12,-2]}
+        position={[13,8,-15]}
       />
     </group>
   );

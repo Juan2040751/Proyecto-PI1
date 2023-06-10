@@ -42,19 +42,20 @@ export function ObjectOne() {
 
   return (
     <>
-      <Html position={[-4.5, 1, 3]}></Html>
+      <Html position={[0, 0, 3]}></Html>
 
-      <group position={[0, -0.5, 0]}>
+      <group position={[1, -1.5, -2]}>
         <directionalLight
           castShadow
           shadow-normalBias={0.04}
-          position={[1, 2, 3]}
+          position={[0, 2, 3]}
           intensity={1.5}
         />
+      
         <directionalLight
           castShadow
           shadow-normalBias={0.04}
-          position={[1, 2, -3]}
+          position={[1, 0, -3]}
           intensity={1.5}
         />
         <color attach="background" args={["#DC7633"]} />

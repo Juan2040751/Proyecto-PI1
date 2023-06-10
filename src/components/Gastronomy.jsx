@@ -54,7 +54,7 @@ function Gastronomy({ reference }) {
 
   return (
     <Html fullscreen style={{ top: "300vh" }}>
-      <div className="titulo" ref={reference}>
+      <div className="titulo" ref={reference} id="Gastronomía">
         <h1>GASTRONOMIA SUMERÍA</h1>
       </div>
 
@@ -129,7 +129,7 @@ function Gastronomy({ reference }) {
                 />
                 <CardContent
                   sx={{
-                    maxHeight: "434px",
+                    height: "352px",
                     overflow: "hidden",
                   }}
                 >
@@ -168,7 +168,7 @@ function Gastronomy({ reference }) {
                 />
                 <CardContent
                   sx={{
-                    maxHeight: "450px",
+                    height: "352px",
                     overflow: "hidden",
                   }}
                 >
@@ -206,7 +206,7 @@ function Gastronomy({ reference }) {
                 />
                 <CardContent
                   sx={{
-                    maxHeight: "600px",
+                    height: "352px",
                     overflow: "hidden",
                   }}
                 >

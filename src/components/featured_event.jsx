@@ -15,7 +15,7 @@ import "./events/events.css";
  * Este componente muestra los eventos destacados de la civilización sumeria, incluyendo descubrimientos,
  * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11.
  */
-function Featured({reference}) {
+function Featured({ reference }) {
   const [events, setEvents] = useState({
     uno: false,
     dos: false,
@@ -61,10 +61,9 @@ function Featured({reference}) {
     ],
   };
 
-
   return (
     <Html fullscreen style={{ top: "100vh", padding: "2%" }}>
-      <div className="titulo" ref={reference}>
+      <div className="titulo" ref={reference} id="Destacado">
         <h1>EVENTOS HISTORICOS</h1>
       </div>
 
@@ -98,7 +97,7 @@ function Featured({reference}) {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  height: "340px",
                   overflow: "hidden",
                 }}
               >
@@ -113,7 +112,7 @@ function Featured({reference}) {
                   una actividad.
                 </p>
               </CardContent>
-              <div className="d-grid gap-2">
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
@@ -148,7 +147,7 @@ function Featured({reference}) {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  height: "340px",
                   overflow: "hidden",
                 }}
               >
@@ -161,7 +160,7 @@ function Featured({reference}) {
                 </p>
               </CardContent>
 
-              <div className="d-grid gap-2">
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
@@ -196,7 +195,7 @@ function Featured({reference}) {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  height: "340px",
                   overflow: "hidden",
                 }}
               >
@@ -212,7 +211,7 @@ function Featured({reference}) {
                 </p>
               </CardContent>
 
-              <div className="d-grid gap-2">
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
@@ -247,7 +246,7 @@ function Featured({reference}) {
               />
               <CardContent
                 sx={{
-                  maxHeight: "350px",
+                  height: "340px",
                   overflow: "hidden",
                 }}
               >
@@ -259,12 +258,11 @@ function Featured({reference}) {
                   llamativas era su muralla, que rodeaba una zona de unos siete
                   kilómetros cuadrados donde vivían ochenta mil personas. Es
                   decir, era la mayor ciudad que el mundo había conocido hasta
-                  en
-                  tonces.
+                  en tonces.
                 </p>
               </CardContent>
 
-              <div className="d-grid gap-2">
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
@@ -282,7 +280,6 @@ function Featured({reference}) {
         show={events.uno}
         size="xl"
         animation
-        
         onHide={() =>
           setEvents({
             uno: false,
@@ -292,7 +289,10 @@ function Featured({reference}) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>Ciudades Sumerias</h1>
+        </Modal.Header>
         <Modal.Body>{<EventOne />}</Modal.Body>
       </Modal>
       <Modal
@@ -308,7 +308,10 @@ function Featured({reference}) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>La Escritura Cuneiforme</h1>
+        </Modal.Header>
         <Modal.Body>{<EventTwo />}</Modal.Body>
       </Modal>
       <Modal
@@ -324,7 +327,10 @@ function Featured({reference}) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>Juego Real de Ur</h1>
+        </Modal.Header>
         <Modal.Body>{<EventThree />}</Modal.Body>
       </Modal>
       <Modal
@@ -340,7 +346,10 @@ function Featured({reference}) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>Sistema Númerico</h1>
+        </Modal.Header>
         <Modal.Body>{<EventFour />}</Modal.Body>
       </Modal>
     </Html>
