@@ -153,7 +153,7 @@ function Museum({ reference }) {
             >
               <CardMedia
                 component="img"
-                image="./static/arcilla_tablemit.png"
+                image="./static/arcilla_tablemit.PNG"
                 height="200"
                 alt="Escritura"
               />
