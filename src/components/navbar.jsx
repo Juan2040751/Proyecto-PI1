@@ -13,7 +13,6 @@ function Section({ page, reference }) {
   const handleClick = () => {
     reference?.current?.scrollIntoView({ behavior: "smooth" });
   };
-
   return (
     <Button
       onClick={handleClick}
