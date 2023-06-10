@@ -53,13 +53,13 @@ function Gastronomy({ reference }) {
   };
 
   return (
-    <Html fullscreen style={{ top: "300vh"}}>
+    <Html fullscreen style={{ top: "300vh" }}>
       <div className="titulo" ref={reference}>
         <h1>GASTRONOMIA SUMERÍA</h1>
       </div>
 
       <div style={{ display: "flex" }}>
-        <div style={{ width: "60%", padding: "20px" }}>
+        <div style={{ width: "60%", padding: "20px", marginTop: "-16px" }}>
           <p>
             Los sumerios, una antigua civilización que habitó en Mesopotamia,
             desarrollaron una cultura culinaria rica y diversa. Su gastronomía
@@ -73,24 +73,21 @@ function Gastronomy({ reference }) {
           <p style={{ marginTop: "-40px" }}>
             La gastronomía sumeria fue fundamental en la historia de la
             alimentación. Los sumerios fueron pioneros en la agricultura y la
-            domesticación de animales, lo que les permitió cultivar diversos
-            cereales, como la cebada y el trigo, y criar animales para obtener
-            carne y lácteos. Además, desarrollaron técnicas avanzadas de cocina,
-            como la fermentación y la cocción en hornos de barro. Estos avances
-            sentaron las bases de la alimentación y la gastronomía en las
-            civilizaciones posteriores.
+            domesticación de animales, cultivando cereales y criando animales
+            para obtener carne y lácteos. Además, desarrollaron técnicas
+            avanzadas de cocina, como la fermentación y la cocción en hornos de
+            barro. Estos avances sentaron las bases de la alimentación y la
+            gastronomía en las civilizaciones posteriores.
           </p>
 
           <h2 style={{ marginTop: "-2px" }}>Influencia en la cocina actual</h2>
           <p style={{ marginTop: "-40px" }}>
-            La cocina sumeria ha dejado un legado duradero en la gastronomía
-            actual. Muchos platos sumerios han evolucionado y se han adaptado a
-            lo largo del tiempo, pero aún conservan elementos distintivos de la
-            cocina sumeria. Ingredientes como la cebada, las legumbres, las
-            especias y las hierbas siguen siendo fundamentales en la cocina de
-            la región de Mesopotamia y en otras culturas influenciadas por los
-            sumerios. Además, técnicas como la fermentación y la cocción en
-            horno han perdurado y continúan siendo utilizadas en diversas
+            La cocina sumeria ha dejado un legado en la gastronomía actual.
+            Muchos platos sumerios han evolucionado y conservan elementos
+            distintivos. Ingredientes como cebada, legumbres, especias y hierbas
+            siguen siendo fundamentales en la cocina de Mesopotamia y en otras
+            culturas influenciadas por los sumerios. Además, técnicas como
+            fermentación y cocción en horno persisten y se utilizan en diversas
             preparaciones culinarias.
           </p>
         </div>
@@ -104,7 +101,7 @@ function Gastronomy({ reference }) {
             flexDirection: "column",
           }}
         >
-          <h2 style={{ textAlign: "center", marginTop: "16px" }}>
+          <h2 style={{ textAlign: "justify", marginTop: "-32px" }}>
             Platos Sumerios Tradicionales
           </h2>
 
