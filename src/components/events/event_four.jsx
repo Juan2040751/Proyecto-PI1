@@ -21,9 +21,6 @@ function EventFour() {
       </div>
 
       <div className="contenido">
-        <div className="titulo">
-          <h1 className="titulo_events">Sistema Númerico</h1>
-        </div>
         <div className="descripcion">
           <p>
             Uruk fue una antigua ciudad sumeria. Se encontraba en la orilla del

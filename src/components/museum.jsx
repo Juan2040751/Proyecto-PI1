@@ -28,7 +28,7 @@ function Museum({ reference }) {
   });
 
   const canvasRef = useRef();
-/** 
+  /** 
   const toggleFullscreen = () => {
     if (document.fullscreenElement) {
       document.exitFullscreen();
@@ -78,7 +78,7 @@ function Museum({ reference }) {
 
   return (
     <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
-      <div className="titulo" ref={reference}>
+      <div className="titulo" ref={reference} id="Museo">
         <h1>MUSEO</h1>
       </div>
       <div
@@ -111,13 +111,13 @@ function Museum({ reference }) {
               />
               <CardContent
                 sx={{
-                  maxHeight: "200px",
+                  height: "350px",
                   overflow: "hidden",
                 }}
               >
                 <h2>Soldado Sumerio</h2>
                 <p>
-                  los soldados sumerios eran parte de un ejército profesional y
+                  Los soldados sumerios eran parte de un ejército profesional y
                   desempeñaban un papel crucial en la protección y expansión de
                   la civilización sumeria. Su entrenamiento, armamento y
                   organización contribuyeron a la defensa y dominio militar en
@@ -159,7 +159,7 @@ function Museum({ reference }) {
               />
               <CardContent
                 sx={{
-                  maxHeight: "200px",
+                  height: "350px",
                   overflow: "hidden",
                 }}
               >
@@ -202,11 +202,12 @@ function Museum({ reference }) {
               <CardMedia
                 component="img"
                 image="./static/standard_of_ur.PNG"
+                height="200"
                 alt="Juego Real de Ur"
               />
               <CardContent
                 sx={{
-                  maxHeight: "200px",
+                  height: "350px",
                   overflow: "hidden",
                 }}
               >
@@ -253,7 +254,7 @@ function Museum({ reference }) {
               />
               <CardContent
                 sx={{
-                  maxHeight: "200px",
+                  height: "350px",
                   overflow: "hidden",
                 }}
               >
@@ -283,7 +284,6 @@ function Museum({ reference }) {
         show={obj3d.uno}
         size="xl"
         animation
-        dialogClassName="modal-fullscreen"
         onHide={() =>
           setObj3d({
             uno: false,
@@ -293,12 +293,14 @@ function Museum({ reference }) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Museo /</h6>
+          <h1> Soldado Sumerio</h1>
+        </Modal.Header>
         <Modal.Body>
-          <>
-            <main className="app">
+          <div style={{ display: "flex" }}>
+            <main style={{ width: "50%" }}>
               <section className="hero">
-                <h1>Soldado Sumerio</h1>
                 <p>
                   Los soldados sumerios eran miembros del ejército en la antigua
                   civilización de Sumer, que se desarrolló en la región de
@@ -318,28 +320,18 @@ function Museum({ reference }) {
                 </p>
               </section>
             </main>
-            ;
-            <Canvas
-              ref={canvasRef}
-              className="canvas"
-              shadows={true}
-              camera={{ position: [0, 0, 30], fov: 15 }}
-            >
-              <OrbitControls />
-              <ObjectOne />
-            </Canvas>
-            {/* 
-    <button onClick={toggleFullscreen}>
-        Alternar pantalla completa
-      </button>
-      */}
-          </>
 
-          {/* 
-    <button onClick={toggleFullscreen}>
-        Alternar pantalla completa
-      </button>
-      */}
+            <div style={{ width: "50%" }}>
+              <Canvas
+                ref={canvasRef}
+                shadows={true}
+                camera={{ position: [0, 0, 20], fov: 15 }}
+              >
+                <OrbitControls />
+                <ObjectOne />
+              </Canvas>
+            </div>
+          </div>
         </Modal.Body>
       </Modal>
 
@@ -347,7 +339,6 @@ function Museum({ reference }) {
         show={obj3d.dos}
         size="xl"
         animation
-        dialogClassName="modal-fullscreen"
         onHide={() =>
           setObj3d({
             uno: false,
@@ -357,60 +348,60 @@ function Museum({ reference }) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Museo /</h6>
+          <h1>Tabla de Arcilla Sumeria</h1>
+        </Modal.Header>
         <Modal.Body>
-          {
-            <>
-              <main className="app">
-                <section className="hero">
-                  <h1>Tabla de Arcilla Sumeria</h1>
-                  <p>
-                    Esta única tabla de arcilla está marcada con líneas de texto
-                    en escritura cuneiforme y es el ejemplo más antiguo de
-                    escritura en la Biblioteca. Escrita en sumerio, registra una
-                    transacción que involucra jarras de grasa de cerdo por dos
-                    hombres, uno llamado Balli, una persona que también aparece
-                    en otras tablillas contemporáneas y que habría estado
-                    involucrado en una organización administrativa hacia el
-                    final de la Dinastía de Acadia. La tabla habría formado
-                    parte de una colección más grande de un tipo similar en
-                    Zabala y fue excavada ilegalmente a principios del siglo XX.
-                    Posteriormente, estas tablillas aparecieron en el mercado de
-                    antigüedades y llegaron a manos del académico y bibliógrafo
-                    de Cambridge, Sir Stephen Gaselee. Es posible que adquiriera
-                    la tabla durante su tiempo en el Ministerio de Relaciones
-                    Exteriores de 1916 a 1919 y la donara a la Biblioteca en
-                    1921. Fue traducida al año siguiente por Thomas Fish, un
-                    estudiante de investigación en el Instituto de Lenguas
-                    Orientales de Cambridge, quien tenía la intención de
-                    incluirla en su tesis de doctorado. Sin embargo, al decidir
-                    concentrarse en tablillas de una colección diferente, la
-                    tabla fue olvidada, se perdió de vista y nunca fue
-                    publicada. Fue redescubierta en una caja de medallas durante
-                    la investigación para esta exposición. No está claro para
-                    qué se habría utilizado la grasa de cerdo.
-                  </p>
-                </section>
-              </main>
-              ;
+          <div style={{ display: "flex" }}>
+            <main style={{ width: "50%" }}>
+              <section className="hero">
+                <p>
+                  Esta única tabla de arcilla está marcada con líneas de texto
+                  en escritura cuneiforme y es el ejemplo más antiguo de
+                  escritura en la Biblioteca. Escrita en sumerio, registra una
+                  transacción que involucra jarras de grasa de cerdo por dos
+                  hombres, uno llamado Balli, una persona que también aparece en
+                  otras tablillas contemporáneas y que habría estado involucrado
+                  en una organización administrativa hacia el final de la
+                  Dinastía de Acadia. La tabla habría formado parte de una
+                  colección más grande de un tipo similar en Zabala y fue
+                  excavada ilegalmente a principios del siglo XX.
+                  Posteriormente, estas tablillas aparecieron en el mercado de
+                  antigüedades y llegaron a manos del académico y bibliógrafo de
+                  Cambridge, Sir Stephen Gaselee. Es posible que adquiriera la
+                  tabla durante su tiempo en el Ministerio de Relaciones
+                  Exteriores de 1916 a 1919 y la donara a la Biblioteca en 1921.
+                  Fue traducida al año siguiente por Thomas Fish, un estudiante
+                  de investigación en el Instituto de Lenguas Orientales de
+                  Cambridge, quien tenía la intención de incluirla en su tesis
+                  de doctorado. Sin embargo, al decidir concentrarse en
+                  tablillas de una colección diferente, la tabla fue olvidada,
+                  se perdió de vista y nunca fue publicada. Fue redescubierta en
+                  una caja de medallas durante la investigación para esta
+                  exposición. No está claro para qué se habría utilizado la
+                  grasa de cerdo.
+                </p>
+              </section>
+            </main>
+            ;
+            <div style={{ width: "50%" }}>
               <Canvas
                 ref={canvasRef}
-                className="canvas"
                 shadows={true}
-                camera={{ position: [-10, 15, 35], fov: 10 }}
+                camera={{ position: [0, 0, 20], fov: 15 }}
               >
                 <OrbitControls />
                 <ObjectTwo />
               </Canvas>
-            </>
-          }
+            </div>
+          </div>
         </Modal.Body>
       </Modal>
       <Modal
         show={obj3d.tres}
         size="xl"
         animation
-        dialogClassName="modal-fullscreen"
         onHide={() =>
           setObj3d({
             uno: false,
@@ -420,51 +411,50 @@ function Museum({ reference }) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Museo /</h6>
+          <h1>El Estandarte de Ur</h1>
+        </Modal.Header>
         <Modal.Body>
-          {
-            <>
-              <main className="app">
-                <section className="hero">
-                  <h1>El Estandarte de Ur</h1>
-                  <p>
-                    "El Estandarte de Ur", decorado en sus cuatro lados con
-                    escenas de mosaicos incrustados hechos de concha, piedra
-                    caliza roja y lapislázuli, fijados con betún. Un lado
-                    muestra una escena de guerra; un ejército sumerio con carros
-                    de ruedas e infantería carga contra el enemigo; se presentan
-                    prisioneros ante un individuo más grande, acompañado por
-                    guardias y con su propio carro esperando detrás de él. El
-                    reverso muestra escenas en las que hombres llevan animales,
-                    peces, etc., posiblemente como botín o tributo; en la parte
-                    superior, el mismo individuo grande se banquetea con otros
-                    hombres; a su derecha, son entretenidos por un cantante y un
-                    hombre que toca una lira. Los paneles triangulares de los
-                    extremos muestran otras escenas; el objeto fue encontrado
-                    aplastado, pero desde entonces ha sido restaurado y se han
-                    conservado muestras.
-                  </p>
-                </section>
-              </main>
-              ;
+          <div style={{ display: "flex" }}>
+            <main style={{ width: "50%" }}>
+              <section className="hero">
+                <p>
+                  "El Estandarte de Ur", decorado en sus cuatro lados con
+                  escenas de mosaicos incrustados hechos de concha, piedra
+                  caliza roja y lapislázuli, fijados con betún. Un lado muestra
+                  una escena de guerra; un ejército sumerio con carros de ruedas
+                  e infantería carga contra el enemigo; se presentan prisioneros
+                  ante un individuo más grande, acompañado por guardias y con su
+                  propio carro esperando detrás de él. El reverso muestra
+                  escenas en las que hombres llevan animales, peces, etc.,
+                  posiblemente como botín o tributo; en la parte superior, el
+                  mismo individuo grande se banquetea con otros hombres; a su
+                  derecha, son entretenidos por un cantante y un hombre que toca
+                  una lira. Los paneles triangulares de los extremos muestran
+                  otras escenas; el objeto fue encontrado aplastado, pero desde
+                  entonces ha sido restaurado y se han conservado muestras.
+                </p>
+              </section>
+            </main>
+            ;
+            <div style={{ width: "50%" }}>
               <Canvas
                 ref={canvasRef}
-                className="canvas"
                 shadows={true}
-                camera={{ position: [0, -5, 46], fov: 15 }}
+                camera={{ position: [0, 0, 20], fov: 15 }}
               >
                 <OrbitControls />
                 <ObjectThree />
               </Canvas>
-            </>
-          }
+            </div>
+          </div>
         </Modal.Body>
       </Modal>
       <Modal
         show={obj3d.cuatro}
         size="xl"
         animation
-        dialogClassName="modal-fullscreen"
         onHide={() =>
           setObj3d({
             uno: false,
@@ -474,50 +464,48 @@ function Museum({ reference }) {
           })
         }
       >
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Museo /</h6>
+          <h1>Lista Real Sumeria</h1>
+        </Modal.Header>
         <Modal.Body>
-          {
-            <>
-              <main className="app">
-                <section className="hero">
-                  <h1>Lista Real Sumeria</h1>
-                  <p>
-                    La Lista Real Sumeria es una lista de reyes de la antigua
-                    Mesopotamia escrita en lengua sumeria grabada en escritura
-                    cuneiforme, sobreviviente en varios documentos y artefactos
-                    arqueológicos de los cuales el mejor conservado es un prisma
-                    de barro cocido encontrado en la ciudad sumeria de Larsa en
-                    1922 (Prisma de Weld-Blundell). Su datación corresponde a
-                    finales de la dinastía de Isin (c. 1817 a. C.). Su ejemplar
-                    más tardío es la transcripción de la lista en la "Historia
-                    Babilónica" de Beroso (s. III a. C.) <br />
-                    <br />
-                    La lista divide a los reyes en antediluvianos (con reinados
-                    de inverosímil longevidad) considerados míticos por los
-                    historiadores, y pos-diluvianos. El primer rey mencionado
-                    cuya existencia es reflejada en documentos fuera de la lista
-                    es Mebaragesi de Kish, contemporáneo de Gilgamesh. El primer
-                    gobernante de la lista que es claramente histórico es
-                    Lugalzagesi de Umma del siglo XXIV a. C., quien conquistara
-                    Lagash, que a su vez fue conquistada por Sargón de Acadia.
-                  </p>
-                </section>
-              </main>
-              ;
+          <div style={{ display: "flex" }}>
+            <main style={{ width: "50%" }}>
+              <section className="hero">
+                <p>
+                  La Lista Real Sumeria es una lista de reyes de la antigua
+                  Mesopotamia escrita en lengua sumeria grabada en escritura
+                  cuneiforme, sobreviviente en varios documentos y artefactos
+                  arqueológicos de los cuales el mejor conservado es un prisma
+                  de barro cocido encontrado en la ciudad sumeria de Larsa en
+                  1922 (Prisma de Weld-Blundell). Su datación corresponde a
+                  finales de la dinastía de Isin (c. 1817 a. C.). Su ejemplar
+                  más tardío es la transcripción de la lista en la "Historia
+                  Babilónica" de Beroso (s. III a. C.) <br />
+                  <br />
+                  La lista divide a los reyes en antediluvianos (con reinados de
+                  inverosímil longevidad) considerados míticos por los
+                  historiadores, y pos-diluvianos. El primer rey mencionado cuya
+                  existencia es reflejada en documentos fuera de la lista es
+                  Mebaragesi de Kish, contemporáneo de Gilgamesh. El primer
+                  gobernante de la lista que es claramente histórico es
+                  Lugalzagesi de Umma del siglo XXIV a. C., quien conquistara
+                  Lagash, que a su vez fue conquistada por Sargón de Acadia.
+                </p>
+              </section>
+            </main>
+            ;
+            <div style={{ width: "50%" }}>
               <Canvas
                 ref={canvasRef}
-                className="canvas"
                 shadows={true}
-                camera={{ position: [0, 0, 40], fov: 30 }}
+                camera={{ position: [0, 0, 20], fov: 15 }}
               >
-                <OrbitControls
-                  minPolarAngle={Math.PI / 4} // Establece el ángulo polar mínimo (altura mínima)
-                  maxPolarAngle={Math.PI / 2}
-                />
+                <OrbitControls />
                 <ObjectFour />
               </Canvas>
-            </>
-          }
+            </div>
+          </div>
         </Modal.Body>
       </Modal>
     </Html>

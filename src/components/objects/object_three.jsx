@@ -42,7 +42,7 @@ export function DescriptionThree() {
 export function ObjectThree(props) {
   const ur = useGLTF("../static/standard_of_ur.glb");
   return (
-    <group position={[-2.5, 5.5, -7]}>
+    <group position={[-1.8, 3, -9]}>
       <directionalLight
         castShadow
         shadow-normalBias={0.04}

@@ -3,7 +3,7 @@ import "./events.css";
 
 /**
  * Componente EventOne
- * 
+ *
  * Este componente muestra información detallada sobre las ciudades sumerias,
  * incluyendo una descripción, imágenes, videos y detalles históricos.
  * Pertenece a la historia de usuario PI1-13
@@ -12,23 +12,18 @@ import "./events.css";
 function EventOne() {
   return (
     <div className="container_events">
-        <div className="lateral">
-          <img className="img_lateral"/>
-        </div>
+      <div className="lateral">
+        <img className="img_lateral" />
+      </div>
 
-        <div className="contenido">
-
-        <div className="titulo">
-          <h1 className="titulo_events">Ciudades Sumerias</h1>
-        </div>
-
+      <div className="contenido">
         <div className="descripcion">
           <div className="Imagen_desc">
-          <img
-            className="imagenes"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Early_Dynastic-es.svg/220px-Early_Dynastic-es.svg.png"
-            alt="Principales ciudades sumerios"
-          />
+            <img
+              className="imagenes"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Early_Dynastic-es.svg/220px-Early_Dynastic-es.svg.png"
+              alt="Principales ciudades sumerios"
+            />
           </div>
           <h4>
             Situación de las principales ciudades sumerias y alcance de esta
@@ -89,19 +84,19 @@ function EventOne() {
           <li>Larsa</li>
           <li>Eridu</li>
           <div className="video">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/TQeP8tWtT48"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/TQeP8tWtT48"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
-        </div>
       </div>
+    </div>
   );
 }
 
