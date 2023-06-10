@@ -27,7 +27,7 @@ function Landing({ reference }) {
     tl.current.to(
       polRef.current.scale,
       {
-        duration: 4,
+        duration: 2,
         x: 0,
         y: 0,
         z: 0,
