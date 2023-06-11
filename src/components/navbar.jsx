@@ -5,11 +5,10 @@ import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import "intersection-observer";
-import React from "react";
+import React, { useEffect } from "react";
 import { useIsVisible } from "react-is-visible";
 import logoapp from "../images/Sumerios.jpg";
-function Section({ page, reference }) {
-  const isVisible = useIsVisible(reference);
+function Section({ page, reference, isVisible }) {
   const handleClick = () => {
     reference?.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -36,9 +35,14 @@ function Section({ page, reference }) {
     </Button>
   );
 }
-function NavbarApp({ window, references, LandingRef }) {
+function NavbarApp({ window, references, LandingRef, scroll }) {
   const pages = ["Destacado", "Museo", "Gastronomía"];
-
+  const actualPage = [
+    0.3 < scroll && scroll < 0.65,
+    0.65 < scroll && scroll < 0.95,
+    0.95 < scroll,
+  ];
+  console.log(actualPage, scroll);
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
@@ -77,7 +81,12 @@ function NavbarApp({ window, references, LandingRef }) {
               }}
             >
               {pages.map((page, index) => (
-                <Section key={page} page={page} reference={references[index]} />
+                <Section
+                  key={page}
+                  page={page}
+                  reference={references[index]}
+                  isVisible={actualPage[index]}
+                />
               ))}
             </Box>
           </Toolbar>

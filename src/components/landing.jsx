@@ -4,7 +4,7 @@ import gsap from "gsap";
 import React, { useLayoutEffect, useRef } from "react";
 import "./events/events.css";
 
-function Landing({ reference }) {
+function Landing({ reference, setScroll }) {
   const lamussu = useGLTF("/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
@@ -12,10 +12,12 @@ function Landing({ reference }) {
   const tl = useRef();
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());
+    setScroll(scroll.scroll.current)
   });
 
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
+
     tl.current.to(
       polRef.current.position,
       {
@@ -27,7 +29,7 @@ function Landing({ reference }) {
     tl.current.to(
       polRef.current.scale,
       {
-        duration: 4,
+        duration: 2,
         x: 0,
         y: 0,
         z: 0,
