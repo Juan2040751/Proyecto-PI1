@@ -38,9 +38,9 @@ function Section({ page, reference, isVisible }) {
 function NavbarApp({ window, references, LandingRef, scroll }) {
   const pages = ["Destacado", "Museo", "Gastronomía"];
   const actualPage = [
-    0.3 < scroll && scroll < 0.65,
-    0.65 < scroll && scroll < 0.95,
-    0.95 < scroll,
+    0.2 < scroll && scroll < 0.5,
+    0.5 < scroll && scroll < 0.8,
+    0.8 < scroll,
   ];
   console.log(actualPage, scroll);
   const trigger = useScrollTrigger({
