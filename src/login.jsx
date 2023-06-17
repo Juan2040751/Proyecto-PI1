@@ -6,7 +6,7 @@ import "./style.css";
 
 /**
  * Componente Login
- * 
+ *
  * Este componente representa la página de inicio de sesión de usuarios.
  * Forma parte de la historia de usuario PI1-20
  */
@@ -24,11 +24,11 @@ function Login() {
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Login successful") {
-          localStorage.setItem('isLogged', 'true');
+          localStorage.setItem("isLogged", "true");
           navigate("/");
         } else {
           setError("Acceso inválido. Por favor, inténtelo otra vez.");
-          localStorage.setItem('isLogged', 'false');
+          localStorage.setItem("isLogged", "false");
         }
       })
       .catch((error) => {
@@ -42,22 +42,28 @@ function Login() {
 
   return (
     <>
-
-      <div className="" style={{
-        display: "flex"
-      }}>
-        <div className="loginContainer"
-
-          style={{ width: "50%" }}
-        >
-          <div className="containerForm" style={{
-            display: "grid"
-          }}>
-            <img src="./static/Sumerios.jpg" style={{
-              width: "400px",
-              margin: "auto",
-              padding: "40px",
-            }}></img>
+      <div
+        className=""
+        style={{
+          display: "flex",
+        }}
+      >
+        <div className="loginContainer" style={{ width: "50%" }}>
+          <div
+            className="containerForm"
+            style={{
+              display: "grid",
+            }}
+          >
+            <img
+              src="./static/Sumerios.jpg"
+              style={{
+                width: "400px",
+                margin: "auto",
+                padding: "40px",
+              }}
+              alt="Sumerios"
+            ></img>
             <h2>Hey, bienvenido &#x1F44B;</h2>
             {error && (
               <div className="error-alert">
@@ -92,8 +98,7 @@ function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button
-                type="submit" className="btn btn-success w-100 mb-3">
+              <button type="submit" className="btn btn-success w-100 mb-3">
                 Iniciar sesión
               </button>
               <div className="text-center">
@@ -107,16 +112,15 @@ function Login() {
             </form>
           </div>
         </div>
-        <div style={{
-          width: "50%",
-          backgroundImage: "url('./static/Lateral.jpg')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}>
-
-        </div>
+        <div
+          style={{
+            width: "50%",
+            backgroundImage: "url('./static/Lateral.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
       </div>
-
     </>
   );
 }

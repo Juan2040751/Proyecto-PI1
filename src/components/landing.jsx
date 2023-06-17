@@ -28,7 +28,7 @@ function Landing({ reference, setScroll }) {
     tl.current.to(
       polRef.current.position,
       {
-        duration: 2,
+        duration: 1,
         x: -1,
       },
       -3
@@ -36,7 +36,7 @@ function Landing({ reference, setScroll }) {
     tl.current.to(
       polRef.current.scale,
       {
-        duration: 2,
+        duration: 1,
         x: 0,
         y: 0,
         z: 0,
@@ -46,7 +46,7 @@ function Landing({ reference, setScroll }) {
     tl.current.to(
       polRef.current.rotation,
       {
-        duration: 2,
+        duration: 1,
         _y: 0.2,
       },
       -3
