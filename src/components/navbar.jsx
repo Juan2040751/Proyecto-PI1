@@ -8,6 +8,17 @@ import "intersection-observer";
 import React, { useEffect } from "react";
 import { useIsVisible } from "react-is-visible";
 import logoapp from "../images/Sumerios.jpg";
+
+/**
+ * Componente Section
+ *
+ * Este archivo representa el componente de una sección de la barra de navegación.
+ * Cumple con los requisitos de la Historia de Usuario PI1-8,
+ * donde se espera que el usuario tenga una barra de navegación que le permita acceder a cada sección de la aplicación.
+ * @param {string} page - Página asociada a la sección.
+ * @param {object} reference - Referencia al elemento HTML.
+ * @returns {JSX.Element} - Elemento JSX que representa una sección de la barra de navegación.
+ */
 function Section({ page, reference, isVisible }) {
   const handleClick = () => {
     reference?.current?.scrollIntoView({ behavior: "smooth" });
@@ -35,6 +46,20 @@ function Section({ page, reference, isVisible }) {
     </Button>
   );
 }
+
+/**
+ * Componente NavbarApp
+ *
+ * Este archivo representa el componente de la barra de navegación presente en cada sección de la aplicación.
+ * Cumple con los requisitos de la Historia de Usuario PI1-7,
+ * donde se espera que el usuario tenga una barra de navegación presente en cada sección de la aplicación
+ * para poder identificar en qué sección de la aplicación se encuentra.
+ *
+ * @param {function} window - Función que devuelve el objeto window (opcional).
+ * @param {Array} references - Array de referencias a las secciones de la aplicación.
+ * @param {object} LandingRef - Referencia a la sección principal de la página (opcional).
+ * @returns {JSX.Element} - Elemento JSX que representa el componente de la barra de navegación.
+ */
 function NavbarApp({ window, references, LandingRef, scroll }) {
   const pages = ["Destacado", "Museo", "Gastronomía"];
   const actualPage = [

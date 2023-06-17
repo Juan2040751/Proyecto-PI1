@@ -4,6 +4,13 @@ import gsap from "gsap";
 import React, { useLayoutEffect, useRef } from "react";
 import "./events/events.css";
 
+/**
+ * Componente Landing
+ *
+ * Este archivo representa la página principal de la aplicación,
+ * que recibe a los usuarios después de iniciar sesión. Cumple con los requisitos de la Historia de Usuario PI1-16,
+ * donde se solicita la presencia de un objeto 3D destacando la cultura de la civilización sumeria en la página de inicio.
+ */
 function Landing({ reference, setScroll }) {
   const lamussu = useGLTF("/static/lamussu.glb");
   const polRef = useRef();
@@ -12,7 +19,7 @@ function Landing({ reference, setScroll }) {
   const tl = useRef();
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());
-    setScroll(scroll.scroll.current)
+    setScroll(scroll.scroll.current);
   });
 
   useLayoutEffect(() => {

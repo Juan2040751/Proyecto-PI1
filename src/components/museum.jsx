@@ -13,12 +13,14 @@ import { ObjectTwo } from "./objects/object_two";
 /**
  * Componente Museum
  *
- * Este componente representa un museo para mostrar los objetos 3d con la ayuda de modals.
- *
- * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se
- * presenten algunos objetos de la cultura sumeria en tercera dimensión, para
- * poder admirar el objeto en diferentes ángulos.
+ * Este archivo representa el componente del museo que muestra objetos en tercera dimensión de la cultura sumeria.
+ * Cumple con los requisitos de la Historia de Usuario PI1-14,
+ * donde se espera que se presenten algunos objetos de la cultura sumeria en tercera dimensión
+ * para que el usuario pueda admirar el objeto en diferentes ángulos.
+ * @param {object} reference - Referencia al elemento HTML.
+ * @returns {JSX.Element} - Elemento JSX que representa el componente del museo.
  */
+
 function Museum({ reference }) {
   const [obj3d, setObj3d] = useState({
     uno: false,
