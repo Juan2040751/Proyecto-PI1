@@ -8,7 +8,7 @@ import Gastronomy from "./components/Gastronomy";
  * Componente Home
  *
  * Este archivo representa la pantalla principal de la aplicación, donde se muestran las diferentes secciones.
- * Incluye los componentes de la página de inicio, el evento destacado y el museo.
+ * Incluye los componentes de la página de inicio, los eventos destacado, el museo y la gastronomia.
  *
  * @param {object} references - Referencias a los elementos HTML de cada sección.
  * @param {object} LandingRef - Referencia al elemento HTML de la página de inicio.
