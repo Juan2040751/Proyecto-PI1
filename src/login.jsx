@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 /**
  * Componente Login
@@ -16,13 +17,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
+  const [openB, setOpenB] = useState(false);
   const handleLogin = async (e) => {
+    setOpenB(true);
     e.preventDefault();
     await axios
       .post("/api/usuarios/login", { email, password })
       .then((response) => {
-        console.log(response.data);
         if (response.data.message === "Login successful") {
           localStorage.setItem("isLogged", "true");
           navigate("/");
@@ -34,6 +35,7 @@ function Login() {
       .catch((error) => {
         console.log(error.response.data);
       });
+    setOpenB(false);
   };
 
   const closeError = () => {
@@ -121,6 +123,10 @@ function Login() {
           }}
         ></div>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={openB}
+      ><CircularProgress color="inherit" /></Backdrop>
     </>
   );
 }
