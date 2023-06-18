@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 /**
  * Componente Login
@@ -57,15 +58,16 @@ function Login() {
               display: "grid",
             }}
           >
-            <img
+            <LazyLoadImage
               src="./static/Sumerios.jpg"
               style={{
                 width: "400px",
                 margin: "auto",
                 padding: "40px",
               }}
+              effect="blur"
               alt="Sumerios"
-            ></img>
+            ></LazyLoadImage>
             <h2>Hey, bienvenido &#x1F44B;</h2>
             {error && (
               <div className="error-alert">
@@ -126,7 +128,9 @@ function Login() {
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={openB}
-      ><CircularProgress color="inherit" /></Backdrop>
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </>
   );
 }

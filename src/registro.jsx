@@ -68,6 +68,7 @@ function Register() {
                 margin: "auto",
                 padding: "40px",
               }}
+              loading="lazy"
             ></img>
             <h2>Registro de Usuario</h2>
             {error && <div className="error-alert"> {error} </div>}
