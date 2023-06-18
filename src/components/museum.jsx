@@ -110,6 +110,7 @@ function Museum({ reference }) {
                 image="./static/sumerian_soldier.png"
                 height="200"
                 alt="Card Image"
+                loading="lazy"
               />
               <CardContent
                 sx={{
@@ -158,6 +159,7 @@ function Museum({ reference }) {
                 image="./static/arcilla_tablemit.PNG"
                 height="200"
                 alt="Escritura"
+                loading="lazy"
               />
               <CardContent
                 sx={{
@@ -203,6 +205,7 @@ function Museum({ reference }) {
             >
               <CardMedia
                 component="img"
+                loading="lazy"
                 image="./static/standard_of_ur.PNG"
                 height="200"
                 alt="Juego Real de Ur"
@@ -253,6 +256,7 @@ function Museum({ reference }) {
                 image="./static/king_list.PNG"
                 height="200"
                 alt="Numeros Sumerios"
+                loading="lazy"
               />
               <CardContent
                 sx={{

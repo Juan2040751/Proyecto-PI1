@@ -7,6 +7,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import "intersection-observer";
 import React from "react";
 import logoapp from "../images/Sumerios.jpg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 /**
  * Componente Section
@@ -89,9 +90,10 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                   LandingRef?.current?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <img
+                <LazyLoadImage
                   src={logoapp}
                   alt="logo"
+                  effect="blur"
                   style={{ height: 40, marginRight: 8 }}
                 />
               </Button>

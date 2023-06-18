@@ -123,6 +123,7 @@ function Gastronomy({ reference }) {
               >
                 <CardMedia
                   component="img"
+                  loading="lazy"
                   image="https://www.cardamomo.news/__export/1648576815999/sites/debate/img/2022/03/29/pan_de_cebada.png_242310155.png"
                   height="200"
                   alt="Pan de cebada"
@@ -162,6 +163,7 @@ function Gastronomy({ reference }) {
               >
                 <CardMedia
                   component="img"
+                  loading="lazy"
                   image="https://hips.hearstapps.com/hmg-prod/images/190326-lamb-stew-325-1553801000.jpg?crop=0.668xw:1.00xh;0.148xw,0.00255xh&resize=1200:*"
                   height="200"
                   alt="Lamb Stew"
@@ -200,6 +202,7 @@ function Gastronomy({ reference }) {
               >
                 <CardMedia
                   component="img"
+                  loading="lazy"
                   image="https://cdn.colombia.com/gastronomia/2018/11/20/sopa-de-cebada-perlada-3128.jpg"
                   height="200"
                   alt="Sopita do macaco"

@@ -91,6 +91,7 @@ function Featured({ reference }) {
             >
               <CardMedia
                 component="img"
+                loading="lazy"
                 image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Early_Dynastic-es.svg/220px-Early_Dynastic-es.svg.png"
                 height="200"
                 alt="Card Image"
@@ -141,6 +142,7 @@ function Featured({ reference }) {
             >
               <CardMedia
                 component="img"
+                loading="lazy"
                 image="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Clay_cone_Telloh_Louvre_AO13239.jpg/399px-Clay_cone_Telloh_Louvre_AO13239.jpg"
                 height="200"
                 alt="Escritura"
@@ -189,6 +191,7 @@ function Featured({ reference }) {
             >
               <CardMedia
                 component="img"
+                loading="lazy"
                 image="https://consolaytablero.com/wp-content/uploads/2016/04/juego-real-de-ur.jpg"
                 height="200"
                 alt="Juego Real de Ur"
@@ -240,6 +243,7 @@ function Featured({ reference }) {
             >
               <CardMedia
                 component="img"
+                loading="lazy"
                 image="https://ulum.es/wp-content/uploads/2014/10/sumerios.png"
                 height="200"
                 alt="Numeros Sumerios"

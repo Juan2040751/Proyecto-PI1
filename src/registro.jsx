@@ -4,6 +4,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 /**
  * Componente Register
@@ -61,15 +62,17 @@ function Register() {
       >
         <div className="registerContainer" style={{ width: "50%" }}>
           <div className="containerForm" style={{ display: "grid" }}>
-            <img
+            <LazyLoadImage
               src="./static/Sumerios.jpg"
               style={{
                 width: "400px",
                 margin: "auto",
                 padding: "40px",
               }}
+              effect="blur"
               loading="lazy"
-            ></img>
+              alt="sumerios app logo"
+            ></LazyLoadImage>
             <h2>Registro de Usuario</h2>
             {error && <div className="error-alert"> {error} </div>}
             {exito && (
