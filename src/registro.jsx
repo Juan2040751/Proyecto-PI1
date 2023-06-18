@@ -60,7 +60,7 @@ function Register() {
           display: "flex",
         }}
       >
-        <div className="registerContainer" style={{ width: "50%" }}>
+        <div className="regLogContainer" style={{ width: "50%" }}>
           <div className="containerForm" style={{ display: "grid" }}>
             <LazyLoadImage
               src="./static/Sumerios.jpg"
@@ -138,7 +138,7 @@ function Register() {
                   onClick={() => navigate("/login")}
                   className="btn btn-primary mb-3"
                 >
-                  Ir al inicio de sesión
+                  Iniciar sesión
                 </button>
               </div>
             </form>
@@ -149,7 +149,7 @@ function Register() {
             width: "50%",
             backgroundImage: "url('./static/Lateral.jpg')",
             backgroundPosition: "center",
-            backgroundSize: "cover",
+            backgroundSize: "cover"
           }}
         ></div>
       </div>

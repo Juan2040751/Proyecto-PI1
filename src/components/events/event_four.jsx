@@ -15,6 +15,7 @@ function EventFour() {
       <div className="lateral">
         <img
           className="img_lateral"
+          loading="lazy"
           src="http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg"
           alt="Img lateral"
         />
@@ -55,6 +56,7 @@ function EventFour() {
           <div className="Imagen_desc">
             <img
               className="imagenes"
+              loading="lazy"
               src="https://ulum.es/wp-content/uploads/2014/10/sumerios.png"
               alt="Numeros Sumerios"
             />
@@ -84,6 +86,7 @@ function EventFour() {
           <div className="Imagen_desc">
             <img
               className="imagenes"
+              loading="lazy"
               src="https://ulum.es/wp-content/uploads/2014/10/tmano-sumeria.jpg"
               alt="Sistema de conteo con la mano"
             />
@@ -115,6 +118,7 @@ function EventFour() {
           <div className="Imagen_desc">
             <img
               src="https://ulum.es/wp-content/uploads/2014/10/tabla.jpg"
+              loading="lazy"
               alt=""
             />
           </div>
@@ -136,6 +140,7 @@ function EventFour() {
           <div className="Imagen_desc">
             <img
               src="https://ulum.es/wp-content/uploads/2014/10/1-copia.jpg"
+              loading="lazy"
               alt=""
             />
           </div>

@@ -13,7 +13,7 @@ function EventOne() {
   return (
     <div className="container_events">
       <div className="lateral">
-        <img className="img_lateral" />
+        <img className="img_lateral" alt="" loading="lazy"/>
       </div>
 
       <div className="contenido">
@@ -21,6 +21,7 @@ function EventOne() {
           <div className="Imagen_desc">
             <img
               className="imagenes"
+              loading="lazy"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Early_Dynastic-es.svg/220px-Early_Dynastic-es.svg.png"
               alt="Principales ciudades sumerios"
             />

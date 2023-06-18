@@ -51,7 +51,7 @@ function Login() {
           display: "flex",
         }}
       >
-        <div className="loginContainer" style={{ width: "50%" }}>
+        <div className="regLogContainer" style={{ width: "50%" }}>
           <div
             className="containerForm"
             style={{
@@ -110,7 +110,7 @@ function Login() {
                   onClick={() => navigate("/registro")}
                   className="btn btn-primary mb-3"
                 >
-                  Crear cuenta nueva
+                  Registrarse
                 </button>
               </div>
             </form>

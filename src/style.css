@@ -17,21 +17,17 @@ body,
   height: 100vh;
 }
 
-.registerContainer {
+.regLogContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  animation-duration: 2s;
+  transition-timing-function: linear;
+  transition-property: height;
 }
 
-.loginContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-top: 20px;
-}
 
 .containerForm {
   width: 400px;
