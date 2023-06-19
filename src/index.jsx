@@ -1,11 +1,10 @@
-import React, { Suspense, useEffect } from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import App from "./app";
 import Login from "./login";
 import Register from "./registro";
 import "./style.css";
-import Animation from "./components/animation";
 /**
  * Componente CheckAuthentication
  *
@@ -25,7 +24,7 @@ const CheckAuthentication = ({ children }) => {
     }
   }, [navigate]);
 
-  return <Suspense fallback={Animation}>{children}</Suspense>;
+  return children;
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -39,22 +38,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </CheckAuthentication>
         }
       />
-      <Route
-        path="/registro"
-        element={
-          <Suspense fallback={Animation}>
-            <Register />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <Suspense fallback={Animation}>
-            <Login />
-          </Suspense>
-        }
-      />
+      <Route path="/registro" element={<Register />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   </BrowserRouter>
 );

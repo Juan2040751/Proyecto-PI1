@@ -34,11 +34,11 @@ function Featured({ reference }) {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          infinite: true,
+          infinite: false,
           dots: true,
           arrows: true,
         },
@@ -49,15 +49,11 @@ function Featured({ reference }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          infinite: false,
+          dots: true,
+          arrows: true,
         },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
+      }
     ],
   };
 
@@ -70,23 +66,17 @@ function Featured({ reference }) {
       <div
         style={{
           position: "relative",
-          padding: "2%",
         }}
       >
         <Slider {...settings}>
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -98,19 +88,17 @@ function Featured({ reference }) {
               />
               <CardContent
                 sx={{
-                  height: "340px",
+                  height: "370px",
                   overflow: "hidden",
                 }}
               >
                 <h2>Ciudades Sumerias</h2>
                 <p>
-                  Sobre el cuarto milenio a.C. se produjo en la Antigua
-                  Mesopotamia el tránsito de los asentamientos neolíticos a la
-                  aparición de las primeras ciudades de la Historia. Las
-                  ciudades comenzaron a ser el centro de actividad principal y
-                  sus habitantes comenzaron una intensa especialización en el
-                  trabajo, de forma que cada persona únicamente sabía realizar
-                  una actividad.
+                  Sobre el cuarto milenio a.C. se produjo la aparición de las
+                  primeras ciudades de la Historia. Las ciudades comenzaron a
+                  ser el centro de actividad principal y sus habitantes
+                  comenzaron una intensa especialización en el trabajo, de forma
+                  que cada persona únicamente sabía realizar una actividad.
                 </p>
               </CardContent>
               <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
@@ -125,19 +113,14 @@ function Featured({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -149,7 +132,7 @@ function Featured({ reference }) {
               />
               <CardContent
                 sx={{
-                  height: "340px",
+                  height: "370px",
                   overflow: "hidden",
                 }}
               >
@@ -174,19 +157,14 @@ function Featured({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -198,19 +176,18 @@ function Featured({ reference }) {
               />
               <CardContent
                 sx={{
-                  height: "340px",
+                  height: "370px",
                   overflow: "hidden",
                 }}
               >
                 <h2>Juego Real de Ur</h2>
                 <p>
-                  En la década de 1920, el arqueólogo británico Leonard Woolley
-                  descubrió una serie de tumbas en las ruinas de la antigua
-                  ciudad sumeria de Ur, en el actual Irak. Las sepulturas más
-                  ornamentadas del hallazgo, que pasarían a conocerse como las
-                  Tumbas Reales de Ur, contenían toda clase de joyas,
-                  vestimenta, armas, cuerpos de sirvientes… y hasta un juego de
-                  mesa.
+                  En la década de 1920, se descubrió una serie de tumbas en las
+                  ruinas de la antigua ciudad sumeria de Ur, en el actual Irak.
+                  Las sepulturas más ornamentadas del hallazgo, que pasarían a
+                  conocerse como las Tumbas Reales de Ur, contenían toda clase
+                  de joyas, vestimenta, armas, cuerpos de sirvientes… y hasta un
+                  juego de mesa.
                 </p>
               </CardContent>
 
@@ -226,19 +203,14 @@ function Featured({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -250,19 +222,18 @@ function Featured({ reference }) {
               />
               <CardContent
                 sx={{
-                  height: "340px",
+                  height: "370px",
                   overflow: "hidden",
                 }}
               >
                 <h2>Sistema Numerico</h2>
                 <p>
                   Uruk fue una antigua ciudad sumeria. Se encontraba en la
-                  orilla del río Éufrates y vivió su máximo esplendor en el
-                  tercer milenio antes de Cristo. Una de sus características más
+                  orilla del río Éufrates. Una de sus características más
                   llamativas era su muralla, que rodeaba una zona de unos siete
                   kilómetros cuadrados donde vivían ochenta mil personas. Es
                   decir, era la mayor ciudad que el mundo había conocido hasta
-                  en tonces.
+                  entonces.
                 </p>
               </CardContent>
 

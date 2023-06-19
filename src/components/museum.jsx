@@ -30,17 +30,8 @@ function Museum({ reference }) {
   });
 
   const canvasRef = useRef();
-  /** 
-  const toggleFullscreen = () => {
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else {
-      canvasRef.current.requestFullscreen();
-    }
-  };
-*/
 
-  var settings3d = {
+  var settings = {
     dots: true,
     arrows: true, // Habilitar las flechas
     infinite: false,
@@ -51,7 +42,7 @@ function Museum({ reference }) {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -61,11 +52,13 @@ function Museum({ reference }) {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: true,
+          arrows: true,
         },
       },
       {
@@ -73,6 +66,8 @@ function Museum({ reference }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: true,
+          arrows: true,
         },
       },
     ],
@@ -89,20 +84,15 @@ function Museum({ reference }) {
           padding: "2%",
         }}
       >
-        <Slider {...settings3d}>
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+        <Slider {...settings}>
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -139,19 +129,14 @@ function Museum({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -188,19 +173,14 @@ function Museum({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -236,19 +216,14 @@ function Museum({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
