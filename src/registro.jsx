@@ -47,6 +47,7 @@ function Register() {
         }
       })
       .catch((error) => {
+        setError("Ocurrió un error. Por favor, inténtelo otra vez.");
         console.log(error.response.data);
       });
     setOpenB(false);
