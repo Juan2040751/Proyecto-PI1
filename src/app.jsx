@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import NavbarApp from "./components/navbar";
 import Home from "./home";
 /**

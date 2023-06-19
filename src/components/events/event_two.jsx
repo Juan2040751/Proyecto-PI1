@@ -13,7 +13,7 @@ function EventTwo() {
   return (
     <div className="container_events">
       <div className="lateral">
-        <img className="img_lateral" />
+        <img className="img_lateral" alt="" loading="lazy"/>
       </div>
 
       <div className="contenido">
@@ -21,6 +21,7 @@ function EventTwo() {
           <div className="Imagen_desc">
             <img
               className="imagenes"
+              loading="lazy"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Clay_cone_Telloh_Louvre_AO13239.jpg/399px-Clay_cone_Telloh_Louvre_AO13239.jpg"
               alt="Escritura"
             />

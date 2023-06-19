@@ -5,7 +5,6 @@ import App from "./app";
 import Login from "./login";
 import Register from "./registro";
 import "./style.css";
-
 /**
  * Componente CheckAuthentication
  *
@@ -39,9 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </CheckAuthentication>
         }
       />
-
       <Route path="/registro" element={<Register />} />
-
       <Route path="/login" element={<Login />} />
     </Routes>
   </BrowserRouter>

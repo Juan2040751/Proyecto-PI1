@@ -1,0 +1,32 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.gastronomy_text {
+  width: 60%;
+  padding: 20px;
+  min-width: 400px;
+}
+.gastronomy_cards {
+  position: relative;
+  padding: 3%;
+  width: 40%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-top: "15px";
+}
+@media (max-width: 1000px) {
+  .gastronomy_text {
+    width: 100%;
+  }
+  .gastronomy_cards {
+    width: 100%;
+  }
+  
+}

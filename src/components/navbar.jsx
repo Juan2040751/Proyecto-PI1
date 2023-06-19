@@ -5,9 +5,9 @@ import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import "intersection-observer";
-import React, { useEffect } from "react";
-import { useIsVisible } from "react-is-visible";
+import React from "react";
 import logoapp from "../images/Sumerios.jpg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 /**
  * Componente Section
@@ -27,6 +27,7 @@ function Section({ page, reference, isVisible }) {
     <Button
       onClick={handleClick}
       style={{
+        animationDuration: "1s",
         backgroundColor: isVisible ? "#0d6efd" : "transparent",
         color: isVisible ? "white" : "black",
       }}
@@ -67,7 +68,6 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
     0.5 < scroll && scroll < 0.8,
     0.8 < scroll,
   ];
-  console.log(actualPage, scroll);
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
@@ -90,9 +90,10 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                   LandingRef?.current?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <img
+                <LazyLoadImage
                   src={logoapp}
                   alt="logo"
+                  effect="blur"
                   style={{ height: 40, marginRight: 8 }}
                 />
               </Button>
