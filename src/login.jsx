@@ -3,10 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import { Backdrop, CircularProgress } from "@mui/material";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 /**
  * Componente Login
- * 
+ *
  * Este componente representa la página de inicio de sesión de usuarios.
  * Forma parte de la historia de usuario PI1-20
  */
@@ -16,24 +18,26 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
+  const [openB, setOpenB] = useState(false);
   const handleLogin = async (e) => {
+    setOpenB(true);
     e.preventDefault();
     await axios
       .post("/api/usuarios/login", { email, password })
       .then((response) => {
-        console.log(response.data);
         if (response.data.message === "Login successful") {
-          localStorage.setItem('isLogged', 'true');
+          localStorage.setItem("isLogged", "true");
           navigate("/");
         } else {
           setError("Acceso inválido. Por favor, inténtelo otra vez.");
-          localStorage.setItem('isLogged', 'false');
+          localStorage.setItem("isLogged", "false");
         }
       })
       .catch((error) => {
+        setError("Ocurrió un error. Por favor, inténtelo otra vez.");
         console.log(error.response.data);
       });
+    setOpenB(false);
   };
 
   const closeError = () => {
@@ -42,22 +46,29 @@ function Login() {
 
   return (
     <>
-
-      <div className="" style={{
-        display: "flex"
-      }}>
-        <div className="loginContainer"
-
-          style={{ width: "50%" }}
-        >
-          <div className="containerForm" style={{
-            display: "grid"
-          }}>
-            <img src="./static/Sumerios.jpg" style={{
-              width: "400px",
-              margin: "auto",
-              padding: "40px",
-            }}></img>
+      <div
+        className=""
+        style={{
+          display: "flex",
+        }}
+      >
+        <div className="regLogContainer" style={{ width: "50%" }}>
+          <div
+            className="containerForm"
+            style={{
+              display: "grid",
+            }}
+          >
+            <LazyLoadImage
+              src="./static/Sumerios.jpg"
+              style={{
+                width: "400px",
+                margin: "auto",
+                padding: "40px",
+              }}
+              effect="blur"
+              alt="Sumerios"
+            ></LazyLoadImage>
             <h2>Hey, bienvenido &#x1F44B;</h2>
             {error && (
               <div className="error-alert">
@@ -92,8 +103,7 @@ function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button
-                type="submit" className="btn btn-success w-100 mb-3">
+              <button type="submit" className="btn btn-success w-100 mb-3">
                 Iniciar sesión
               </button>
               <div className="text-center">
@@ -101,22 +111,27 @@ function Login() {
                   onClick={() => navigate("/registro")}
                   className="btn btn-primary mb-3"
                 >
-                  Crear cuenta nueva
+                  Registrarse
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <div style={{
-          width: "50%",
-          backgroundImage: "url('./static/Lateral.jpg')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}>
-
-        </div>
+        <div
+          style={{
+            width: "50%",
+            backgroundImage: "url('./static/Lateral.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
       </div>
-
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={openB}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </>
   );
 }

@@ -14,6 +14,7 @@ function EventThree() {
       <div className="lateral">
         <img
           className="img_lateral"
+          loading="lazy"
           src="http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg"
           alt="Img lateral"
         />
@@ -26,6 +27,7 @@ function EventThree() {
       <div className="Imagen_desc">
         <img
           className="imagenes"
+          loading="lazy"
           src="https://consolaytablero.com/wp-content/uploads/2016/04/juego-real-de-ur.jpg"
           alt="Escritura"
         />
@@ -62,6 +64,7 @@ function EventThree() {
         </p>
         <img
           src="https://consolaytablero.com/wp-content/uploads/2016/04/juego-real-de-ur-tablero.jpg"
+          loading="lazy"
           alt="ejemplo"
         />
         <p>

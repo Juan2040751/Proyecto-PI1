@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-
+import { Backdrop, CircularProgress } from "@mui/material";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 /**
  * Componente Register
- * 
+ *
  * Este componente representa la página de registro de usuarios.
- * Forma parte de la historia de usuario PI1-19: Como usuario, deseo poder crear una cuenta en 
+ * Forma parte de la historia de usuario PI1-19: Como usuario, deseo poder crear una cuenta en
  * la página para acceder a la información exclusiva que se presenta en ella.
  */
 function Register() {
@@ -19,47 +20,68 @@ function Register() {
   const [confirmation, setConfirmation] = useState("");
   const [error, setError] = useState("");
   const [exito, setExito] = useState("");
+  const [openB, setOpenB] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setOpenB(true);
     await axios
-      .post("/api/usuarios/registro", { username, email, password, confirmation })
+      .post("/api/usuarios/registro", {
+        username,
+        email,
+        password,
+        confirmation,
+      })
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Registration successful.") {
           setExito("Te has registrado exitosamente");
-          localStorage.setItem('isLogged', 'true');
+          localStorage.setItem("isLogged", "true");
           setTimeout(() => {
             navigate("/");
           }, 2200);
         } else {
           setError(response.data.message);
-          localStorage.setItem('isLogged', 'true');
+          localStorage.setItem("isLogged", "true");
         }
       })
       .catch((error) => {
+        setError("Ocurrió un error. Por favor, inténtelo otra vez.");
         console.log(error.response.data);
       });
+    setOpenB(false);
   };
 
   return (
     <>
-
-      <div className="wrapper" style={{
-        display: "flex"
-      }}>
-        <div className="registerContainer" style={{ width: "50%" }}>
-
+      <div
+        className="wrapper"
+        style={{
+          display: "flex",
+        }}
+      >
+        <div className="regLogContainer" style={{ width: "50%" }}>
           <div className="containerForm" style={{ display: "grid" }}>
-            <img src="./static/Sumerios.jpg" style={{
-              width: "400px",
-              margin: "auto",
-              padding: "40px",
-            }}></img>
+            <LazyLoadImage
+              src="./static/Sumerios.jpg"
+              style={{
+                width: "400px",
+                margin: "auto",
+                padding: "40px",
+              }}
+              effect="blur"
+              loading="lazy"
+              alt="sumerios app logo"
+            ></LazyLoadImage>
             <h2>Registro de Usuario</h2>
-            {error && (<div className="error-alert"> {error} </div>)}
-            {exito && (<div className="success-alert alert alert-success text-center"> {exito} </div>)}
+            {error && <div className="error-alert"> {error} </div>}
+            {exito && (
+              <div className="success-alert alert alert-success text-center">
+                {" "}
+                {exito}{" "}
+              </div>
+            )}
             <form onSubmit={handleRegister}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
@@ -117,21 +139,27 @@ function Register() {
                   onClick={() => navigate("/login")}
                   className="btn btn-primary mb-3"
                 >
-                  Ir al inicio de sesión
+                  Iniciar sesión
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <div style={{
-          width: "50%",
-          backgroundImage: "url('./static/Lateral.jpg')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}>
-
-        </div>
+        <div
+          style={{
+            width: "50%",
+            backgroundImage: "url('./static/Lateral.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}
+        ></div>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={openB}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </>
   );
 }

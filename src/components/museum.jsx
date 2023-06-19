@@ -13,12 +13,14 @@ import { ObjectTwo } from "./objects/object_two";
 /**
  * Componente Museum
  *
- * Este componente representa un museo para mostrar los objetos 3d con la ayuda de modals.
- *
- * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se
- * presenten algunos objetos de la cultura sumeria en tercera dimensión, para
- * poder admirar el objeto en diferentes ángulos.
+ * Este archivo representa el componente del museo que muestra objetos en tercera dimensión de la cultura sumeria.
+ * Cumple con los requisitos de la Historia de Usuario PI1-14,
+ * donde se espera que se presenten algunos objetos de la cultura sumeria en tercera dimensión
+ * para que el usuario pueda admirar el objeto en diferentes ángulos.
+ * @param {object} reference - Referencia al elemento HTML.
+ * @returns {JSX.Element} - Elemento JSX que representa el componente del museo.
  */
+
 function Museum({ reference }) {
   const [obj3d, setObj3d] = useState({
     uno: false,
@@ -28,17 +30,8 @@ function Museum({ reference }) {
   });
 
   const canvasRef = useRef();
-  /** 
-  const toggleFullscreen = () => {
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-    } else {
-      canvasRef.current.requestFullscreen();
-    }
-  };
-*/
 
-  var settings3d = {
+  var settings = {
     dots: true,
     arrows: true, // Habilitar las flechas
     infinite: false,
@@ -49,7 +42,7 @@ function Museum({ reference }) {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -59,11 +52,13 @@ function Museum({ reference }) {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: true,
+          arrows: true,
         },
       },
       {
@@ -71,6 +66,8 @@ function Museum({ reference }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: true,
+          arrows: true,
         },
       },
     ],
@@ -87,20 +84,15 @@ function Museum({ reference }) {
           padding: "2%",
         }}
       >
-        <Slider {...settings3d}>
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+        <Slider {...settings}>
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -108,6 +100,7 @@ function Museum({ reference }) {
                 image="./static/sumerian_soldier.png"
                 height="200"
                 alt="Card Image"
+                loading="lazy"
               />
               <CardContent
                 sx={{
@@ -136,19 +129,14 @@ function Museum({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -156,6 +144,7 @@ function Museum({ reference }) {
                 image="./static/arcilla_tablemit.PNG"
                 height="200"
                 alt="Escritura"
+                loading="lazy"
               />
               <CardContent
                 sx={{
@@ -184,23 +173,19 @@ function Museum({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
                 component="img"
+                loading="lazy"
                 image="./static/standard_of_ur.PNG"
                 height="200"
                 alt="Juego Real de Ur"
@@ -231,19 +216,14 @@ function Museum({ reference }) {
             </Card>
           </Grid>
 
-          <Grid
-            item
-            xs={10}
-            sm={4}
-            md={2}
-            sx={{ margin: "10px", maxWidth: "450px" }}
-          >
+          <Grid item xs={10} sm={4} md={2}>
             <Card
               sx={{
                 transition: "0.2s",
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
@@ -251,6 +231,7 @@ function Museum({ reference }) {
                 image="./static/king_list.PNG"
                 height="200"
                 alt="Numeros Sumerios"
+                loading="lazy"
               />
               <CardContent
                 sx={{
