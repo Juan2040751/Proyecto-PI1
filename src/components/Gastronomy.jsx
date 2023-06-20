@@ -4,7 +4,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-
+import "./components.css";
 /**
  * Componente Gastronomy
  *
@@ -16,7 +16,7 @@ import "slick-carousel/slick/slick.css";
 function Gastronomy({ reference }) {
   var settings = {
     dots: true,
-    arrows: true,
+    arrows: true, // Habilitar las flechas
     infinite: false,
     speed: 500,
     slidesToShow: 1,
@@ -25,10 +25,10 @@ function Gastronomy({ reference }) {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1000,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
           arrows: true,
@@ -40,6 +40,8 @@ function Gastronomy({ reference }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: true,
+          arrows: true,
         },
       },
       {
@@ -47,19 +49,21 @@ function Gastronomy({ reference }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
+          dots: true,
+          arrows: true,
         },
       },
     ],
   };
-
   return (
     <Html fullscreen style={{ top: "400vh" }}>
       <div className="titulo" ref={reference} id="Gastronomía">
         <h1>GASTRONOMIA SUMERÍA</h1>
       </div>
 
-      <div style={{ display: "flex" }}>
-        <div style={{ width: "60%", padding: "20px", marginTop: "-16px" }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div className="gastronomy_text">
           <p>
             Los sumerios, una antigua civilización que habitó en Mesopotamia,
             desarrollaron una cultura culinaria rica y diversa. Su gastronomía
@@ -67,9 +71,7 @@ function Gastronomy({ reference }) {
             significado social y religioso en su sociedad.
           </p>
 
-          <h2 style={{ marginTop: "-2px" }}>
-            Importancia en la historia de la alimentación
-          </h2>
+          <h2>Importancia en la historia de la alimentación</h2>
           <p style={{ marginTop: "-40px" }}>
             La gastronomía sumeria fue fundamental en la historia de la
             alimentación. Los sumerios fueron pioneros en la agricultura y la
@@ -80,7 +82,7 @@ function Gastronomy({ reference }) {
             gastronomía en las civilizaciones posteriores.
           </p>
 
-          <h2 style={{ marginTop: "-2px" }}>Influencia en la cocina actual</h2>
+          <h2>Influencia en la cocina actual</h2>
           <p style={{ marginTop: "-40px" }}>
             La cocina sumeria ha dejado un legado en la gastronomía actual.
             Muchos platos sumerios han evolucionado y conservan elementos
@@ -92,38 +94,24 @@ function Gastronomy({ reference }) {
           </p>
         </div>
 
-        <div
-          style={{
-            position: "relative",
-            padding: "3%",
-            width: "40%",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <h2 style={{ textAlign: "justify", marginTop: "-32px" }}>
-            Platos Sumerios Tradicionales
-          </h2>
+        <div className="gastronomy_cards">
+          <h2 style={{ textAlign: "center" }}>Platos Sumerios Tradicionales</h2>
 
           <Slider {...settings}>
-            <Grid
-              item
-              xs={10}
-              sm={4}
-              md={2}
-              sx={{ margin: "10px", maxWidth: "450px" }}
-            >
+            <Grid item xs={10} sm={4} md={2}>
               <Card
                 sx={{
                   transition: "0.2s",
                   "&:hover": {
                     transform: "scale(1.05)",
                   },
+                  margin: "5px",
                 }}
               >
                 <CardMedia
                   component="img"
                   image="https://www.cardamomo.news/__export/1648576815999/sites/debate/img/2022/03/29/pan_de_cebada.png_242310155.png"
+                  loading="lazy"
                   height="200"
                   alt="Pan de cebada"
                 />
@@ -145,24 +133,20 @@ function Gastronomy({ reference }) {
               </Card>
             </Grid>
 
-            <Grid
-              item
-              xs={10}
-              sm={4}
-              md={2}
-              sx={{ margin: "10px", maxWidth: "450px" }}
-            >
+            <Grid item xs={10} sm={4} md={2}>
               <Card
                 sx={{
                   transition: "0.2s",
                   "&:hover": {
                     transform: "scale(1.05)",
                   },
+                  margin: "5px",
                 }}
               >
                 <CardMedia
                   component="img"
                   image="https://hips.hearstapps.com/hmg-prod/images/190326-lamb-stew-325-1553801000.jpg?crop=0.668xw:1.00xh;0.148xw,0.00255xh&resize=1200:*"
+                  loading="lazy"
                   height="200"
                   alt="Lamb Stew"
                 />
@@ -183,24 +167,20 @@ function Gastronomy({ reference }) {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid
-              item
-              xs={10}
-              sm={4}
-              md={2}
-              sx={{ margin: "10px", maxWidth: "450px" }}
-            >
+            <Grid item xs={10} sm={4} md={2}>
               <Card
                 sx={{
                   transition: "0.2s",
                   "&:hover": {
                     transform: "scale(1.05)",
                   },
+                  margin: "5px",
                 }}
               >
                 <CardMedia
                   component="img"
                   image="https://cdn.colombia.com/gastronomia/2018/11/20/sopa-de-cebada-perlada-3128.jpg"
+                  loading="lazy"
                   height="200"
                   alt="Sopita do macaco"
                 />
