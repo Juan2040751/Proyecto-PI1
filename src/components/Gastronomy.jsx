@@ -53,7 +53,7 @@ function Gastronomy({ reference }) {
   };
 
   return (
-    <Html fullscreen style={{ top: "300vh" }}>
+    <Html fullscreen style={{ top: "400vh" }}>
       <div className="titulo" ref={reference} id="Gastronomía">
         <h1>GASTRONOMIA SUMERÍA</h1>
       </div>

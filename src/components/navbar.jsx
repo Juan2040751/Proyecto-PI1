@@ -5,8 +5,8 @@ import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import "intersection-observer";
-import React, { useEffect } from "react";
-import { useIsVisible } from "react-is-visible";
+import React, {  } from "react";
+
 import logoapp from "../images/Sumerios.jpg";
 
 /**
@@ -61,10 +61,11 @@ function Section({ page, reference, isVisible }) {
  * @returns {JSX.Element} - Elemento JSX que representa el componente de la barra de navegación.
  */
 function NavbarApp({ window, references, LandingRef, scroll }) {
-  const pages = ["Destacado", "Museo", "Gastronomía"];
+  const pages = ["Destacado", "Arquitectura" ,"Museo", "Gastronomía"];
   const actualPage = [
-    0.2 < scroll && scroll < 0.5,
-    0.5 < scroll && scroll < 0.8,
+    0.2 < scroll && scroll < 0.4,
+    0.4 < scroll && scroll < 0.6,
+    0.6 < scroll && scroll < 0.8,
     0.8 < scroll,
   ];
   console.log(actualPage, scroll);

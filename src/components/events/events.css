@@ -64,6 +64,12 @@
     color: #676867;
 }
 
+.titulo_arqui{
+  text-align: center;
+  grid-area: n2;
+  color: #676867;
+}
+
 .video{
     text-align: center;
 }
@@ -128,86 +134,6 @@ p{
     height: calc(100% - 56px); /* Ajusta el valor según el tamaño del encabezado del modal */
   }
   
-/*
-.container_events{
-    display: grid;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(4,1fr);
-    grid-template-areas: 
-    "n1 n2 n2 n2 n2"
-    "n1 n3 n3 n3 n3"
-    "n1 n3 n3 n3 n3"
-    "n1 n3 n3 n3 n3"
-;
-}
-
-li{
-    font-size: 20px;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-.titulo_events{
-    margin: 0%;
-    color: #33383b;
-    font-size: 70px;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-h2{
-    color: #33383b;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-h4{
-    font-family: 'Tenor Sans', sans-serif;
-    color: #33383b;
-    font-weight: 20;
-}
-
-.lateral{
-    grid-area: n1;
-    color: blue;
-    text-align: center;
-}
-
-.img_lateral{
-    border-radius: 3%;
-    width: 80%;
-    height: 100%;
-    
-}
-
-.titulo{
-    text-align: center;
-    padding: 30px;
-    grid-area: n2;
-    color: #676867;
-}
-
-.descripcion{
-    padding: 30px;
-    padding-right: 50px;
-    text-align: center;
-    grid-area: n3;
-    color: #33383b
-}
-
-p{
-    padding-top: 40px;
-    text-align: justify;
-    font-size: 20px;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-.imagenes{
-    width: 200px;
-    
-}
-*/
-
 .canvas{
   height: 800px;
   position: absolute !important;
@@ -233,4 +159,8 @@ p{
   flex-direction: column;
 }
 
- 
+.sketchfab-embed-wrapper{
+  height: 100vh;
+  width: 50vh;
+}
+
