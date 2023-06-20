@@ -74,7 +74,7 @@ function Museum({ reference }) {
   };
 
   return (
-    <Html fullscreen style={{ top: "200vh", padding: "2%" }}>
+    <Html fullscreen style={{ top: "300vh", padding: "2%" }}>
       <div className="titulo" ref={reference} id="Museo">
         <h1>MUSEO</h1>
       </div>

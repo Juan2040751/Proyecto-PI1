@@ -3,6 +3,7 @@ import Featured from "./components/featured_event";
 import Landing from "./components/landing";
 import Museum from "./components/museum";
 import Gastronomy from "./components/Gastronomy";
+import Arqitectura  from "./components/Arqitectura";
 
 /**
  * Componente Home
@@ -19,8 +20,9 @@ function Home({ references, LandingRef, setScroll}) {
     <ScrollControls pages={1} damping={0.1}>
       <Landing reference={LandingRef} setScroll={setScroll}/>
       <Featured reference={references[0]} />
-      <Museum reference={references[1]} />
-      <Gastronomy reference={references[2]}/>
+      <Arqitectura reference={references[1]} />
+      <Museum reference={references[2]} />
+      <Gastronomy reference={references[3]}/>
     </ScrollControls>
   );
 }
