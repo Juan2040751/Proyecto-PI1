@@ -1,8 +1,7 @@
-import React from "react";
-import "../events/events.css";
-import Slider from "react-slick";
 import { Card, CardContent } from "@mui/material";
-
+import React from "react";
+import Slider from "react-slick";
+import "../events/events.css";
 
 
 /**
@@ -13,7 +12,7 @@ import { Card, CardContent } from "@mui/material";
  * Forma parte de la historia de usuario PI1-25:Como usuario, deseo explorar la arquitectura de la civilización sumeria para comprender su estilo, técnicas constructivas y simbolismo.
  */
 
-function SampleNextArrow(props) {
+export function SampleNextArrow(props) {
   const { className, style , onClick } = props;
   return (
     <div
@@ -24,7 +23,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+export function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
@@ -41,11 +40,11 @@ export function ArquiGeneral(props) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    
   };
 
   return (
@@ -87,8 +86,8 @@ export function ArquiGeneral(props) {
         <div
           style={{
             padding: "2%",
-            width: "30%", // El 40% del ancho de la ventana
-            height: "40vh", // El 100% de la altura de la ventana
+            width: "30%", 
+            height: "40vh",
             flex: 2,
             flexDirection: "column",
             justifyContent: "center",
@@ -104,8 +103,8 @@ export function ArquiGeneral(props) {
 
           <div
             style={{
-              //width: "40%", // El 40% del ancho de la ventana
-              height: "40vh", // El 100% de la altura de la ventana
+              //width: "40%",
+              height: "40vh", 
               flex: 2,
               flexDirection: "column",
             }}
@@ -115,7 +114,7 @@ export function ArquiGeneral(props) {
             <Card>
                 <CardContent
                   sx={{
-                    height: "90%",
+                    height: "460px",
                     overflow: "hidden",
                   }}
                 >
@@ -131,7 +130,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "100%",
+                    height: "460px",
                     overflow: "hidden",
                   }}
                 >
@@ -148,7 +147,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "100%",
+                    height: "460px",
                     overflow: "hidden",
                   }}
                 >
@@ -166,7 +165,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "100%",
+                    height: "460px",
                     overflow: "hidden",
                   }}
                 >
@@ -183,7 +182,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "100%",
+                    height: "460px",
                     overflow: "hidden",
                   }}
                 >
@@ -200,7 +199,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "100%",
+                    height: "460px",
                     overflow: "hidden",
                   }}
                 >
@@ -217,7 +216,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "100%",
+                    height: "460px",
                     overflow: "hidden",
                   }}
                 >

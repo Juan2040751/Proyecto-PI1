@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "./events/events.css";
 import { ArquiOne } from "./objects/arqui_one";
 import { ArquiTwo } from "./objects/arqui_Two";
-import { ArquiGeneral } from "./objects/arqui_general";
+import { ArquiGeneral, SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
 import { ArquiUruk } from "./objects/arqui_uruk";
 
 /**
@@ -25,6 +25,8 @@ function Arqitectura({ reference }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   return (
@@ -37,7 +39,7 @@ function Arqitectura({ reference }) {
         <div
           style={{
             position: "relative",
-            //padding: "2%",
+            padding: "0 3% 0 2%",
           }}
         >
           <Slider {...settings}>

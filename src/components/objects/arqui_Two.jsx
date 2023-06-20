@@ -37,7 +37,7 @@ export function ArquiTwo(props) {
           <iframe
             title="E-DUB-LAL-MAH"
             frameborder="0"
-            allowfullscreen
+            allowFullScreen
             mozallowfullscreen="true"
             webkitallowfullscreen="true"
             allow="autoplay; fullscreen; xr-spatial-tracking"

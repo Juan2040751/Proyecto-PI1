@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./components.css";
+import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
 /**
  * Componente Gastronomy
  *
@@ -22,7 +23,8 @@ function Gastronomy({ reference }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1000,

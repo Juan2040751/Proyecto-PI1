@@ -5,6 +5,7 @@ import React, { useRef, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Slider from "react-slick";
 import "./events/events.css";
+import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
 import { ObjectFour } from "./objects/object_four";
 import { ObjectOne } from "./objects/object_one";
 import { ObjectThree } from "./objects/object_three";
@@ -30,16 +31,16 @@ function Museum({ reference }) {
   });
 
   const canvasRef = useRef();
-
   var settings = {
     dots: true,
-    arrows: true, // Habilitar las flechas
+    arrows: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1100,
@@ -49,6 +50,8 @@ function Museum({ reference }) {
           infinite: true,
           dots: true,
           arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
       {
@@ -59,6 +62,8 @@ function Museum({ reference }) {
           initialSlide: 1,
           dots: true,
           arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
       {
@@ -68,6 +73,8 @@ function Museum({ reference }) {
           slidesToScroll: 1,
           dots: true,
           arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
     ],
@@ -81,7 +88,7 @@ function Museum({ reference }) {
       <div
         style={{
           position: "relative",
-          padding: "2%",
+          padding: "0 3% 0 2%",
         }}
       >
         <Slider {...settings}>
