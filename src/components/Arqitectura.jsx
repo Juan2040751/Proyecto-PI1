@@ -1,4 +1,3 @@
-
 import { Html } from "@react-three/drei";
 import Slider from "react-slick";
 import "./events/events.css";
@@ -30,33 +29,33 @@ function Arqitectura({ reference }) {
 
   return (
     <>
-    <Html fullscreen style={{ top: "200vh" }}>
-      <div className="titulo_arqui" ref={reference} id="Arqitectura">
-        <h1>ARQUITECTURA</h1>
-      </div>
+      <Html fullscreen style={{ top: "200vh" }}>
+        <div className="titulo_arqui" ref={reference} id="Arqitectura">
+          <h1>ARQUITECTURA</h1>
+        </div>
 
-      <div
-        style={{
-          position: "relative",
-          //padding: "2%",
-        }}
-      >
-        <Slider {...settings}>
-          <div>
-            <ArquiGeneral></ArquiGeneral>
-          </div>
-          <div>
-            <ArquiOne></ArquiOne>
-          </div>
-          <div>
-            <ArquiTwo></ArquiTwo>
-          </div>
-          <div>
-            <ArquiUruk></ArquiUruk>
-          </div>
-        </Slider>
-      </div>
-    </Html>
+        <div
+          style={{
+            position: "relative",
+            //padding: "2%",
+          }}
+        >
+          <Slider {...settings}>
+            <div>
+              <ArquiGeneral />
+            </div>
+            <div>
+              <ArquiOne />
+            </div>
+            <div>
+              <ArquiTwo />
+            </div>
+            <div>
+              <ArquiUruk />
+            </div>
+          </Slider>
+        </div>
+      </Html>
     </>
   );
 }

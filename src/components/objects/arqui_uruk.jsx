@@ -17,7 +17,6 @@ export function ArquiUruk(props) {
     "https://lh5.googleusercontent.com/p/AF1QipPVO2FFZPFZn-irtAygeM7VMj5sP3Fy0LMpsWnK=w408-h544-k-no",
     "https://i1.wp.com/mysteriesrunsolved.com/wp-content/uploads/2021/06/1280px-Uruk_Archaealogical_site_at_Warka-01_compress68.jpg?fit=1280%2C850&ssl=1",
     "https://4.bp.blogspot.com/-htR7FWH34rE/Tq5HIiYueUI/AAAAAAAADTA/tN00othEzZE/s1600/DSC01340.JPG",
-    // Agrega más enlaces de imágenes aquí
   ];
 
   const settings = {
@@ -30,8 +29,6 @@ export function ArquiUruk(props) {
     autoplaySpeed: 1500,
   };
   const handleButtonClick = () => {
-    // Aquí puedes redirigir a tu enlace en Internet
-    //window.location.href = 'https://goo.gl/maps/r9H9sHE2ffVJJ49s7';
     window.open("https://goo.gl/maps/r9H9sHE2ffVJJ49s7", "_blank");
   };
   return (
@@ -46,7 +43,7 @@ export function ArquiUruk(props) {
       <div
         style={{
           padding: "2%",
-          width: "40%", // El 40% del ancho de la ventana
+          width: "40%", 
           height: "40vh",
           flex: 2,
           flexDirection: "column",
@@ -60,6 +57,7 @@ export function ArquiUruk(props) {
             <div key={index}>
               <img
                 src={link}
+                loading="lazy"
                 alt={`Imagen ${index + 1}`}
                 style={{ width: "100%", height: "60vh" }}
               />

@@ -11,10 +11,10 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 200px; /* Ajusta el ancho según tus necesidades */
+    width: 200px;
     background-image: url("http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg");
-    background-repeat: repeat-y; /* Repetir verticalmente */
-    /* Resto de estilos para el elemento lateral */
+    background-repeat: repeat-y;
+    
   }
 
   .contenido{
@@ -23,15 +23,11 @@
   }
 
   .img_lateral {
-    /* Estilos para la imagen lateral */
-    /* Por ejemplo: */
     width: auto;
     height: auto;
   }
 
   .titulo_events {
-    /* Estilos para el título de los eventos */
-    /* Por ejemplo: */
     color: #333;
     font-size: 24px;
     font-weight: bold;
@@ -39,8 +35,6 @@
   }
 
   .descripcion {
-    /* Estilos para la descripción */
-    /* Por ejemplo: */
     margin-top: 20px;
   }
 
@@ -50,14 +44,11 @@
   }
 
   .imagenes {
-    /* Estilos para las imágenes */
-    /* Por ejemplo: */
     max-width: 100%;
     height: 400px;
-    
   }
 
-  .titulo{
+  .titulo, .titulo_arqui{
     text-align: center;
     padding: 30px;
     grid-area: n2;
@@ -65,9 +56,7 @@
 }
 
 .titulo_arqui{
-  text-align: center;
-  grid-area: n2;
-  color: #676867;
+  padding: 15px;
 }
 
 .video{

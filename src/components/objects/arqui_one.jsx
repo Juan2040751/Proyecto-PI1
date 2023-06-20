@@ -46,11 +46,12 @@ export function ArquiOne(props) {
             xr-spatial-tracking
             execution-while-out-of-viewport
             execution-while-not-rendered
+            loading="lazy"
             web-share
             src="https://sketchfab.com/models/01a917691d344f3d801f67151de6b2f0/embed?autostart=1"
             style={{
               width: "100%", // Ocupa el 100% del contenedor
-              height: "100%", // Ocupa el 100% del contenedor
+              height: "100%", 
             }}
           ></iframe>
         </div>
@@ -125,6 +126,7 @@ export function ArquiOne(props) {
           <iframe
             src=" https://www.youtube.com/embed/SAoilh2laaQ?t=87 "
             title="Los zigurat"
+            loading="lazy"
             style={{
               width: "100%", // Ocupa el 100% del contenedor
               height: "100%", // Ocupa el 100% del contenedor

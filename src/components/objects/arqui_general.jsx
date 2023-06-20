@@ -61,8 +61,8 @@ export function ArquiGeneral(props) {
       >
         <div
           style={{
-            width: "70%", // El 60% del ancho de la ventana
-            height: "80vh", // El 100% de la altura de la ventana
+            width: "70%", 
+            height: "80vh", 
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -72,13 +72,14 @@ export function ArquiGeneral(props) {
           <div
             style={{
               width: "100%",
-              height: "90%", // El 90% del contenedor
+              height: "90%", 
             }}
           >
             <img
               style={{ width: "100%", height: "100%" }}
               src="https://img1.cgtrader.com/items/2805177/77fba11f74/iraq-sumerian-city-ziggurat-temple-3d-model-low-poly-max-obj-3ds-fbx.jpg"
               alt="Ciudad sumeria"
+              loading="lazy"
             />
           </div>
         </div>
