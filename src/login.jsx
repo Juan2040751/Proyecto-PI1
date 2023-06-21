@@ -1,6 +1,6 @@
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Backdrop, CircularProgress } from "@mui/material";
@@ -39,10 +39,14 @@ function Login() {
       });
     setOpenB(false);
   };
-
+  
   const closeError = () => {
     setError("");
   };
+
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
 
   return (
     <>

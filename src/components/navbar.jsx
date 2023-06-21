@@ -8,6 +8,7 @@ import "intersection-observer";
 import React, {  } from "react";
 import logoapp from "../images/Sumerios.jpg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useNavigate } from "react-router-dom"
 
 /**
  * Componente Section
@@ -19,13 +20,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
  * @param {object} reference - Referencia al elemento HTML.
  * @returns {JSX.Element} - Elemento JSX que representa una sección de la barra de navegación.
  */
-function Section({ page, reference, isVisible }) {
+function Section({ page, reference, isVisible, onClick }) {
   const handleClick = () => {
     reference?.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <Button
-      onClick={handleClick}
+      onClick={onClick ? onClick : handleClick}
       style={{
         animationDuration: "1s",
         backgroundColor: isVisible ? "#0d6efd" : "transparent",
@@ -62,7 +63,7 @@ function Section({ page, reference, isVisible }) {
  * @returns {JSX.Element} - Elemento JSX que representa el componente de la barra de navegación.
  */
 function NavbarApp({ window, references, LandingRef, scroll }) {
-  const pages = ["Destacado", "Arquitectura" ,"Museo", "Gastronomía"];
+  const pages = ["Destacado", "Arquitectura" ,"Museo", "Gastronomía", "Salir"];
   const actualPage = [
     0.2 < scroll && scroll < 0.4,
     0.4 < scroll && scroll < 0.6,
@@ -72,6 +73,11 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
+  const navigate  = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  }
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
@@ -113,7 +119,9 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                   page={page}
                   reference={references[index]}
                   isVisible={actualPage[index]}
+                  onClick={page === "Salir" ? handleLogout : undefined}
                 />
+
               ))}
             </Box>
           </Toolbar>
