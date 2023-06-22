@@ -1,15 +1,15 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import "intersection-observer";
-import React, {  } from "react";
-import logoapp from "../images/Sumerios.jpg";
+import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useNavigate } from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
+import logoapp from "../images/Sumerios.jpg";
+import LogoutIcon from "@mui/icons-material/Logout";
 /**
  * Componente Section
  *
@@ -63,7 +63,7 @@ function Section({ page, reference, isVisible, onClick }) {
  * @returns {JSX.Element} - Elemento JSX que representa el componente de la barra de navegación.
  */
 function NavbarApp({ window, references, LandingRef, scroll }) {
-  const pages = ["Destacado", "Arquitectura" ,"Museo", "Gastronomía", "Salir"];
+  const pages = ["Destacado", "Arquitectura", "Museo", "Gastronomía"];
   const actualPage = [
     0.2 < scroll && scroll < 0.4,
     0.4 < scroll && scroll < 0.6,
@@ -73,11 +73,11 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login");
-  }
+  };
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
@@ -119,10 +119,16 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                   page={page}
                   reference={references[index]}
                   isVisible={actualPage[index]}
-                  onClick={page === "Salir" ? handleLogout : undefined}
                 />
-
               ))}
+
+              <IconButton
+                aria-label="Logout"
+                onClick={handleLogout}
+                style={{ margin: "10px" }}
+              >
+                <LogoutIcon />
+              </IconButton>
             </Box>
           </Toolbar>
         </Container>

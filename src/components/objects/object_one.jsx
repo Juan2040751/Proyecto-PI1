@@ -1,5 +1,7 @@
 import { Html, useGLTF } from "@react-three/drei";
 import "../events/events.css";
+import { Suspense } from "react";
+import Animation from "../animation";
 
 /**
  * Componente Object_one
@@ -51,7 +53,7 @@ export function ObjectOne() {
           position={[0, 2, 3]}
           intensity={1.5}
         />
-      
+
         <directionalLight
           castShadow
           shadow-normalBias={0.04}
@@ -59,12 +61,14 @@ export function ObjectOne() {
           intensity={1.5}
         />
         <color attach="background" args={["#DC7633"]} />
-        <primitive
-          object={guerrero.scene}
-          scale={2}
-          rotation-y={-0.2}
-          position={[0, 0, 0]}
-        />
+        <Suspense fallback={<Animation />}>
+          <primitive
+            object={guerrero.scene}
+            scale={2}
+            rotation-y={-0.2}
+            position={[0, 0, 0]}
+          />
+        </Suspense>
       </group>
     </>
   );

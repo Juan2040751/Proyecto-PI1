@@ -1,5 +1,6 @@
 import { useGLTF } from "@react-three/drei";
-import React from "react";
+import React, { Suspense } from "react";
+import Animation from "../animation";
 import "../events/events.css";
 
 /**
@@ -56,7 +57,9 @@ export function ObjectThree(props) {
         intensity={1.5}
       />
       <color attach="background" args={["#DC7633"]} />
-      <primitive object={ur.scene} scale={0.5} position={[0, 0, 0]} />
+      <Suspense fallback={<Animation />}>
+        <primitive object={ur.scene} scale={0.5} position={[0, 0, 0]} />
+      </Suspense>
     </group>
   );
 }
