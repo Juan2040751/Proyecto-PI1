@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import App from "./app";
+import Animation from "./components/animation";
 import Login from "./login";
 import Register from "./registro";
 import "./style.css";
@@ -38,8 +39,22 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </CheckAuthentication>
         }
       />
-      <Route path="/registro" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+      <Route
+        path="/registro"
+        element={
+          <Suspense fallback={<Animation />}>
+            <Register />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <Suspense fallback={<Animation />}>
+            <Login />
+          </Suspense>
+        }
+      />
     </Routes>
   </BrowserRouter>
 );

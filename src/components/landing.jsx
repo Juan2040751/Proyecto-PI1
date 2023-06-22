@@ -1,7 +1,8 @@
 import { Html, useGLTF, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { Suspense, useLayoutEffect, useRef } from "react";
+import Animation from "./animation";
 import "./events/events.css";
 
 /**
@@ -65,14 +66,15 @@ function Landing({ reference, setScroll }) {
         />
 
         <color attach="background" args={["#DC7633"]} />
-        <primitive
-          ref={polRef}
-          object={lamussu.scene}
-          scale={0.3}
-          rotation-y={-0.2}
-          position={[4, -2.5, -2.5]}
-        />
-
+        <Suspense fallback={<Animation/>}>
+          <primitive
+            ref={polRef}
+            object={lamussu.scene}
+            scale={0.3}
+            rotation-y={-0.2}
+            position={[4, -2.5, -2.5]}
+          />
+        </Suspense>
         <Html position={[-5, 1, 3]}>
           <h1
             style={{

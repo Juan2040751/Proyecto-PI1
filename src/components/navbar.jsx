@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
@@ -6,9 +6,10 @@ import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import "intersection-observer";
 import React from "react";
-import logoapp from "../images/Sumerios.jpg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import { useNavigate } from "react-router-dom";
+import logoapp from "../images/Sumerios.jpg";
+import LogoutIcon from "@mui/icons-material/Logout";
 /**
  * Componente Section
  *
@@ -19,13 +20,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
  * @param {object} reference - Referencia al elemento HTML.
  * @returns {JSX.Element} - Elemento JSX que representa una sección de la barra de navegación.
  */
-function Section({ page, reference, isVisible }) {
+function Section({ page, reference, isVisible, onClick }) {
   const handleClick = () => {
     reference?.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <Button
-      onClick={handleClick}
+      onClick={onClick ? onClick : handleClick}
       style={{
         animationDuration: "1s",
         backgroundColor: isVisible ? "#0d6efd" : "transparent",
@@ -62,15 +63,21 @@ function Section({ page, reference, isVisible }) {
  * @returns {JSX.Element} - Elemento JSX que representa el componente de la barra de navegación.
  */
 function NavbarApp({ window, references, LandingRef, scroll }) {
-  const pages = ["Destacado", "Museo", "Gastronomía"];
+  const pages = ["Destacado", "Arquitectura", "Museo", "Gastronomía"];
   const actualPage = [
-    0.2 < scroll && scroll < 0.5,
-    0.5 < scroll && scroll < 0.8,
+    0.2 < scroll && scroll < 0.4,
+    0.4 < scroll && scroll < 0.6,
+    0.6 < scroll && scroll < 0.8,
     0.8 < scroll,
   ];
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
@@ -114,6 +121,14 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                   isVisible={actualPage[index]}
                 />
               ))}
+
+              <IconButton
+                aria-label="Logout"
+                onClick={handleLogout}
+                style={{ margin: "10px" }}
+              >
+                <LogoutIcon />
+              </IconButton>
             </Box>
           </Toolbar>
         </Container>

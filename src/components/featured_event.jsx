@@ -8,7 +8,7 @@ import EventOne from "./events/event_one";
 import EventThree from "./events/event_three";
 import EventTwo from "./events/event_two";
 import "./events/events.css";
-
+import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
 /**
  * Componente Featured
  *
@@ -25,35 +25,50 @@ function Featured({ reference }) {
 
   var settings = {
     dots: true,
-    arrows: true, // Habilitar las flechas
+    arrows: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 900,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          infinite: false,
+          infinite: true,
           dots: true,
           arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
-          infinite: false,
           dots: true,
           arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
-      }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
     ],
   };
 
@@ -66,6 +81,7 @@ function Featured({ reference }) {
       <div
         style={{
           position: "relative",
+          padding: "0 3% 0 2%",
         }}
       >
         <Slider {...settings}>

@@ -11,10 +11,10 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 200px; /* Ajusta el ancho según tus necesidades */
+    width: 200px;
     background-image: url("http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg");
-    background-repeat: repeat-y; /* Repetir verticalmente */
-    /* Resto de estilos para el elemento lateral */
+    background-repeat: repeat-y;
+    
   }
 
   .contenido{
@@ -23,15 +23,11 @@
   }
 
   .img_lateral {
-    /* Estilos para la imagen lateral */
-    /* Por ejemplo: */
     width: auto;
     height: auto;
   }
 
   .titulo_events {
-    /* Estilos para el título de los eventos */
-    /* Por ejemplo: */
     color: #333;
     font-size: 24px;
     font-weight: bold;
@@ -39,8 +35,6 @@
   }
 
   .descripcion {
-    /* Estilos para la descripción */
-    /* Por ejemplo: */
     margin-top: 20px;
   }
 
@@ -50,18 +44,19 @@
   }
 
   .imagenes {
-    /* Estilos para las imágenes */
-    /* Por ejemplo: */
     max-width: 100%;
     height: 400px;
-    
   }
 
-  .titulo{
+  .titulo, .titulo_arqui{
     text-align: center;
     padding: 30px;
     grid-area: n2;
     color: #676867;
+}
+
+.titulo_arqui{
+  padding: 15px;
 }
 
 .video{
@@ -128,86 +123,6 @@ p{
     height: calc(100% - 56px); /* Ajusta el valor según el tamaño del encabezado del modal */
   }
   
-/*
-.container_events{
-    display: grid;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(4,1fr);
-    grid-template-areas: 
-    "n1 n2 n2 n2 n2"
-    "n1 n3 n3 n3 n3"
-    "n1 n3 n3 n3 n3"
-    "n1 n3 n3 n3 n3"
-;
-}
-
-li{
-    font-size: 20px;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-.titulo_events{
-    margin: 0%;
-    color: #33383b;
-    font-size: 70px;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-h2{
-    color: #33383b;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-h4{
-    font-family: 'Tenor Sans', sans-serif;
-    color: #33383b;
-    font-weight: 20;
-}
-
-.lateral{
-    grid-area: n1;
-    color: blue;
-    text-align: center;
-}
-
-.img_lateral{
-    border-radius: 3%;
-    width: 80%;
-    height: 100%;
-    
-}
-
-.titulo{
-    text-align: center;
-    padding: 30px;
-    grid-area: n2;
-    color: #676867;
-}
-
-.descripcion{
-    padding: 30px;
-    padding-right: 50px;
-    text-align: center;
-    grid-area: n3;
-    color: #33383b
-}
-
-p{
-    padding-top: 40px;
-    text-align: justify;
-    font-size: 20px;
-    font-family: 'Tenor Sans', sans-serif;
-}
-
-.imagenes{
-    width: 200px;
-    
-}
-*/
-
 .canvas{
   height: 800px;
   position: absolute !important;
@@ -233,4 +148,8 @@ p{
   flex-direction: column;
 }
 
- 
+.sketchfab-embed-wrapper{
+  height: 100vh;
+  width: 50vh;
+}
+
