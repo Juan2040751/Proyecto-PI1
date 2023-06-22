@@ -2,8 +2,8 @@ import { Html, useGLTF, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
 import React, { Suspense, useLayoutEffect, useRef } from "react";
+import Animation from "./animation";
 import "./events/events.css";
-import { CircularProgress } from "@mui/material";
 
 /**
  * Componente Landing
@@ -66,7 +66,7 @@ function Landing({ reference, setScroll }) {
         />
 
         <color attach="background" args={["#DC7633"]} />
-        <Suspense fallback={<CircularProgress color="inherit" />}>
+        <Suspense fallback={<Animation/>}>
           <primitive
             ref={polRef}
             object={lamussu.scene}

@@ -1,5 +1,6 @@
 import { useGLTF } from "@react-three/drei";
-import React from "react";
+import React, { Suspense } from "react";
+import Animation from "../animation";
 import "../events/events.css";
 
 /**
@@ -7,9 +8,9 @@ import "../events/events.css";
  *
  * Este componente representa el objeto número cuatro de nuestro museo de objetos.
  * Este objeto 3d muestra una lista sumeria real.
- * 
- * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se 
- * presenten algunos objetos de la cultura sumeria en tercera dimensión, para 
+ *
+ * Forma parte de la historia de usuario PI1-14: Como usuario, espero que se
+ * presenten algunos objetos de la cultura sumeria en tercera dimensión, para
  * poder admirar el objeto en diferentes ángulos.
  */
 
@@ -56,12 +57,14 @@ export function ObjectFour(props) {
         intensity={4}
       />
       <color attach="background" args={["#DC7633"]} />
-      <primitive
-        object={king_list.scene}
-        scale={2}
-        rotation-y={-10}
-        position={[13,8,-15]}
-      />
+      <Suspense fallback={<Animation />}>
+        <primitive
+          object={king_list.scene}
+          scale={2}
+          rotation-y={-10}
+          position={[13, 8, -15]}
+        />
+      </Suspense>
     </group>
   );
 }
