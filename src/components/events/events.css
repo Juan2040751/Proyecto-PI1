@@ -148,6 +148,11 @@ p{
   flex-direction: column;
 }
 
+.a-class{
+  font-size: larger;
+  color: #955f0c;
+}
+
 .sketchfab-embed-wrapper{
   height: 100vh;
   width: 50vh;
