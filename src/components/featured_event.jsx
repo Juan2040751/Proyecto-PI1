@@ -30,8 +30,10 @@ function Featured({ reference }) {
   var settings = {
     dots: true,
     arrows: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -487,7 +489,7 @@ function Featured({ reference }) {
 
         <Modal.Header closeButton>
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
-          <h1>La literatura sumeria, la más antigua del mundo.</h1>
+          <h1>La literatura sumeria</h1>
         </Modal.Header>
         <Modal.Body>{<EventSix />}</Modal.Body>
       </Modal>

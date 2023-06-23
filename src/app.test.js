@@ -14,6 +14,7 @@ import Museum from './components/museum';
 import Login from './login';
 import Register from './registro';
 import Arqitectura from './components/Arqitectura';
+import EventSix from './components/events/event_six';
 
 describe("Pruebas HU Sprint 1", () => {
 
@@ -40,6 +41,9 @@ describe("Pruebas HU Sprint 1", () => {
 
 
 })
+
+
+
 describe("Pruebas HU Sprint 2", () => {
     test('PI1-8', async () => {
         const renderer = await ReactThreeTestRenderer.create(
@@ -66,27 +70,27 @@ describe("Pruebas HU Sprint 2", () => {
     })
 })
 
-
 describe("Pruebas HU Sprint 3", () => {
     test('PI1-25 is scene', async () => {
         const renderer = await ReactThreeTestRenderer.create(
             <Arqitectura />
         )
         expect(renderer.scene._fiber.type).toBe('Scene')
-        console.log()
     })
     test('PI1-25 receive shadow', async () => {
         const renderer = await ReactThreeTestRenderer.create(
             <Arqitectura />
         )
         expect(renderer.scene._fiber.receiveShadow).toBeFalsy()
-    
     })
-
     test('PI1-25 scale', async () => {
         const renderer = await ReactThreeTestRenderer.create(
             <Arqitectura />
         )
         expect(renderer.getInstance().scale).toEqual({ x: 1, y: 1, z: 1 })
+    })
+    test('PI1-26', async () => {
+        render(<EventSix />)
+        expect(screen.getByText("La literara sumeria, la más antigua del mundo.")).toBeInTheDocument();
     })
 })
