@@ -7,6 +7,7 @@ import EventFour from "./events/event_four";
 import EventOne from "./events/event_one";
 import EventThree from "./events/event_three";
 import EventTwo from "./events/event_two";
+import Characters from "./events/characters";
 import "./events/events.css";
 
 /**
@@ -21,6 +22,7 @@ function Featured({ reference }) {
     dos: false,
     tres: false,
     cuatro: false,
+    cinco: false,
   });
 
   var settings = {
@@ -273,6 +275,57 @@ function Featured({ reference }) {
               </div>
             </Card>
           </Grid>
+          <Grid
+            item
+            xs={10}
+            sm={4}
+            md={2}
+            sx={{ margin: "10px", maxWidth: "450px" }}
+          >
+            <Card
+              sx={{
+                transition: "0.2s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
+            >
+              <CardMedia
+                component="img"
+                image="https://www.ancient-origins.es/sites/default/files/field/image/Portada-dioses-sumerios.jpg"
+                height="200"
+                alt="Card Image"
+              />
+              <CardContent
+                sx={{
+                  height: "340px",
+                  overflow: "hidden",
+                }}
+              >
+                <h2>Personajes Importantes</h2>
+                <p>
+                  Sumérgete en las legendarias historias de Gilgamesh, el
+                  valiente rey de Uruk, y su búsqueda de la inmortalidad.
+                  Descubre la astucia de Enmerkar, el audaz rey de Uruk, en su
+                  duelo con el señor de Aratta. Acompaña a Enheduanna, la
+                  poderosa sacerdotisa, en su conexión divina con la diosa
+                  Inanna. Explora el ascenso de Sargón de Acad y su imperio que
+                  cambió la historia. Adéntrate en el fascinante mundo de la
+                  antigua Sumeria, donde héroes y dioses forjaron un legado
+                  eterno.
+                </p>
+              </CardContent>
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
+                <button
+                  className="btn btn-outline-primary mx-2 mb-3"
+                  type="button"
+                  onClick={() => setEvents({ ...events, cinco: true })}
+                >
+                  Conocer más
+                </button>
+              </div>
+            </Card>
+          </Grid>
         </Slider>
       </div>
 
@@ -286,6 +339,7 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
           })
         }
       >
@@ -305,6 +359,7 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
           })
         }
       >
@@ -324,6 +379,7 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
           })
         }
       >
@@ -343,6 +399,7 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
           })
         }
       >
@@ -351,6 +408,26 @@ function Featured({ reference }) {
           <h1>Sistema Númerico</h1>
         </Modal.Header>
         <Modal.Body>{<EventFour />}</Modal.Body>
+      </Modal>
+      <Modal
+        show={events.cinco}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+            cinco: false,
+          })
+        }
+      >
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>Personajes Importantes</h1>
+        </Modal.Header>
+        <Modal.Body>{<Characters />}</Modal.Body>
       </Modal>
     </Html>
   );
