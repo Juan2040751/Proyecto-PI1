@@ -9,6 +9,7 @@ import EventThree from "./events/event_three";
 import EventTwo from "./events/event_two";
 import EventFive from "./events/event_five";
 import EventSix from "./events/event_six";
+import Characters from "./events/characters";
 import "./events/events.css";
 import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
 /**
@@ -25,6 +26,7 @@ function Featured({ reference }) {
     cuatro: false,
     cinco: false,
     seis: false,
+    siete: false,
   });
 
   var settings = {
@@ -295,9 +297,12 @@ function Featured({ reference }) {
               >
                 <h2>El Legado Tecnologico</h2>
                 <p>
-                El legado tecnológico de la civilización sumeria es impresionante considerando la época en la que vivieron
-                un valioso legado tecnológico que ha influido en el desarrollo de la humanidad. 
-                Uno de sus mayores logros fue la invención de la rueda, revolucionando el transporte y la construcción de carros
+                  El legado tecnológico de la civilización sumeria es
+                  impresionante considerando la época en la que vivieron un
+                  valioso legado tecnológico que ha influido en el desarrollo de
+                  la humanidad. Uno de sus mayores logros fue la invención de la
+                  rueda, revolucionando el transporte y la construcción de
+                  carros
                 </p>
               </CardContent>
 
@@ -338,10 +343,12 @@ function Featured({ reference }) {
               >
                 <h2>La Literatura Sumeria </h2>
                 <p>
-                La literatura sumeria es uno de los aspectos más destacados de su legado cultural. 
-                Sus escritos, grabados en tablillas de arcilla, abarcan una variedad de géneros y temas. 
-                Entre las obras más conocidas se encuentran los himnos y poemas épicos, como el famoso "Enuma Elish", 
-                que relata el origen del universo y la creación del mundo según la mitología sumeria.
+                  La literatura sumeria es uno de los aspectos más destacados de
+                  su legado cultural. Sus escritos, grabados en tablillas de
+                  arcilla, abarcan una variedad de géneros y temas. Entre las
+                  obras más conocidas se encuentran los himnos y poemas épicos,
+                  como el famoso "Enuma Elish", que relata el origen del
+                  universo y la creación del mundo según la mitología sumeria.
                 </p>
               </CardContent>
 
@@ -355,11 +362,56 @@ function Featured({ reference }) {
                 </button>
               </div>
             </Card>
-          </Grid> 
+          </Grid>
 
+          <Grid item xs={10} sm={4} md={2}>
+            <Card
+              sx={{
+                transition: "0.2s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
+            >
+              <CardMedia
+                component="img"
+                loading="lazy"
+                image="https://www.ancient-origins.es/sites/default/files/field/image/Portada-dioses-sumerios.jpg"
+                height="200"
+                alt="Card Image"
+              />
+              <CardContent
+                sx={{
+                  height: "370px",
+                  overflow: "hidden",
+                }}
+              >
+                <h2>Personajes Importantes</h2>
+                <p>
+                  Sumérgete en las legendarias historias de Gilgamesh, el
+                  valiente rey de Uruk, y su búsqueda de la inmortalidad.
+                  Descubre la astucia de Enmerkar, el audaz rey de Uruk, en su
+                  duelo con el señor de Aratta. Acompaña a Enheduanna, la
+                  poderosa sacerdotisa, en su conexión divina con la diosa
+                  Inanna. Explora el ascenso de Sargón de Acad y su imperio que
+                  cambió la historia. Adéntrate en el fascinante mundo de la
+                  antigua Sumeria, donde héroes y dioses forjaron un legado
+                  eterno.
+                </p>
+              </CardContent>
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
+                <button
+                  className="btn btn-outline-primary mx-2 mb-3"
+                  type="button"
+                  onClick={() => setEvents({ ...events, siete: true })}
+                >
+                  Conocer más
+                </button>
+              </div>
+            </Card>
+          </Grid>
         </Slider>
       </div>
-      
 
       <Modal
         show={events.uno}
@@ -373,6 +425,7 @@ function Featured({ reference }) {
             cuatro: false,
             cinco: false,
             seis: false,
+            siete: false,
           })
         }
       >
@@ -394,6 +447,7 @@ function Featured({ reference }) {
             cuatro: false,
             cinco: false,
             seis: false,
+            siete: false,
           })
         }
       >
@@ -415,6 +469,7 @@ function Featured({ reference }) {
             cuatro: false,
             cinco: false,
             seis: false,
+            siete: false,
           })
         }
       >
@@ -436,11 +491,10 @@ function Featured({ reference }) {
             cuatro: false,
             cinco: false,
             seis: false,
+            siete: false,
           })
         }
-        
       >
-
         <Modal.Header closeButton>
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
           <h1>Sistema Numerico</h1>
@@ -459,11 +513,10 @@ function Featured({ reference }) {
             cuatro: false,
             cinco: false,
             seis: false,
+            siete: false,
           })
         }
-        
       >
-        
         <Modal.Header closeButton>
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
           <h1>Legado Tecnologico Sumerio</h1>
@@ -482,18 +535,40 @@ function Featured({ reference }) {
             cuatro: false,
             cinco: false,
             seis: false,
+            siete: false,
           })
         }
-        
       >
-
         <Modal.Header closeButton>
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
           <h1>La literatura sumeria</h1>
         </Modal.Header>
         <Modal.Body>{<EventSix />}</Modal.Body>
       </Modal>
-      
+
+      <Modal
+        show={events.siete}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+            cinco: false,
+            seis: false,
+            siete: false,
+          })
+        }
+      >
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>Personajes Importantes</h1>
+        </Modal.Header>
+        <Modal.Body>{<Characters />}</Modal.Body>
+      </Modal>
+
     </Html>
   );
 }
