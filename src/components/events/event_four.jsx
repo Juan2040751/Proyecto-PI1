@@ -57,7 +57,7 @@ function EventFour() {
             <img
               className="imagenes"
               loading="lazy"
-              src="https://ulum.es/wp-content/uploads/2014/10/sumerios.png"
+              src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/20293558/image/medium-615c5130b96b6117ff3e0264a612e9d7.png"
               alt="Numeros Sumerios"
             />
           </div>
@@ -87,7 +87,7 @@ function EventFour() {
             <img
               className="imagenes"
               loading="lazy"
-              src="https://ulum.es/wp-content/uploads/2014/10/tmano-sumeria.jpg"
+              src="https://i.ytimg.com/vi/YsmXGHxhbhw/maxresdefault.jpg"
               alt="Sistema de conteo con la mano"
             />
           </div>

@@ -84,7 +84,7 @@ function Landing({ reference, setScroll }) {
               fontFamily: "Tenor Sans, sans-serif",
             }}
           >
-            La primera
+            La Primera
           </h1>
           <h1
             style={{
