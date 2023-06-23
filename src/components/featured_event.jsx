@@ -7,13 +7,15 @@ import EventFour from "./events/event_four";
 import EventOne from "./events/event_one";
 import EventThree from "./events/event_three";
 import EventTwo from "./events/event_two";
+import EventFive from "./events/event_five";
+import EventSix from "./events/event_six";
 import "./events/events.css";
 import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
 /**
  * Componente Featured
  *
  * Este componente muestra los eventos destacados de la civilización sumeria, incluyendo descubrimientos,
- * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11.
+ * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11 y PI1-26.
  */
 function Featured({ reference }) {
   const [events, setEvents] = useState({
@@ -21,13 +23,17 @@ function Featured({ reference }) {
     dos: false,
     tres: false,
     cuatro: false,
+    cinco: false,
+    seis: false,
   });
 
   var settings = {
     dots: true,
     arrows: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -232,7 +238,7 @@ function Featured({ reference }) {
               <CardMedia
                 component="img"
                 loading="lazy"
-                image="https://ulum.es/wp-content/uploads/2014/10/sumerios.png"
+                image="https://numerentur.org/wp-content/uploads/2017/06/Sumerio.tablamultiplicar.png"
                 height="200"
                 alt="Numeros Sumerios"
               />
@@ -264,8 +270,96 @@ function Featured({ reference }) {
               </div>
             </Card>
           </Grid>
+          <Grid item xs={10} sm={4} md={2}>
+            <Card
+              sx={{
+                transition: "0.2s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+                margin: "5px",
+              }}
+            >
+              <CardMedia
+                component="img"
+                loading="lazy"
+                image="https://cdn0.unprofesor.com/es/posts/0/8/5/historia_de_la_invencion_de_la_rueda_resumen_corto_2580_600.jpg"
+                height="200"
+                alt="Legado Tecnologico"
+              />
+              <CardContent
+                sx={{
+                  height: "370px",
+                  overflow: "hidden",
+                }}
+              >
+                <h2>El Legado Tecnologico</h2>
+                <p>
+                El legado tecnológico de la civilización sumeria es impresionante considerando la época en la que vivieron
+                un valioso legado tecnológico que ha influido en el desarrollo de la humanidad. 
+                Uno de sus mayores logros fue la invención de la rueda, revolucionando el transporte y la construcción de carros
+                </p>
+              </CardContent>
+
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
+                <button
+                  className="btn btn-outline-primary mx-2 mb-3"
+                  type="button"
+                  onClick={() => setEvents({ ...events, cinco: true })}
+                >
+                  Conocer más
+                </button>
+              </div>
+            </Card>
+          </Grid>
+
+          <Grid item xs={10} sm={4} md={2}>
+            <Card
+              sx={{
+                transition: "0.2s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+                margin: "5px",
+              }}
+            >
+              <CardMedia
+                component="img"
+                loading="lazy"
+                image="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Obverse._Gilgamesh_and_Aga._Old_Babylonian_period%2C_from_southern_Iraq._Sulaymaniyah_Museum%2C_Iraqi_Kurdistan.jpg/1200px-Obverse._Gilgamesh_and_Aga._Old_Babylonian_period%2C_from_southern_Iraq._Sulaymaniyah_Museum%2C_Iraqi_Kurdistan.jpg"
+                height="200"
+                alt="Legado Tecnologico"
+              />
+              <CardContent
+                sx={{
+                  height: "370px",
+                  overflow: "hidden",
+                }}
+              >
+                <h2>La Literatura Sumeria </h2>
+                <p>
+                La literatura sumeria es uno de los aspectos más destacados de su legado cultural. 
+                Sus escritos, grabados en tablillas de arcilla, abarcan una variedad de géneros y temas. 
+                Entre las obras más conocidas se encuentran los himnos y poemas épicos, como el famoso "Enuma Elish", 
+                que relata el origen del universo y la creación del mundo según la mitología sumeria.
+                </p>
+              </CardContent>
+
+              <div className="d-grid gap-2" style={{ marginTop: "10px" }}>
+                <button
+                  className="btn btn-outline-primary mx-2 mb-3"
+                  type="button"
+                  onClick={() => setEvents({ ...events, seis: true })}
+                >
+                  Conocer más
+                </button>
+              </div>
+            </Card>
+          </Grid> 
+
         </Slider>
       </div>
+      
 
       <Modal
         show={events.uno}
@@ -277,6 +371,8 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
+            seis: false,
           })
         }
       >
@@ -296,6 +392,8 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
+            seis: false,
           })
         }
       >
@@ -315,6 +413,8 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
+            seis: false,
           })
         }
       >
@@ -334,15 +434,66 @@ function Featured({ reference }) {
             dos: false,
             tres: false,
             cuatro: false,
+            cinco: false,
+            seis: false,
           })
         }
+        
       >
+
         <Modal.Header closeButton>
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
-          <h1>Sistema Númerico</h1>
+          <h1>Sistema Numerico</h1>
         </Modal.Header>
         <Modal.Body>{<EventFour />}</Modal.Body>
       </Modal>
+      <Modal
+        show={events.cinco}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+            cinco: false,
+            seis: false,
+          })
+        }
+        
+      >
+        
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>Legado Tecnologico Sumerio</h1>
+        </Modal.Header>
+        <Modal.Body>{<EventFive />}</Modal.Body>
+      </Modal>
+      <Modal
+        show={events.seis}
+        size="xl"
+        animation
+        onHide={() =>
+          setEvents({
+            uno: false,
+            dos: false,
+            tres: false,
+            cuatro: false,
+            cinco: false,
+            seis: false,
+          })
+        }
+        
+      >
+
+        <Modal.Header closeButton>
+          <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
+          <h1>La literatura sumeria</h1>
+        </Modal.Header>
+        <Modal.Body>{<EventSix />}</Modal.Body>
+      </Modal>
+      
     </Html>
   );
 }

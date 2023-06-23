@@ -13,6 +13,8 @@ import Featured from "./components/featured_event";
 import Museum from './components/museum';
 import Login from './login';
 import Register from './registro';
+import Arqitectura from './components/Arqitectura';
+import EventSix from './components/events/event_six';
 
 describe("Pruebas HU Sprint 1", () => {
 
@@ -26,7 +28,7 @@ describe("Pruebas HU Sprint 1", () => {
     })
     test('PI1-13', async () => {
         render(<EventOne />)
-        expect(screen.getByText("Ciudades Sumerias")).toBeInTheDocument();
+        expect(screen.getByText("Como se vivía en las ciudades sumerias")).toBeInTheDocument();
     })
     test('PI1-19', async () => {
         render(<BrowserRouter><Register /></BrowserRouter>)
@@ -39,6 +41,9 @@ describe("Pruebas HU Sprint 1", () => {
 
 
 })
+
+
+
 describe("Pruebas HU Sprint 2", () => {
     test('PI1-8', async () => {
         const renderer = await ReactThreeTestRenderer.create(
@@ -48,7 +53,7 @@ describe("Pruebas HU Sprint 2", () => {
     })
     test('PI1-9', async () => {
         render(<EventOne />)
-        expect(screen.getByText("Ciudades Sumerias")).toBeInTheDocument();
+        expect(screen.getByText("Situación de las principales ciudades sumerias y alcance de esta cultura durante el período dinástico arcaico.")).toBeInTheDocument();
     })
 
     test('PI1-12', async () => {
@@ -61,7 +66,31 @@ describe("Pruebas HU Sprint 2", () => {
         const renderer = await ReactThreeTestRenderer.create(
             <Museum />
         )
-        console.log(renderer.getInstance().type)
         expect(renderer.getInstance().type).toBe('Group')
+    })
+})
+
+describe("Pruebas HU Sprint 3", () => {
+    test('PI1-25 is scene', async () => {
+        const renderer = await ReactThreeTestRenderer.create(
+            <Arqitectura />
+        )
+        expect(renderer.scene._fiber.type).toBe('Scene')
+    })
+    test('PI1-25 receive shadow', async () => {
+        const renderer = await ReactThreeTestRenderer.create(
+            <Arqitectura />
+        )
+        expect(renderer.scene._fiber.receiveShadow).toBeFalsy()
+    })
+    test('PI1-25 scale', async () => {
+        const renderer = await ReactThreeTestRenderer.create(
+            <Arqitectura />
+        )
+        expect(renderer.getInstance().scale).toEqual({ x: 1, y: 1, z: 1 })
+    })
+    test('PI1-26', async () => {
+        render(<EventSix />)
+        expect(screen.getByText("La literara sumeria, la más antigua del mundo.")).toBeInTheDocument();
     })
 })
