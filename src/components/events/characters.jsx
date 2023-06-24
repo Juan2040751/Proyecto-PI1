@@ -12,39 +12,41 @@ import "./events.css";
 function Characters() {
   return (
     <div className="container_events">
-      <div className="lateral">
-        <img className="img_lateral" loading="lazy" alt="lateral" />
-      </div>
+      <div className="lateral"></div>
 
       <div className="contenido">
-        <div className="descripcion">
-          <h1 className="titulo">Tabla de contenido</h1>
-          <nav id="NavegacionPersonajes">
-            <ul>
-              <li>
-                <a className="a-class" href="#Gilgamesh">
-                  Gilgamesh
-                </a>
-              </li>
-              <li>
-                <a className="a-class" href="#Adapa">
-                  Adapa
-                </a>
-              </li>
-              <li>
-                <a className="a-class" href="#Enkidu">
-                  Enkidu
-                </a>
-              </li>
-              <li>
-                <a className="a-class" href="#Inanna">
-                  Inanna
-                </a>
-              </li>
-            </ul>
-          </nav>
+        <nav id="NavegacionPersonajes">
+          <ul
+            style={{
+              display: "flex",
+              listStyle: "none",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <li>
+              <a className="a-class" href="#Gilgamesh">
+                Gilgamesh
+              </a>
+            </li>
+            <li>
+              <a className="a-class" href="#Adapa">
+                Adapa
+              </a>
+            </li>
+            <li>
+              <a className="a-class" href="#Enkidu">
+                Enkidu
+              </a>
+            </li>
+            <li>
+              <a className="a-class" href="#Inanna">
+                Inanna
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div style={{ position: "relative",overflowY: "scroll", height: "70vh", display: "flex", flexDirection: "column"}}>
           <section id="Gilgamesh">
-            {/* Información Gilgamesh */}
             <h1 className="titulo">Gilgamesh</h1>
             <div className="Imagen_desc">
               <img

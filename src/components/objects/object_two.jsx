@@ -1,7 +1,6 @@
 import { useLoader } from "@react-three/fiber";
-import React, { Suspense } from "react";
+import React from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import Animation from "../animation";
 import "../events/events.css";
 
 /**
