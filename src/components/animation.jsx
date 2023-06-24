@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import { Backdrop, CircularProgress } from "@mui/material";
 import React from "react";
 import "./components.css";
 
@@ -10,5 +10,12 @@ import "./components.css";
 @returns {JSX.Element} - Elemento JSX que representa el componente de animación de carga.
 */
 export default function Animation() {
-  return <CircularProgress color="inherit" />;
+  return (
+    <Backdrop
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open={true}
+    >
+      <CircularProgress color="inherit" />
+    </Backdrop>
+  );
 }
