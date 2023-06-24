@@ -22,7 +22,6 @@ describe("Pruebas HU Sprint 1", () => {
         const renderer = await ReactThreeTestRenderer.create(
             <Featured />
         )
-
         const component = renderer.scene.children[0]._fiber
         expect(component.position).toEqual({ x: 0, y: 0, z: 0 })
     })
@@ -41,8 +40,6 @@ describe("Pruebas HU Sprint 1", () => {
 
 
 })
-
-
 
 describe("Pruebas HU Sprint 2", () => {
     test('PI1-8', async () => {

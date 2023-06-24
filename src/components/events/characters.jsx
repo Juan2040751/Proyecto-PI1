@@ -13,7 +13,7 @@ function Characters() {
   return (
     <div className="container_events">
       <div className="lateral">
-        <img className="img_lateral" />
+        <img className="img_lateral" loading="lazy" alt="lateral" />
       </div>
 
       <div className="contenido">
@@ -22,16 +22,24 @@ function Characters() {
           <nav id="NavegacionPersonajes">
             <ul>
               <li>
-                <a className="a-class" href="#Gilgamesh">Gilgamesh</a>
+                <a className="a-class" href="#Gilgamesh">
+                  Gilgamesh
+                </a>
               </li>
               <li>
-                <a className="a-class" href="#Adapa">Adapa</a>
+                <a className="a-class" href="#Adapa">
+                  Adapa
+                </a>
               </li>
               <li>
-                <a className="a-class" href="#Enkidu">Enkidu</a>
+                <a className="a-class" href="#Enkidu">
+                  Enkidu
+                </a>
               </li>
               <li>
-                <a className="a-class" href="#Inanna">Inanna</a>
+                <a className="a-class" href="#Inanna">
+                  Inanna
+                </a>
               </li>
             </ul>
           </nav>
@@ -172,7 +180,6 @@ function Characters() {
         </div>
       </div>
     </div>
-
   );
 }
 

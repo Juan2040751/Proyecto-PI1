@@ -68,5 +68,3 @@ export function ObjectFour(props) {
     </group>
   );
 }
-
-useGLTF.preload("../static/the_sumerian_king_list.glb");
