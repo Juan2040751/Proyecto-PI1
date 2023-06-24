@@ -1,7 +1,8 @@
-import { useGLTF } from "@react-three/drei";
+import { useLoader } from "@react-three/fiber";
 import React, { Suspense } from "react";
-import "../events/events.css";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Animation from "../animation";
+import "../events/events.css";
 
 /**
  * Componente Object_two
@@ -41,7 +42,10 @@ export function DescriptionTwo() {
 }
 
 export function ObjectTwo(props) {
-  const { nodes, materials } = useGLTF("../static/arcilla_tablemit.glb");
+  const { nodes, materials } = useLoader(
+    GLTFLoader,
+    "../static/arcilla_tablemit.glb"
+  );
   return (
     <group {...props} dispose={null} position={[0, 1, 0]}>
       <directionalLight
@@ -71,4 +75,4 @@ export function ObjectTwo(props) {
   );
 }
 
-useGLTF.preload("../static/arcilla_tablemit.glb");
+

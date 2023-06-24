@@ -1,7 +1,9 @@
-import { Html, useGLTF } from "@react-three/drei";
-import "../events/events.css";
+import { Html } from "@react-three/drei";
+import { useLoader } from "@react-three/fiber";
 import { Suspense } from "react";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Animation from "../animation";
+import "../events/events.css";
 
 /**
  * Componente Object_one
@@ -40,7 +42,7 @@ export function DescriptionOne() {
 }
 
 export function ObjectOne() {
-  const guerrero = useGLTF("../static/my_sumarian_soldier.glb");
+  const guerrero = useLoader(GLTFLoader, "../static/my_sumarian_soldier.glb");
 
   return (
     <>
@@ -73,4 +75,4 @@ export function ObjectOne() {
     </>
   );
 }
-useGLTF.preload("../static/my_sumarian_soldier.glb");
+

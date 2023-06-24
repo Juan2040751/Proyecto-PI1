@@ -1,10 +1,10 @@
 import { Html, useGLTF, useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import gsap from "gsap";
 import React, { Suspense, useLayoutEffect, useRef } from "react";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Animation from "./animation";
 import "./events/events.css";
-
 /**
  * Componente Landing
  *
@@ -13,7 +13,7 @@ import "./events/events.css";
  * donde se solicita la presencia de un objeto 3D destacando la cultura de la civilización sumeria en la página de inicio.
  */
 function Landing({ reference, setScroll }) {
-  const lamussu = useGLTF("/static/lamussu.glb");
+  const lamussu = useLoader(GLTFLoader, "/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
 
@@ -66,7 +66,7 @@ function Landing({ reference, setScroll }) {
         />
 
         <color attach="background" args={["#DC7633"]} />
-        <Suspense fallback={<Animation/>}>
+        <Suspense fallback={<Animation />}>
           <primitive
             ref={polRef}
             object={lamussu.scene}

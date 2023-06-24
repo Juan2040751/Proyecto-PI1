@@ -1,5 +1,6 @@
-import { useGLTF } from "@react-three/drei";
+import { useLoader } from "@react-three/fiber";
 import React, { Suspense } from "react";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Animation from "../animation";
 import "../events/events.css";
 
@@ -41,7 +42,7 @@ export function DescriptionThree() {
 }
 
 export function ObjectThree(props) {
-  const ur = useGLTF("../static/standard_of_ur.glb");
+  const ur =  useLoader(GLTFLoader, "../static/standard_of_ur.glb");
   return (
     <group position={[-1.8, 3, -9]}>
       <directionalLight
@@ -64,4 +65,3 @@ export function ObjectThree(props) {
   );
 }
 
-useGLTF.preload("../static/standard_of_ur.glb");
