@@ -33,22 +33,20 @@ function Register() {
         password,
         confirmation,
       })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.message === "Registration successful.") {
+      .then(({ data }) => {
+        if (data.message === "Registration successful.") {
           setExito("Te has registrado exitosamente");
           localStorage.setItem("isLogged", "true");
-          setTimeout(() => {
-            navigate("/");
-          }, 2200);
+          localStorage.setItem("userId", data.id);
+          localStorage.setItem("user", data.username);
+          navigate("/");
         } else {
-          setError(response.data.message);
+          setError(data.message);
           localStorage.setItem("isLogged", "true");
         }
       })
       .catch((error) => {
         setError("Ocurrió un error. Por favor, inténtelo otra vez.");
-        console.log(error.response.data);
       });
     setOpenB(false);
   };
@@ -85,7 +83,7 @@ function Register() {
             <form onSubmit={handleRegister}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
-                  Nombre de usuario:
+                  Nombre completo:
                 </label>
                 <input
                   type="text"
@@ -150,7 +148,7 @@ function Register() {
             width: "50%",
             backgroundImage: "url('./static/Lateral.jpg')",
             backgroundPosition: "center",
-            backgroundSize: "cover"
+            backgroundSize: "cover",
           }}
         ></div>
       </div>
