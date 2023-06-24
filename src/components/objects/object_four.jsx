@@ -1,9 +1,7 @@
-import { useGLTF } from "@react-three/drei";
-import React, { Suspense } from "react";
-import Animation from "../animation";
-import "../events/events.css";
 import { useLoader } from "@react-three/fiber";
+import React from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import "../events/events.css";
 
 /**
  * Componente Object_four
