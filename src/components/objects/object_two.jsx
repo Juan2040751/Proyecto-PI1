@@ -60,19 +60,16 @@ export function ObjectTwo(props) {
         position={[1, 2, -3]}
         intensity={1.5}
       />
-      <Suspense fallback={<Animation />}>
-        <group position={[0, -2.3, 6]} rotation={[-1.61, 0, 0]}>
-          <mesh
-            scale={0.02}
-            castShadow
-            receiveShadow
-            geometry={nodes.Object_2.geometry}
-            material={materials["Default_OBJ.001"]}
-          />
-        </group>
-      </Suspense>
+
+      <group position={[0, -2.3, 6]} rotation={[-1.61, 0, 0]}>
+        <mesh
+          scale={0.02}
+          castShadow
+          receiveShadow
+          geometry={nodes.Object_2.geometry}
+          material={materials["Default_OBJ.001"]}
+        />
+      </group>
     </group>
   );
 }
-
-

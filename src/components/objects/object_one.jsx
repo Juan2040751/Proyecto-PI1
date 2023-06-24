@@ -1,8 +1,6 @@
 import { Html } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
-import { Suspense } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import Animation from "../animation";
 import "../events/events.css";
 
 /**
@@ -63,16 +61,13 @@ export function ObjectOne() {
           intensity={1.5}
         />
         <color attach="background" args={["#DC7633"]} />
-        <Suspense fallback={<Animation />}>
-          <primitive
-            object={guerrero.scene}
-            scale={2}
-            rotation-y={-0.2}
-            position={[0, 0, 0]}
-          />
-        </Suspense>
+        <primitive
+          object={guerrero.scene}
+          scale={2}
+          rotation-y={-0.2}
+          position={[0, 0, 0]}
+        />
       </group>
     </>
   );
 }
-

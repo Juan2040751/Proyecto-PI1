@@ -1,9 +1,10 @@
 import { Card, CardContent, CardMedia, Grid } from "@mui/material";
 import { Html, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React, { useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Slider from "react-slick";
+import Animation from "./animation";
 import "./events/events.css";
 import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
 import { ObjectFour } from "./objects/object_four";
@@ -310,14 +311,16 @@ function Museum({ reference }) {
             </main>
 
             <div style={{ width: "50%" }}>
-              <Canvas
-                ref={canvasRef}
-                shadows={true}
-                camera={{ position: [0, 0, 20], fov: 15 }}
-              >
-                <OrbitControls />
-                <ObjectOne />
-              </Canvas>
+              <Suspense fallback={<Animation />}>
+                <Canvas
+                  ref={canvasRef}
+                  shadows={true}
+                  camera={{ position: [0, 0, 20], fov: 15 }}
+                >
+                  <OrbitControls />
+                  <ObjectOne />
+                </Canvas>
+              </Suspense>
             </div>
           </div>
         </Modal.Body>
@@ -374,14 +377,16 @@ function Museum({ reference }) {
             </main>
             ;
             <div style={{ width: "50%" }}>
-              <Canvas
-                ref={canvasRef}
-                shadows={true}
-                camera={{ position: [0, 0, 20], fov: 15 }}
-              >
-                <OrbitControls />
-                <ObjectTwo />
-              </Canvas>
+              <Suspense fallback={<Animation />}>
+                <Canvas
+                  ref={canvasRef}
+                  shadows={true}
+                  camera={{ position: [0, 0, 20], fov: 15 }}
+                >
+                  <OrbitControls />
+                  <ObjectTwo />
+                </Canvas>
+              </Suspense>
             </div>
           </div>
         </Modal.Body>
@@ -427,14 +432,16 @@ function Museum({ reference }) {
             </main>
             ;
             <div style={{ width: "50%" }}>
-              <Canvas
-                ref={canvasRef}
-                shadows={true}
-                camera={{ position: [0, 0, 20], fov: 15 }}
-              >
-                <OrbitControls />
-                <ObjectThree />
-              </Canvas>
+              <Suspense fallback={<Animation />}>
+                <Canvas
+                  ref={canvasRef}
+                  shadows={true}
+                  camera={{ position: [0, 0, 20], fov: 15 }}
+                >
+                  <OrbitControls />
+                  <ObjectThree />
+                </Canvas>
+              </Suspense>
             </div>
           </div>
         </Modal.Body>
@@ -484,14 +491,16 @@ function Museum({ reference }) {
             </main>
             ;
             <div style={{ width: "50%" }}>
-              <Canvas
-                ref={canvasRef}
-                shadows={true}
-                camera={{ position: [0, 0, 20], fov: 15 }}
-              >
-                <OrbitControls />
-                <ObjectFour />
-              </Canvas>
+              <Suspense fallback={<Animation />}>
+                <Canvas
+                  ref={canvasRef}
+                  shadows={true}
+                  camera={{ position: [0, 0, 20], fov: 15 }}
+                >
+                  <OrbitControls />
+                  <ObjectFour />
+                </Canvas>
+              </Suspense>
             </div>
           </div>
         </Modal.Body>
