@@ -62,14 +62,13 @@ export function ObjectFour(props) {
         intensity={4}
       />
       <color attach="background" args={["#DC7633"]} />
-      <Suspense fallback={<Animation />}>
-        <primitive
-          object={king_list.scene}
-          scale={2}
-          rotation-y={-10}
-          position={[13, 8, -15]}
-        />
-      </Suspense>
+
+      <primitive
+        object={king_list.scene}
+        scale={2}
+        rotation-y={-10}
+        position={[13, 8, -15]}
+      />
     </group>
   );
 }
