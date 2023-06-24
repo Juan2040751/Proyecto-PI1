@@ -2,6 +2,8 @@ import { useGLTF } from "@react-three/drei";
 import React, { Suspense } from "react";
 import Animation from "../animation";
 import "../events/events.css";
+import { useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 /**
  * Componente Object_four
@@ -41,7 +43,10 @@ export function DescriptionFour() {
 }
 
 export function ObjectFour(props) {
-  const king_list = useGLTF("../static/the_sumerian_king_list.glb");
+  const king_list = useLoader(
+    GLTFLoader,
+    "../static/the_sumerian_king_list.glb"
+  );
   return (
     <group>
       <directionalLight
