@@ -1,4 +1,5 @@
-import { Box, Button, IconButton } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { Avatar, AvatarGroup, Box, Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
@@ -9,7 +10,6 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import logoapp from "../images/Sumerios.jpg";
-import LogoutIcon from "@mui/icons-material/Logout";
 /**
  * Componente Section
  *
@@ -48,6 +48,45 @@ function Section({ page, reference, isVisible, onClick }) {
     </Button>
   );
 }
+/**
+ * Transforma un string a un color
+ * @param {*} string cadena a convertir
+ * @returns color
+ */
+function stringToColor(string) {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = "#";
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+  return color;
+}
+
+/**
+ * Crea una configuracion para el icono de un usuario
+ * @param {*} name - Nombre del usuario
+ * @returns las propiedades del avatar de un usuario en base a su nombre
+ */
+function stringAvatar(name) {
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+    },
+    children:
+      name.split(" ").length > 1
+        ? `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`
+        : `${name.split(" ")[0][0]}`,
+  };
+}
 
 /**
  * Componente NavbarApp
@@ -63,6 +102,10 @@ function Section({ page, reference, isVisible, onClick }) {
  * @returns {JSX.Element} - Elemento JSX que representa el componente de la barra de navegación.
  */
 function NavbarApp({ window, references, LandingRef, scroll }) {
+  const user =
+    localStorage.getItem("user") !== null
+      ? localStorage.getItem("user")
+      : "User";
   const pages = ["Destacado", "Arquitectura", "Museo", "Gastronomía"];
   const actualPage = [
     0.2 < scroll && scroll < 0.4,
@@ -121,14 +164,12 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                   isVisible={actualPage[index]}
                 />
               ))}
-
-              <IconButton
-                aria-label="Logout"
-                onClick={handleLogout}
-                style={{ margin: "10px" }}
-              >
-                <LogoutIcon />
-              </IconButton>
+              <AvatarGroup max={1} style={{ alignItems: "center" }}>
+                <Avatar {...stringAvatar(user)} />
+                <Avatar onClick={handleLogout} className="logout-avatar">
+                  <LogoutIcon className="logout-icon-avatar" />
+                </Avatar>
+              </AvatarGroup>
             </Box>
           </Toolbar>
         </Container>

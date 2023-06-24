@@ -21,6 +21,16 @@
   flex-direction: column;
   margin-top: "15px";
 }
+.logout-icon-avatar{
+  color: black;
+}
+.logout-icon-avatar:hover{
+  color: white;
+}
+.logout-avatar:hover{
+  background-color: #0d6efd;
+  cursor: pointer;
+}
 @media (max-width: 1000px) {
   .gastronomy_text {
     width: 100%;
