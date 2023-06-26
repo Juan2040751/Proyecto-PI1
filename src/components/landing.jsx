@@ -1,5 +1,5 @@
 import { Html, useGLTF, useScroll } from "@react-three/drei";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import gsap from "gsap";
 import React, { Suspense, useLayoutEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -13,10 +13,10 @@ import "./events/events.css";
  * donde se solicita la presencia de un objeto 3D destacando la cultura de la civilización sumeria en la página de inicio.
  */
 function Landing({ reference, setScroll }) {
+  const { width, height } = useThree(state => state.viewport)
   const lamussu = useLoader(GLTFLoader, "/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
-
   const tl = useRef();
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());
@@ -70,7 +70,7 @@ function Landing({ reference, setScroll }) {
           <primitive
             ref={polRef}
             object={lamussu.scene}
-            scale={0.3}
+            scale={(width / height)/5.8}
             rotation-y={-0.2}
             position={[4, -2.5, -2.5]}
           />
@@ -78,7 +78,7 @@ function Landing({ reference, setScroll }) {
         <Html position={[-5, 1, 3]}>
           <h1
             style={{
-              fontSize: 90,
+              fontSize: "6.3vw",
               margin: 0,
               color: "black",
               fontFamily: "Tenor Sans, sans-serif",
@@ -88,7 +88,7 @@ function Landing({ reference, setScroll }) {
           </h1>
           <h1
             style={{
-              fontSize: 130,
+              fontSize: "9vw",
               margin: 0,
               color: "black",
               fontFamily: "Tenor Sans, sans-serif",

@@ -23,7 +23,7 @@ import { ObjectTwo } from "./objects/object_two";
  * @returns {JSX.Element} - Elemento JSX que representa el componente del museo.
  */
 
-function Museum({ reference }) {
+function Museum({ reference, lastCard, setSession, session }) {
   const [obj3d, setObj3d] = useState({
     uno: false,
     dos: false,
@@ -35,11 +35,11 @@ function Museum({ reference }) {
   var settings = {
     dots: true,
     arrows: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: lastCard ? lastCard : 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -129,7 +129,14 @@ function Museum({ reference }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setObj3d({ ...obj3d, uno: true })}
+                  onClick={() => {
+                    setObj3d({ ...obj3d, uno: true });
+                    setSession({
+                      ...session,
+                      Museo: 0,
+                      lastPage: "Museo",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -173,7 +180,14 @@ function Museum({ reference }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setObj3d({ ...obj3d, dos: true })}
+                  onClick={() => {
+                    setObj3d({ ...obj3d, dos: true });
+                    setSession({
+                      ...session,
+                      Museo: 1,
+                      lastPage: "Museo",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -216,7 +230,14 @@ function Museum({ reference }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setObj3d({ ...obj3d, tres: true })}
+                  onClick={() => {
+                    setObj3d({ ...obj3d, tres: true });
+                    setSession({
+                      ...session,
+                      Museo: 2,
+                      lastPage: "Museo",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -259,7 +280,14 @@ function Museum({ reference }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setObj3d({ ...obj3d, cuatro: true })}
+                  onClick={() => {
+                    setObj3d({ ...obj3d, cuatro: true });
+                    setSession({
+                      ...session,
+                      Museo: 3,
+                      lastPage: "Museo",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>

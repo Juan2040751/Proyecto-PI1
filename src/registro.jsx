@@ -27,7 +27,7 @@ function Register() {
     e.preventDefault();
     setOpenB(true);
     await axios
-      .post("/api/usuarios/registro", {
+      .post("http://localhost:8000/usuarios/registro", {
         username,
         email,
         password,
@@ -39,6 +39,7 @@ function Register() {
           localStorage.setItem("isLogged", "true");
           localStorage.setItem("userId", data.id);
           localStorage.setItem("user", data.username);
+          localStorage.setItem("session", JSON.stringify(data.session))
           navigate("/");
         } else {
           setError(data.message);
@@ -83,7 +84,7 @@ function Register() {
             <form onSubmit={handleRegister}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
-                  Nombre completo:
+                  Nombre de usuario:
                 </label>
                 <input
                   type="text"
