@@ -24,13 +24,12 @@ function Login() {
     e.preventDefault();
     await axios
       .post("/api/usuarios/login", { email, password })
-      .then(({data}) => {
+      .then(({ data }) => {
         if (data.message === "Login successful") {
           localStorage.setItem("isLogged", "true");
           localStorage.setItem("userId", data.id);
           localStorage.setItem("user", data.username);
-          localStorage.setItem("userId", data.id);
-          localStorage.setItem("user", data.username);
+          localStorage.setItem("session", JSON.stringify(data.session));
           navigate("/");
         } else {
           setError("Acceso inválido. Por favor, inténtelo otra vez.");
@@ -42,7 +41,7 @@ function Login() {
       });
     setOpenB(false);
   };
-  
+
   const closeError = () => {
     setError("");
   };

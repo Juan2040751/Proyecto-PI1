@@ -72,10 +72,9 @@ function EventFive() {
               height="315"
               src="https://www.youtube.com/embed/0k6l27bXvJQ" 
               title="YouTube video player"
-              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
-            ></iframe>
+            />
           </div>
         </div>
       </div>

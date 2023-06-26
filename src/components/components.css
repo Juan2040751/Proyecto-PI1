@@ -38,5 +38,9 @@
   .gastronomy_cards {
     width: 100%;
   }
-  
+
+  .lateral{
+    display: none;
+  }
+
 }

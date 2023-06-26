@@ -99,7 +99,7 @@ export function ArquiUruk(props) {
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4220.377353898418!2d45.63661441744386!3d31.324350300000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fe0f661d036c591%3A0xa38fa43ef51c0511!2sUruk!5e1!3m2!1ses!2sco!4v1687230922966!5m2!1ses!2sco"
-            allowFullScreen=""
+            allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Google Maps"

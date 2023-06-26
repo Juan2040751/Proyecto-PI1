@@ -20,6 +20,8 @@ function App() {
   const ArqitecturaRef = useRef(null);
   const references = [FeaturedRef, ArqitecturaRef, MuseumRef, GastronomyRef];
   const [scroll, setScroll] = useState(0);
+
+
   return (
     <>
       <NavbarApp
