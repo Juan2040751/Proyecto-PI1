@@ -29,10 +29,9 @@ function Home({ references, LandingRef, setScroll }) {
     ) {
       const updateSession = async () => {
         await axios
-          .put("http://localhost:8000/usuarios/sesion", session)
+          .put("/api/usuarios/sesion", session)
           .then(({ data }) => {
             const { session } = data;
-            console.log(session)
             localStorage.setItem("session", JSON.stringify(session));
           })
           .catch((error) => console.log(error));

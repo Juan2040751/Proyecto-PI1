@@ -27,7 +27,7 @@ function Register() {
     e.preventDefault();
     setOpenB(true);
     await axios
-      .post("http://localhost:8000/usuarios/registro", {
+      .post("/api/usuarios/registro", {
         username,
         email,
         password,
