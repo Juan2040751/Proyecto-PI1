@@ -113,6 +113,7 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
     0.6 < scroll && scroll < 0.8,
     0.8 < scroll,
   ];
+
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
@@ -164,7 +165,7 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                   isVisible={actualPage[index]}
                 />
               ))}
-              <AvatarGroup max={1} style={{ alignItems: "center" }}>
+              <AvatarGroup style={{ alignItems: "center" }}>
                 <Avatar {...stringAvatar(user)} />
                 <Avatar onClick={handleLogout} className="logout-avatar">
                   <LogoutIcon className="logout-icon-avatar" />

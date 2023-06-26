@@ -38,16 +38,13 @@ export function ArquiOne(props) {
         >
           <iframe
             title="Ziggurat"
-            frameBorder="0"
             allowFullScreen
             mozallowfullscreen="true"
             webkitallowfullscreen="true"
             allow="autoplay; fullscreen; xr-spatial-tracking"
             xr-spatial-tracking="true"
             execution-while-out-of-viewport="true"
-            execution-while-not-rendered
             loading="lazy"
-            web-share
             src="https://sketchfab.com/models/01a917691d344f3d801f67151de6b2f0/embed?autostart=1"
             style={{
               width: "100%", // Ocupa el 100% del contenedor
@@ -81,8 +78,8 @@ export function ArquiOne(props) {
               style={{ fontWeight: "bold", color: "#1CAAD9" }}
             >
               Paul Zimmerman{" "}
-            </a>{" "}
-            on{" "}
+            </a>
+            on
             <a
               href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=01a917691d344f3d801f67151de6b2f0"
               target="_blank"

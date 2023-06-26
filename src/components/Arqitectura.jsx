@@ -18,11 +18,14 @@ import { ArquiUruk } from "./objects/arqui_uruk";
  * @returns {JSX.Element} - Elemento JSX que representa el componente del museo.
  */
 
-function Arqitectura({ reference }) {
+function Arqitectura({ reference, lastCard }) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 60000,
+    speed: 1500,
+    initialSlide: lastCard? lastCard: 0,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,

@@ -23,7 +23,7 @@ import { ObjectTwo } from "./objects/object_two";
  * @returns {JSX.Element} - Elemento JSX que representa el componente del museo.
  */
 
-function Museum({ reference }) {
+function Museum({ reference, lastCard }) {
   const [obj3d, setObj3d] = useState({
     uno: false,
     dos: false,
@@ -35,11 +35,13 @@ function Museum({ reference }) {
   var settings = {
     dots: true,
     arrows: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 60000,
+    speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: lastCard? lastCard: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [

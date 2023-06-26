@@ -36,15 +36,10 @@ export function ArquiTwo(props) {
         >
           <iframe
             title="E-DUB-LAL-MAH"
-            frameborder="0"
             allowFullScreen
             mozallowfullscreen="true"
             webkitallowfullscreen="true"
             allow="autoplay; fullscreen; xr-spatial-tracking"
-            xr-spatial-tracking
-            execution-while-out-of-viewport
-            execution-while-not-rendered
-            web-share
             loading="lazy"
             src="https://sketchfab.com/models/965dbc85a8f246e59aae19c5ca860cec/embed?autostart=1"
             style={{
@@ -69,7 +64,6 @@ export function ArquiTwo(props) {
               href="https://sketchfab.com/3d-models/ziggurat-53b8b7260b5f49538a9b87f3e62323c9?utm_medium=embed&utm_campaign=share-popup&utm_content=53b8b7260b5f49538a9b87f3e62323c9"
               target="_blank"
               rel="noreferrer"
-              s
               style={{ fontWeight: "bold", color: "#1CAAD9" }}
             >
               E-DUB-LAL-MAH

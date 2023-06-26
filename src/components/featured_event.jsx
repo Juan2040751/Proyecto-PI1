@@ -18,7 +18,7 @@ import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
  * Este componente muestra los eventos destacados de la civilización sumeria, incluyendo descubrimientos,
  * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11 y PI1-26.
  */
-function Featured({ reference }) {
+function Featured({ reference, lastCard }) {
   const [events, setEvents] = useState({
     uno: false,
     dos: false,
@@ -34,11 +34,11 @@ function Featured({ reference }) {
     arrows: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 10000,
+    autoplaySpeed: 60000,
     speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: lastCard? lastCard: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -371,6 +371,7 @@ function Featured({ reference }) {
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                margin: "5px",
               }}
             >
               <CardMedia
