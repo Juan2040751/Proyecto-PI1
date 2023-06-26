@@ -18,7 +18,7 @@ import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
  * Este componente muestra los eventos destacados de la civilización sumeria, incluyendo descubrimientos,
  * impactos y legados culturales relevantes. Forma parte de la historia de usuario PI1-11 y PI1-26.
  */
-function Featured({ reference, lastCard }) {
+function Featured({ reference, lastCard, setSession, session }) {
   const [events, setEvents] = useState({
     uno: false,
     dos: false,
@@ -28,17 +28,14 @@ function Featured({ reference, lastCard }) {
     seis: false,
     siete: false,
   });
-
   var settings = {
     dots: true,
     arrows: true,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 60000,
     speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: lastCard? lastCard: 0,
+    initialSlide: lastCard ? lastCard : 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -129,7 +126,14 @@ function Featured({ reference, lastCard }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, uno: true })}
+                  onClick={() => {
+                    setEvents({ ...events, uno: true });
+                    setSession({
+                      ...session,
+                      Destacado: 0,
+                      lastPage: "Destacado",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -173,7 +177,14 @@ function Featured({ reference, lastCard }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, dos: true })}
+                  onClick={() => {
+                    setEvents({ ...events, dos: true });
+                    setSession({
+                      ...session,
+                      Destacado: 1,
+                      lastPage: "Destacado",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -219,7 +230,14 @@ function Featured({ reference, lastCard }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, tres: true })}
+                  onClick={() => {
+                    setEvents({ ...events, tres: true });
+                    setSession({
+                      ...session,
+                      Destacado: 2,
+                      lastPage: "Destacado",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -265,7 +283,14 @@ function Featured({ reference, lastCard }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, cuatro: true })}
+                  onClick={() => {
+                    setEvents({ ...events, cuatro: true });
+                    setSession({
+                      ...session,
+                      Destacado: 3,
+                      lastPage: "Destacado",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -310,7 +335,14 @@ function Featured({ reference, lastCard }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, cinco: true })}
+                  onClick={() => {
+                    setEvents({ ...events, cinco: true });
+                    setSession({
+                      ...session,
+                      Destacado: 4,
+                      lastPage: "Destacado",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -356,7 +388,14 @@ function Featured({ reference, lastCard }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, seis: true })}
+                  onClick={() => {
+                    setEvents({ ...events, seis: true });
+                    setSession({
+                      ...session,
+                      Destacado: 5,
+                      lastPage: "Destacado",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -404,7 +443,12 @@ function Featured({ reference, lastCard }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => setEvents({ ...events, siete: true })}
+                  onClick={() => {setEvents({ ...events, siete: true })
+                  setSession({
+                    ...session,
+                    Destacado: 6,
+                    lastPage: "Destacado",
+                  });}}
                 >
                   Conocer más
                 </button>
@@ -567,9 +611,8 @@ function Featured({ reference, lastCard }) {
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
           <h1>Personajes Importantes</h1>
         </Modal.Header>
-        <Modal.Body style={{height: "83vh"}}>{<Characters />}</Modal.Body>
+        <Modal.Body style={{ height: "83vh" }}>{<Characters />}</Modal.Body>
       </Modal>
-
     </Html>
   );
 }

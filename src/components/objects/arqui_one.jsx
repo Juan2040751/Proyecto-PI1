@@ -50,7 +50,7 @@ export function ArquiOne(props) {
               width: "100%", // Ocupa el 100% del contenedor
               height: "100%",
             }}
-          ></iframe>
+          />
         </div>
         <div
           style={{

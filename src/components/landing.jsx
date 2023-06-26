@@ -14,11 +14,9 @@ import "./events/events.css";
  */
 function Landing({ reference, setScroll }) {
   const { width, height } = useThree(state => state.viewport)
-  console.log( { width, height })
   const lamussu = useLoader(GLTFLoader, "/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
-
   const tl = useRef();
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration());

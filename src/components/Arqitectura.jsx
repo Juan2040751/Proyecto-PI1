@@ -3,7 +3,11 @@ import Slider from "react-slick";
 import "./events/events.css";
 import { ArquiOne } from "./objects/arqui_one";
 import { ArquiTwo } from "./objects/arqui_Two";
-import { ArquiGeneral, SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
+import {
+  ArquiGeneral,
+  SampleNextArrow,
+  SamplePrevArrow,
+} from "./objects/arqui_general";
 import { ArquiUruk } from "./objects/arqui_uruk";
 
 /**
@@ -18,18 +22,23 @@ import { ArquiUruk } from "./objects/arqui_uruk";
  * @returns {JSX.Element} - Elemento JSX que representa el componente del museo.
  */
 
-function Arqitectura({ reference, lastCard }) {
+function Arqitectura({ reference, lastCard, setSession, session }) {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 60000,
     speed: 1500,
-    initialSlide: lastCard? lastCard: 0,
+    initialSlide: lastCard ? lastCard : 0,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    afterChange: (index) => {
+      setSession({
+        ...session,
+        Arquitectura: index,
+        lastPage: "Arquitectura",
+      });
+    },
   };
 
   return (
@@ -46,18 +55,10 @@ function Arqitectura({ reference, lastCard }) {
           }}
         >
           <Slider {...settings}>
-            <div>
-              <ArquiGeneral />
-            </div>
-            <div>
-              <ArquiOne />
-            </div>
-            <div>
-              <ArquiTwo />
-            </div>
-            <div>
-              <ArquiUruk />
-            </div>
+            <ArquiGeneral />
+            <ArquiOne />
+            <ArquiTwo />
+            <ArquiUruk />
           </Slider>
         </div>
       </Html>
