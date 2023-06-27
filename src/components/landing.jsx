@@ -1,7 +1,7 @@
 import { Html, useGLTF, useScroll } from "@react-three/drei";
 import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import gsap from "gsap";
-import React, { Suspense, useLayoutEffect, useRef } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Animation from "./animation";
 import "./events/events.css";
@@ -12,8 +12,8 @@ import "./events/events.css";
  * que recibe a los usuarios después de iniciar sesión. Cumple con los requisitos de la Historia de Usuario PI1-16,
  * donde se solicita la presencia de un objeto 3D destacando la cultura de la civilización sumeria en la página de inicio.
  */
-function Landing({ reference, setScroll }) {
-  const { width, height } = useThree(state => state.viewport)
+function Landing({ reference, setScroll, session, setSession }) {
+  const { width, height } = useThree((state) => state.viewport);
   const lamussu = useLoader(GLTFLoader, "/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
@@ -53,7 +53,16 @@ function Landing({ reference, setScroll }) {
       -3
     );
   }, []);
-
+  useEffect(() => {
+    if (
+      session !== null &&
+      scroll.scroll.current === 0 &&
+      session?.lastPage !== "Landing"
+    ) {
+      console.log(session);
+      setSession({ ...session, lastPage: "Landing" });
+    }
+  }, [scroll.scroll.current]);
   return (
     <>
       <group position={0}>
@@ -70,7 +79,7 @@ function Landing({ reference, setScroll }) {
           <primitive
             ref={polRef}
             object={lamussu.scene}
-            scale={(width / height)/5.8}
+            scale={width / height / 5.8}
             rotation-y={-0.2}
             position={[4, -2.5, -2.5]}
           />
