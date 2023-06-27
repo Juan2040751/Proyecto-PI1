@@ -1,5 +1,5 @@
 import { Html, useGLTF, useScroll } from "@react-three/drei";
-import { useFrame, useLoader, useThree } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import gsap from "gsap";
 import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -13,7 +13,7 @@ import "./events/events.css";
  * donde se solicita la presencia de un objeto 3D destacando la cultura de la civilización sumeria en la página de inicio.
  */
 function Landing({ reference, setScroll, session, setSession }) {
-  const { width, height } = useThree((state) => state.viewport);
+  //const { width, height } = useThree((state) => state.viewport);
   const lamussu = useLoader(GLTFLoader, "/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
@@ -65,8 +65,8 @@ function Landing({ reference, setScroll, session, setSession }) {
   }, [scroll.scroll.current]);
   return (
     <>
-      <group position={0}>
-        <Html position={[0, 5, 0]} ref={reference} scale={0}></Html>
+      <group>
+        <Html position={[0, 5, 0]} ref={reference} scale={0} />
         <directionalLight
           castShadow
           shadow-normalBias={0.04}
@@ -79,32 +79,22 @@ function Landing({ reference, setScroll, session, setSession }) {
           <primitive
             ref={polRef}
             object={lamussu.scene}
-            scale={width / height / 5.8}
+            scale={0.3}
             rotation-y={-0.2}
             position={[4, -2.5, -2.5]}
           />
         </Suspense>
-        <Html position={[-5, 1, 3]}>
-          <h1
-            style={{
-              fontSize: "6.3vw",
-              margin: 0,
-              color: "black",
-              fontFamily: "Tenor Sans, sans-serif",
-            }}
-          >
-            La Primera
-          </h1>
-          <h1
-            style={{
-              fontSize: "9vw",
-              margin: 0,
-              color: "black",
-              fontFamily: "Tenor Sans, sans-serif",
-            }}
-          >
-            Civilización
-          </h1>
+        <Html
+          fullscreen
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
+          <h1 className="Landing-title-1">La Primera</h1>
+          <h1 className="Landing-title-2">Civilización</h1>
         </Html>
       </group>
     </>
