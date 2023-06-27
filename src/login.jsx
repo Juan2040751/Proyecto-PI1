@@ -23,7 +23,7 @@ function Login() {
     setOpenB(true);
     e.preventDefault();
     await axios
-      .post("/api/usuarios/login", { email, password })
+      .post("http://localhost:8000/usuarios/login", { email, password })
       .then(({ data }) => {
         if (data.message === "Login successful") {
           localStorage.setItem("isLogged", "true");
