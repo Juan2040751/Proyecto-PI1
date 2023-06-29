@@ -47,7 +47,7 @@ const preguntas = [
     },
     //arquitectura
     {
-        titulo: "El zigurat de Ur fue construido al rededor del siglo:",
+        titulo: "El zigurat de Ur fue construido alrededor del siglo:",
         opciones: [
             {textoRespuesta: "XXI a.C", isCorrect: true},
             {textoRespuesta: "XVIII a.C", isCorrect: false},

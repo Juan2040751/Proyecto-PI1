@@ -7,6 +7,7 @@ function Test() {
     const [puntuacion, setPuntuacion] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
     const [isAnsweSelected, setIsAnswerSelected] = useState(false);
+    const [answerShown, setAnswerShown] = useState(false);
 
     function handleAnswerSubmit(isCorrect, e) {
         console.log(isCorrect, e);
@@ -17,13 +18,52 @@ function Test() {
         setIsAnswerSelected(true);
     }
 
-    function handlerNextQuestion(){
-        if(presguntaActual === preguntas.length - 1){
+    function handlerNextQuestion() {
+        if (presguntaActual === preguntas.length - 1) {
             setIsFinished(true);
         } else {
             setPreguntaActual(presguntaActual + 1);
             setIsAnswerSelected(false);
         }
+    }
+
+    function handleCloseButton(){
+        window.location.href = "/";
+    }
+
+    if (answerShown) {
+        return (
+            <div className="test">
+                <button className="close-button" onClick={handleCloseButton}>
+                    X
+                </button>
+                <div className="lado-izquierdo">
+                    <div className="numero-pregunta">
+                        <span> Pregunta {presguntaActual + 1} de </span> {preguntas.length}
+                    </div>
+                    <div className="titulo-pregunta">
+                        {preguntas[presguntaActual].titulo}
+                    </div>
+                    <div>
+                        {preguntas[presguntaActual].opciones.filter(
+                            (opt) => opt.isCorrect
+                            )[0].textoRespuesta
+                        }
+                    </div>
+                    <div>
+                        <button className="btn btn-outline-primary w-30 mb-3" onClick={() => {
+                            if (presguntaActual === preguntas.length - 1) {
+                                window.location.href = "/test";
+                            } else {
+                                setPreguntaActual(presguntaActual + 1);
+                            }
+                        }}>
+                            {presguntaActual === preguntas.length -1 ? "Volver a jugar" : "Siguiente"}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     if (isFinished) {
@@ -37,6 +77,15 @@ function Test() {
                     <button-test onClick={() => (window.location.href = "/test")}>
                         {" "}
                         Intentar de nuevo
+                    </button-test>
+                    <button-test onClick={() => {
+                        setIsFinished(false);
+                        setAnswerShown(true);
+                        setPreguntaActual(0);
+                    }}
+                    >
+                        {" "}
+                        Ver respuestas
                     </button-test>
                 </div>
             </div>
@@ -54,15 +103,15 @@ function Test() {
                 </div>
                 <div>
                     {!isAnsweSelected ? (
-                     <span className="tiempo-restante">
+                        <span className="pista">
                             Pista
                         </span>
                     ) : (
-                        <button-test onClick={handlerNextQuestion}
+                        <button type="primary" className="btn btn-outline-primary w-30 mb-3" onClick={handlerNextQuestion}
                         >
                             Siguiente
-                        </button-test>
-                        
+                        </button>
+
                     )}
                 </div>
             </div>
@@ -71,7 +120,7 @@ function Test() {
                     <button-test
                         key={response.textoRespuesta}
                         onClick={(e) => handleAnswerSubmit(response.isCorrect, e)}
-                        //disabled={isAnsweSelected}
+                        //disabled
                     >
                         {response.textoRespuesta}
                     </button-test>

@@ -1,5 +1,5 @@
 /*Corregir body conflicto*/
-body{ 
+.body{ 
   margin: 0;
   color: #fff;
   background-color: #fcfcfc;
@@ -10,7 +10,8 @@ body{
 }
 
 .test {
-  background-color: #252d4a;
+  position: relative;
+  background-color: #f4f2f2;
   max-width: 650px;
   min-width: 450px;
   height: min-content;
@@ -62,20 +63,20 @@ body{
 button-test{
   width: 100%;
   font-size: 16px;
-  color: #ffffff;
-  background-color: #252d4a;
+  color: #000000;
+  background-color: #f4f4f4;
   border-radius: 15px;
   display: flex;
   padding: 5px;
   justify-content: flex-start;
   align-items: center;
-  border: 5px solid #234668;
+  border: 5px solid #6c757d;
   cursor: pointer;
 }
 
-.tiempo-restante {
+.pista {
   font-size: 14px;
-  color: #fcbf3d;
+  color: #0d6efd;
   margin-bottom: 20px;
 }
 
@@ -86,7 +87,7 @@ button-test{
 
 .incorrect,
 .incorrect:hover {
-  background-color: #ff3333;
+  background-color: #de3c3c;
 }
 
 .btns-container {
@@ -95,12 +96,12 @@ button-test{
 }
 
 button-test:hover {
-  background-color: #234668;
+  background-color: #cbcaca;
 }
 
 button-test[disabled] {
   background-color: #555e7d;
-  color: #ffffff;
+  color: #0c0c0c;
   cursor: not-allowed;
 }
 
@@ -110,4 +111,19 @@ button-test:focus {
 
 button-test svg {
   margin-right: 5px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #888;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
