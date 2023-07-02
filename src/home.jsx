@@ -19,7 +19,7 @@ import Museum from "./components/museum";
  * @param {object} LandingRef - Referencia al elemento HTML de la página de inicio.
  * @returns {JSX.Element} - Elemento JSX que representa la pantalla principal de la aplicación.
  */
-function Home({ references, LandingRef, setScroll }) {
+function Home({ references, LandingRef, setScroll, scroll }) {
   const [session, setSession] = useState(null);
 
   const lastPageTrack = () => {
@@ -29,12 +29,16 @@ function Home({ references, LandingRef, setScroll }) {
       Destacado: references[0].current,
       Arquitectura: references[1].current,
       Museo: references[2].current,
-      Gastronomia: references[3].current,
+      Gastronomía: references[3].current,
     }[lastPage];
     page?.scrollIntoView({ behavior: "smooth" });
   };
   useEffect(() => {
     setSession(JSON.parse(localStorage.getItem("session")));
+    const conectServer = async () => {
+      await axios.get("/api/usuarios/")
+    };
+    conectServer();
   }, []);
 
   useEffect(() => {
@@ -81,7 +85,12 @@ function Home({ references, LandingRef, setScroll }) {
           setSession={setSession}
           session={session}
         />
-        <Gastronomy reference={references[3]} />
+        <Gastronomy
+          reference={references[3]}
+          lastCard={session?.Gastronomía}
+          setSession={setSession}
+          session={session}
+        />
         <Html
           fullscreen
           style={{
@@ -91,6 +100,8 @@ function Home({ references, LandingRef, setScroll }) {
           }}
         >
           {session?.lastPage === "Landing" ? (
+            <></>
+          ) : session?.lastPage === null ? (
             <></>
           ) : (
             <Fab

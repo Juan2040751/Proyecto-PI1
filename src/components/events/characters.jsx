@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./events.css";
 
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { Box, Typography } from "@mui/material";
 /**
  * Componente Characters
  *
@@ -10,43 +13,52 @@ import "./events.css";
  * Pertenece a la historia de usuario PI1-13.
  */
 function Characters() {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      </div>
+    );
+  }
+
   return (
     <div className="container_events">
       <div className="lateral"></div>
 
       <div className="contenido">
-        <nav id="NavegacionPersonajes">
-          <ul
-            style={{
-              display: "flex",
-              listStyle: "none",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <li>
-              <a className="a-class" href="#Gilgamesh">
-                Gilgamesh
-              </a>
-            </li>
-            <li>
-              <a className="a-class" href="#Adapa">
-                Adapa
-              </a>
-            </li>
-            <li>
-              <a className="a-class" href="#Enkidu">
-                Enkidu
-              </a>
-            </li>
-            <li>
-              <a className="a-class" href="#Inanna">
-                Inanna
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div style={{ position: "relative",overflowY: "scroll", height: "70vh", display: "flex", flexDirection: "column"}}>
-          <section id="Gilgamesh">
+        <Box sx={{ width: "100%" }}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+            >
+              <Tab label="Gilgamesh" {...a11yProps(0)} />
+              <Tab label="Adapa" {...a11yProps(1)} />
+              <Tab label="Enkidu" {...a11yProps(2)} />
+              <Tab label="Inanna" {...a11yProps(3)} />
+            </Tabs>
+          </Box>
+          <TabPanel value={value} index={0}>
             <h1 className="titulo">Gilgamesh</h1>
             <div className="Imagen_desc">
               <img
@@ -68,9 +80,8 @@ function Characters() {
               más de 900 torres semicirculares. Sin-leqi-unnini organizó el
               Poema en once cantos o tablillas.
             </p>
-          </section>
-          <section id="Adapa">
-            {/* Información Adapa */}
+          </TabPanel>
+          <TabPanel value={value} index={1}>
             <h1 className="titulo">Adapa</h1>
             <div className="Imagen_desc">
               <img
@@ -102,9 +113,8 @@ function Characters() {
               del siglo i, como apkallum, utilizada para describir un cierto
               tipo de sacerdote exorcista.1​
             </p>
-          </section>
-          <section id="Enkidu">
-            {/* Información Enkidu */}
+          </TabPanel>
+          <TabPanel value={value} index={2}>
             <h1 className="titulo">Enkidu</h1>
             <div className="Imagen_desc">
               <img
@@ -144,10 +154,8 @@ function Characters() {
               las armas de Gilgamesh, pero está tablilla no parece tener
               relación con el resto del Poema.
             </p>
-          </section>
-
-          <section id="Inanna">
-            {/* Información Inanna */}
+          </TabPanel>
+          <TabPanel value={value} index={3}>
             <h1 className="titulo">Inanna</h1>
             <div className="Imagen_desc">
               <img
@@ -178,8 +186,8 @@ function Characters() {
               poder y provocación es casi siempre una característica que la
               define en cualquiera de las historias que se cuentan de ella.
             </p>
-          </section>
-        </div>
+          </TabPanel>
+        </Box>
       </div>
     </div>
   );
