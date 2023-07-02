@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useEffect } from "react";
 
 /**
  * Componente Register
@@ -51,6 +52,15 @@ function Register() {
       });
     setOpenB(false);
   };
+  useEffect(() => {
+    const conectServer = async () => {
+      await axios.get("/api/usuarios/").catch((error) => {
+        const { response } = error;
+        console.log(response);
+      });
+    };
+    conectServer();
+  }, []);
 
   return (
     <>
