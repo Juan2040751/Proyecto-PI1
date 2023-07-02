@@ -611,7 +611,7 @@ function Featured({ reference, lastCard, setSession, session }) {
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
           <h1>Personajes Importantes</h1>
         </Modal.Header>
-        <Modal.Body style={{ height: "83vh" }}>{<Characters />}</Modal.Body>
+        <Modal.Body >{<Characters />}</Modal.Body>
       </Modal>
     </Html>
   );
