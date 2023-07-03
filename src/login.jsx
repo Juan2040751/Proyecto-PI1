@@ -41,7 +41,12 @@ function Login() {
       });
     setOpenB(false);
   };
-
+  useEffect(() => {
+    const conectServer = async () => {
+      await axios.get("/api/usuarios/")
+    };
+    conectServer();
+  }, []);
   const closeError = () => {
     setError("");
   };

@@ -14,7 +14,7 @@ import { SampleNextArrow, SamplePrevArrow } from "./objects/arqui_general";
  * junto con algunos de sus platos tipicos. Forma parte de la historia de usuario PI1-12.
  */
 
-function Gastronomy({ reference }) {
+function Gastronomy({ reference, lastCard, setSession, session }) {
   var settings = {
     dots: true,
     arrows: true, // Habilitar las flechas
@@ -22,9 +22,16 @@ function Gastronomy({ reference }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: lastCard ? lastCard : 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    afterChange: (index) => {
+      setSession({
+        ...session,
+        Gastronomía: index,
+        lastPage: "Gastronomía",
+      });
+    },
     responsive: [
       {
         breakpoint: 1000,

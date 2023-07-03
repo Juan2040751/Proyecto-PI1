@@ -21,7 +21,6 @@ function App() {
   const references = [FeaturedRef, ArqitecturaRef, MuseumRef, GastronomyRef];
   const [scroll, setScroll] = useState(0);
 
-
   return (
     <>
       <NavbarApp
@@ -51,6 +50,7 @@ function App() {
               references={references}
               LandingRef={LandingRef}
               setScroll={setScroll}
+              scroll={scroll}
             />
           </Canvas>
         </Suspense>
