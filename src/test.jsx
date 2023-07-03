@@ -6,7 +6,7 @@ function Test() {
     const [presguntaActual, setPreguntaActual] = useState(0);
     const [puntuacion, setPuntuacion] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
-    const [isAnsweSelected, setIsAnswerSelected] = useState(false);
+    const [isAnswerSelected, setIsAnswerSelected] = useState(false);
     const [answerShown, setAnswerShown] = useState(false);
 
     function handleAnswerSubmit(isCorrect, e) {
@@ -34,14 +34,12 @@ function Test() {
     if (answerShown) {
         return (
             <div className="test">
-                <button className="close-button" onClick={handleCloseButton}>
-                    X
-                </button>
+                <button type="button" class="btn-close" aria-label="Close" onClick={handleCloseButton}/>
                 <div className="lado-izquierdo">
                     <div className="numero-pregunta">
                         <span> Pregunta {presguntaActual + 1} de </span> {preguntas.length}
                     </div>
-                    <div className="titulo-pregunta">
+                    <div className="pregunta-titulo">
                         {preguntas[presguntaActual].titulo}
                     </div>
                     <div>
@@ -98,13 +96,13 @@ function Test() {
                 <div className="numero-pregunta">
                     <span> Pregunta {presguntaActual + 1} de </span> {preguntas.length}
                 </div>
-                <div className="titulo-pregunta">
+                <div className="pregunta-titulo">
                     {preguntas[presguntaActual].titulo}
                 </div>
                 <div>
-                    {!isAnsweSelected ? (
+                    {!isAnswerSelected ? (
                         <span className="pista">
-                            Pista
+                            Pista: {preguntas[presguntaActual].section}
                         </span>
                     ) : (
                         <button type="primary" className="btn btn-outline-primary w-30 mb-3" onClick={handlerNextQuestion}
@@ -117,13 +115,13 @@ function Test() {
             </div>
             <div className="lado-derecho">
                 {preguntas[presguntaActual].opciones.map((response) => (
-                    <button-test
+                    <button className="button-test"
                         key={response.textoRespuesta}
                         onClick={(e) => handleAnswerSubmit(response.isCorrect, e)}
-                        //disabled
+                        disabled={isAnswerSelected}
                     >
                         {response.textoRespuesta}
-                    </button-test>
+                    </button>
                 ))}
             </div>
         </div>

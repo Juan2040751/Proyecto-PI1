@@ -41,6 +41,7 @@
 
 .pregunta-titulo {
   margin-bottom: 12px;
+  font-weight: bold;
 }
 
 .lado-derecho {
@@ -60,7 +61,7 @@
 }
 
 /* GRAL */
-button-test{
+.button-test{
   width: 100%;
   font-size: 16px;
   color: #000000;
