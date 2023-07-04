@@ -28,7 +28,7 @@ function Register() {
     e.preventDefault();
     setOpenB(true);
     await axios
-      .post("/api/usuarios/registro", {
+      .post("http://localhost:8000/usuarios/registro", {
         username,
         email,
         password,
@@ -54,7 +54,7 @@ function Register() {
   };
   useEffect(() => {
     const conectServer = async () => {
-      await axios.get("/api/usuarios/").catch((error) => {
+      await axios.get("http://localhost:8000/usuarios/").catch((error) => {
         const { response } = error;
         console.log(response);
       });
