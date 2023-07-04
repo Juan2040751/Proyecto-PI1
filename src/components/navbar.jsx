@@ -106,12 +106,13 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
     localStorage.getItem("user") !== null
       ? localStorage.getItem("user")
       : "User";
-  const pages = ["Destacado", "Arquitectura", "Museo", "Gastronomía"];
+  const pages = ["Destacado", "Arquitectura", "Museo", "Gastronomía", "Test"];
   const actualPage = [
-    0.2 < scroll && scroll < 0.4,
-    0.4 < scroll && scroll < 0.6,
-    0.6 < scroll && scroll < 0.8,
-    0.8 < scroll,
+    0.17 < scroll && scroll < 0.34,
+    0.34 < scroll && scroll < 0.51,
+    0.51 < scroll && scroll < 0.68,
+    0.68 < scroll && scroll < 0.85,
+    0.85 < scroll,
   ];
 
   const trigger = useScrollTrigger({

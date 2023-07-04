@@ -1,8 +1,22 @@
-import React, { useState, useEffect } from "react";
-import preguntas from "./bancoPreguntas";
+import React, { useState } from "react";
+import { Html } from "@react-three/drei";
 import "./test.css"
 
-function Test() {
+/**
+ * Componente Test
+ *
+ * Realiza una evaluación basada en un test de conocimientos sobre el contenido presentado
+ * en las diferentes secciones de la página. 
+ *
+ * @param {object} references - Referencias a los elementos HTML de cada sección.
+ * @param {object} lastCard - Registra la ultima tarjeta leída por el usuario.
+ * @param {object} setSession - Actualiza la información de la sesión (i.e. avances de lectura)
+ * @param {object} session - Información sobre la sesión
+ * @returns {JSX.Element} - Elemento JSX que muestra 5 preguntas al azar, tambienn las opciones de
+ *                          ver las respuestas y reintentar el test (con nuevas preguntas).
+ */
+function Test({ reference, lastCard, setSession, session }) {
+    const questions = session?.questions || [];
     const [presguntaActual, setPreguntaActual] = useState(0);
     const [puntuacion, setPuntuacion] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
@@ -10,7 +24,6 @@ function Test() {
     const [answerShown, setAnswerShown] = useState(false);
 
     function handleAnswerSubmit(isCorrect, e) {
-        console.log(isCorrect, e);
         if (isCorrect) {
             setPuntuacion(puntuacion + 1);
         }
@@ -19,7 +32,7 @@ function Test() {
     }
 
     function handlerNextQuestion() {
-        if (presguntaActual === preguntas.length - 1) {
+        if (presguntaActual === questions?.length - 1) {
             setIsFinished(true);
         } else {
             setPreguntaActual(presguntaActual + 1);
@@ -27,104 +40,145 @@ function Test() {
         }
     }
 
-    function handleCloseButton(){
-        window.location.href = "/";
+    function handleCloseButton() {
+        window.location.href = "/"; //CAMBIAR PARA QUE SÓLO SE CIERRE LA VENTANA
+    }
+
+    function handleRestartTest() {
+        window.location.href = "/"; //CAMBIAR PARA QUE SE REINICIE EL TEST
     }
 
     if (answerShown) {
         return (
-            <div className="test">
-                <button type="button" class="btn-close" aria-label="Close" onClick={handleCloseButton}/>
-                <div className="lado-izquierdo">
-                    <div className="numero-pregunta">
-                        <span> Pregunta {presguntaActual + 1} de </span> {preguntas.length}
-                    </div>
-                    <div className="pregunta-titulo">
-                        {preguntas[presguntaActual].titulo}
-                    </div>
-                    <div>
-                        {preguntas[presguntaActual].opciones.filter(
-                            (opt) => opt.isCorrect
-                            )[0].textoRespuesta
-                        }
-                    </div>
-                    <div>
-                        <button className="btn btn-outline-primary w-30 mb-3" onClick={() => {
-                            if (presguntaActual === preguntas.length - 1) {
-                                window.location.href = "/test";
-                            } else {
-                                setPreguntaActual(presguntaActual + 1);
-                            }
-                        }}>
-                            {presguntaActual === preguntas.length -1 ? "Volver a jugar" : "Siguiente"}
-                        </button>
+            <Html ref={reference} fullscreen style={{
+                top: "500vh", display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+            }}>
+                <div className="test" style={{ position: "relative" }}>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        aria-label="Close"
+                        onClick={handleCloseButton}
+                        style={{ position: "absolute", top: "10px", right: "10px" }}
+                    />
+                    <div className="lado-izquierdo">
+                        <div className="numero-pregunta">
+                            <span> Pregunta {presguntaActual + 1} de </span> {questions?.length}
+                        </div>
+                        <div className="pregunta-titulo">
+                            {questions[presguntaActual]?.utterance}
+                        </div>
+                        <div>
+                            {questions[presguntaActual]?.options[questions[presguntaActual]?.answer]}
+                        </div>
+                        <div>
+                            <button className="btn btn-outline-primary w-30 mb-3" onClick={() => {
+                                if (presguntaActual === questions?.length - 1) {
+                                    handleRestartTest();
+                                } else {
+                                    setPreguntaActual(presguntaActual + 1);
+                                }
+                            }}>
+                                {" "}
+                                {presguntaActual === questions?.length - 1 ? "Volver a jugar" : "Siguiente"}
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Html>
         )
     }
 
     if (isFinished) {
         return (
-            <div className="test">
-                <div className="juego-terminado">
-                    <span>
-                        {" "}
-                        Obtuviste {puntuacion} de {preguntas.length}{" "}
-                    </span>
-                    <button-test onClick={() => (window.location.href = "/test")}>
-                        {" "}
-                        Intentar de nuevo
-                    </button-test>
-                    <button-test onClick={() => {
-                        setIsFinished(false);
-                        setAnswerShown(true);
-                        setPreguntaActual(0);
-                    }}
-                    >
-                        {" "}
-                        Ver respuestas
-                    </button-test>
+            <Html ref={reference} fullscreen style={{
+                top: "500vh", display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+            }}>
+                <div className="test" style={{ position: "relative" }}>
+                    <button type="button" class="btn-close" aria-label="Close" onClick={handleCloseButton} style={{ position: "absolute", top: "10px", right: "10px" }} />
+                    <div className="juego-terminado">
+                        <span>
+                            {" "}
+                            Obtuviste {puntuacion} de {questions?.length}{" "}
+                        </span>
+                        <button
+                            type="primary"
+                            className="btn btn-outline-primary w-30 mb-3"
+                            onClick={handleRestartTest}
+                        >
+                            {" "}
+                            Intentar de nuevo
+                        </button>
+                        <button type="primary" className="btn btn-outline-primary w-30 mb-3" onClick={() => {
+                            setIsFinished(false);
+                            setAnswerShown(true);
+                            setPreguntaActual(0);
+                        }}
+                        >
+                            {" "}
+                            Ver respuestas
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </Html>
         );
     }
 
     return (
-        <div className="test">
-            <div className="lado-izquierdo">
-                <div className="numero-pregunta">
-                    <span> Pregunta {presguntaActual + 1} de </span> {preguntas.length}
-                </div>
-                <div className="pregunta-titulo">
-                    {preguntas[presguntaActual].titulo}
-                </div>
-                <div>
-                    {!isAnswerSelected ? (
-                        <span className="pista">
-                            Pista: {preguntas[presguntaActual].section}
-                        </span>
-                    ) : (
-                        <button type="primary" className="btn btn-outline-primary w-30 mb-3" onClick={handlerNextQuestion}
-                        >
-                            Siguiente
-                        </button>
+        <Html ref={reference} fullscreen style={{
+            top: "500vh", display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+        }}>
+            <div className="test">
+                <div className="lado-izquierdo">
+                    <div className="numero-pregunta">
+                        <span> Pregunta {presguntaActual + 1} de </span> {questions?.length}
+                    </div>
+                    <div className="pregunta-titulo">
+                        {questions[presguntaActual]?.utterance}
+                    </div>
+                    <div>
+                        {!isAnswerSelected ? (
+                            <span className="pista">
+                                Pista: {questions[presguntaActual]?.feedback}
+                            </span>
+                        ) : (
+                            <button
+                                type="primary"
+                                className="btn btn-outline-primary w-30 mb-3"
+                                onClick={handlerNextQuestion}
+                            >
+                                {" "}
+                                Siguiente
+                            </button>
 
-                    )}
+                        )}
+                    </div>
+                </div>
+                <div className="lado-derecho">
+                    {
+                        questions[presguntaActual]?.options && (
+                            <>
+                                {Object.values(questions[presguntaActual]?.options).map((option) => (
+                                    <button className="button-test"
+                                        key={option}
+                                        onClick={(e) => handleAnswerSubmit(questions[presguntaActual]?.options[questions[presguntaActual]?.answer] === option, e)}
+                                        disabled={isAnswerSelected}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </>
+                        )}
+
                 </div>
             </div>
-            <div className="lado-derecho">
-                {preguntas[presguntaActual].opciones.map((response) => (
-                    <button className="button-test"
-                        key={response.textoRespuesta}
-                        onClick={(e) => handleAnswerSubmit(response.isCorrect, e)}
-                        disabled={isAnswerSelected}
-                    >
-                        {response.textoRespuesta}
-                    </button>
-                ))}
-            </div>
-        </div>
+        </Html>
     );
 }
 
