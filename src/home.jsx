@@ -8,6 +8,7 @@ import Gastronomy from "./components/Gastronomy";
 import Featured from "./components/featured_event";
 import Landing from "./components/landing";
 import Museum from "./components/museum";
+import Test from "./test";
 
 /**
  * Componente Home
@@ -34,6 +35,7 @@ function Home({ references, LandingRef, setScroll, scroll }) {
     page?.scrollIntoView({ behavior: "smooth" });
   };
   useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem("session")));
     setSession(JSON.parse(localStorage.getItem("session")));
     const conectServer = async () => {
       await axios.get("/api/usuarios/")
@@ -91,6 +93,11 @@ function Home({ references, LandingRef, setScroll, scroll }) {
           setSession={setSession}
           session={session}
         />
+        <Test
+          reference={references[4]}
+          lastCard={session?.Evaluacion}
+          setSession={setSession}
+          session={session} />
         <Html
           fullscreen
           style={{
