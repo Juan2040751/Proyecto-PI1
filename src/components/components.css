@@ -173,6 +173,19 @@ button-test svg {
   align-items: center;
 }
 
+.MuiMenu-list{
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.MuiMenuItem-root{
+  padding: 0!important;
+  height: 50px !important;
+}
+.MuiButton-startIcon{
+  margin: 0 !important;
+}
 @media (max-width: 1000px) {
   .gastronomy_text {
     width: 100%;
