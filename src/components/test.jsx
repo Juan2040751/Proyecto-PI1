@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { Alert, Button, Snackbar } from "@mui/material";
 import { Html } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
+import React, { useEffect, useState } from "react";
+import ReplayIcon from "@mui/icons-material/Replay";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./events/events.css";
-import { useEffect } from "react";
-import { Alert, Snackbar } from "@mui/material";
 /**
  * Componente Test
  *
@@ -36,13 +37,45 @@ function Test({ reference, lastCard, setSession, session }) {
   const [answerShown, setAnswerShown] = useState(false);
   const { width } = useThree((state) => state.viewport);
   const [feedback, setFeedback] = useState({ message: "", state: "info" });
+  const button = document.getElementById(
+    session?.answers["answer" + (lastCard + 1)]
+  );
   useEffect(() => {
-    if (lastCard && !isAnswerSelected) setPreguntaActual(lastCard);
-  });
+    if (lastCard && !isAnswerSelected) {
+      setPreguntaActual(lastCard);
+
+      if (lastCard < 5) {
+        setOpenFeedback(true);
+        const isCorrect =
+          session?.questions[lastCard].answer ===
+          session?.answers["answer" + (lastCard + 1)];
+        if (button) {
+          button.classList.add(isCorrect ? "correct" : "incorrect");
+          setIsAnswerSelected(true);
+          if (isCorrect) {
+            setFeedback({
+              ...feedback,
+              message: "¡Respuesta correcta!",
+              state: "success",
+            });
+          } else {
+            setFeedback({
+              ...feedback,
+              message:
+                "La respuesta es incorrecta. La opción correcta era: " +
+                session?.questions[lastCard].options[
+                  session?.questions[lastCard].answer
+                ],
+              state: "error",
+            });
+          }
+        }
+      }
+    }
+  }, [lastCard, button]);
   function handleAnswerSubmit(isCorrect, e, optionSelected, index, correctOpt) {
     setOpenFeedback(true);
     if (isCorrect) {
-      setPuntuacion(puntuacion + 1);
       setFeedback({
         ...feedback,
         message: "¡Respuesta correcta!",
@@ -70,6 +103,14 @@ function Test({ reference, lastCard, setSession, session }) {
   function handlerNextQuestion() {
     setOpenFeedback(false);
     if (presguntaActual === questions?.length - 1) {
+      let correctAnswersCount = 0;
+      for (let i = 0; i < 5; i++) {
+        if (
+          session?.questions[i].answer === session?.answers["answer" + (i + 1)]
+        )
+          correctAnswersCount++;
+      }
+      setPuntuacion(correctAnswersCount);
       setIsFinished(true);
     } else {
       setPreguntaActual(presguntaActual + 1);
@@ -77,12 +118,12 @@ function Test({ reference, lastCard, setSession, session }) {
     }
   }
 
-  function handleCloseButton() {
-    window.location.href = "/"; //CAMBIAR PARA QUE SÓLO SE CIERRE LA VENTANA
-  }
-
   function handleRestartTest() {
-    window.location.href = "/"; //CAMBIAR PARA QUE SE REINICIE EL TEST
+    setSession({
+      ...session,
+      Evaluacion: session.Evaluacion + 1,
+      lastPage: "Evaluacion",
+    });
   }
 
   if (answerShown) {
@@ -98,13 +139,6 @@ function Test({ reference, lastCard, setSession, session }) {
         }}
       >
         <div className="test" style={{ position: "relative" }}>
-          <button
-            type="button"
-            class="btn-close"
-            aria-label="Close"
-            onClick={handleCloseButton}
-            style={{ position: "absolute", top: "10px", right: "10px" }}
-          />
           <div className="lado-izquierdo">
             <div className="numero-pregunta">
               <span> Pregunta {presguntaActual + 1} de </span>{" "}
@@ -121,21 +155,25 @@ function Test({ reference, lastCard, setSession, session }) {
               }
             </div>
             <div>
-              <button
-                className="btn btn-outline-primary w-30 mb-3"
-                onClick={() => {
-                  if (presguntaActual === questions?.length - 1) {
-                    handleRestartTest();
-                  } else {
+              {presguntaActual === questions?.length - 1 ? (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<ReplayIcon />}
+                  onClick={handleRestartTest}
+                >
+                  Volver a jugar
+                </Button>
+              ) : (
+                <button
+                  className="btn btn-outline-primary w-30 mb-3"
+                  onClick={() => {
                     setPreguntaActual(presguntaActual + 1);
-                  }
-                }}
-              >
-                {" "}
-                {presguntaActual === questions?.length - 1
-                  ? "Volver a jugar"
-                  : "Siguiente"}
-              </button>
+                  }}
+                >
+                  Siguiente
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -156,38 +194,31 @@ function Test({ reference, lastCard, setSession, session }) {
         }}
       >
         <div className="test" style={{ position: "relative" }}>
-          <button
-            type="button"
-            class="btn-close"
-            aria-label="Close"
-            onClick={handleCloseButton}
-            style={{ position: "absolute", top: "10px", right: "10px" }}
-          />
           <div className="juego-terminado">
             <span>
               {" "}
               Obtuviste {puntuacion} de {questions?.length}{" "}
             </span>
-            <button
-              type="primary"
-              className="btn btn-outline-primary w-30 mb-3"
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<ReplayIcon />}
               onClick={handleRestartTest}
             >
-              {" "}
-              Intentar de nuevo
-            </button>
-            <button
-              type="primary"
-              className="btn btn-outline-primary w-30 mb-3"
+              Volver a jugar
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<VisibilityIcon />}
               onClick={() => {
                 setIsFinished(false);
                 setAnswerShown(true);
                 setPreguntaActual(0);
               }}
             >
-              {" "}
               Ver respuestas
-            </button>
+            </Button>
           </div>
         </div>
       </Html>
@@ -238,10 +269,11 @@ function Test({ reference, lastCard, setSession, session }) {
           {questions[presguntaActual]?.options && (
             <>
               {Object.entries(questions[presguntaActual]?.options).map(
-                ([opt, option]) => (
+                ([opt, option], index) => (
                   <button
                     className="button-test"
                     key={option}
+                    id={"opt" + (index + 1)}
                     onClick={(e) =>
                       handleAnswerSubmit(
                         questions[presguntaActual]?.options[

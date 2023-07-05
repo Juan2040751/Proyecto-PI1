@@ -36,7 +36,6 @@ function Home({ references, LandingRef, setScroll, scroll }) {
     page?.scrollIntoView({ behavior: "smooth" });
   };
   useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem("session")));
     setSession(JSON.parse(localStorage.getItem("session")));
     const conectServer = async () => {
       await axios.get("http://localhost:8000/usuarios/");
