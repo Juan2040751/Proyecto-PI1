@@ -113,7 +113,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Soldado Sumerio</h2>
@@ -164,7 +164,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Tabla de Arcilla</h2>
@@ -215,7 +215,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Estandarte de Ur</h2>
@@ -265,7 +265,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Lista Real Sumeria</h2>

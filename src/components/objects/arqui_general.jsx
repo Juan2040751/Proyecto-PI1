@@ -3,7 +3,6 @@ import React from "react";
 import Slider from "react-slick";
 import "../events/events.css";
 
-
 /**
  * Componente arqui_general
  *
@@ -13,11 +12,11 @@ import "../events/events.css";
  */
 
 export function SampleNextArrow(props) {
-  const { className, style , onClick } = props;
+  const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, borderRadius:"100%", backgroundColor:"black"}}
+      style={{ ...style, borderRadius: "100%", backgroundColor: "black" }}
       onClick={onClick}
     />
   );
@@ -28,40 +27,44 @@ export function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style,borderRadius:"100%", backgroundColor:"black" }}
+      style={{ ...style, borderRadius: "100%", backgroundColor: "black" }}
       onClick={onClick}
     />
   );
 }
 
 export function ArquiGeneral(props) {
-  
-
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     autoplay: true,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    
   };
 
   return (
     <>
       <div
         style={{
-          //margin: '2%',
           marginLeft: "2%",
           display: "flex",
           width: "95vw",
           height: "80vh",
+          flexDirection: document.body.offsetWidth > 600 ? "row" : "column",
+          overflowX: "hidden",
+          overflowY: "auto",
         }}
       >
         <div
           style={{
-            width: "70%", 
-            height: "80vh", 
+            width:
+              document.body.offsetWidth > 1000
+                ? "70%"
+                : document.body.offsetWidth > 600
+                ? "50%"
+                : "100%",
+            height: "80vh",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -71,7 +74,7 @@ export function ArquiGeneral(props) {
           <div
             style={{
               width: "100%",
-              height: "90%", 
+              height: "90%",
             }}
           >
             <img
@@ -86,32 +89,34 @@ export function ArquiGeneral(props) {
         <div
           style={{
             padding: "2%",
-            width: "30%", 
+            width:
+              document.body.offsetWidth > 1000
+                ? "30%"
+                : document.body.offsetWidth > 600
+                ? "50%"
+                : "100%",
             height: "40vh",
-            flex: 2,
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <h1>Conformacion de las ciudades</h1>
-          <p style={{ paddingTop: "0" }}>
-            Aunque las ciudades sumerias pueden haber variado en algunos
-            aspectos, aquí hay una descripción general de su estructura y
-            características:
-          </p>
+          <div>
+            <h1>Conformacion de las ciudades</h1>
+            <p style={{ paddingTop: "0" }}>
+              Aunque las ciudades sumerias pueden haber variado en algunos
+              aspectos, aquí hay una descripción general de su estructura y
+              características:
+            </p>
+          </div>
 
           <div
             style={{
-              //width: "40%",
-              height: "40vh", 
-              flex: 2,
-              flexDirection: "column",
+              height: "40vh",
             }}
           >
             <Slider {...settings}>
-
-            <Card>
+              <Card>
                 <CardContent
                   sx={{
                     height: "460px",

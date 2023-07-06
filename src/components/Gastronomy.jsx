@@ -127,7 +127,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
                 <CardContent
                   sx={{
                     height: "352px",
-                    overflow: "hidden",
+                    overflow: "auto",
                   }}
                 >
                   <h2>Pan de cebada</h2>
@@ -162,7 +162,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
                 <CardContent
                   sx={{
                     height: "352px",
-                    overflow: "hidden",
+                    overflow: "auto",
                   }}
                 >
                   <h2>Estofado de Cordero</h2>
@@ -196,7 +196,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
                 <CardContent
                   sx={{
                     height: "352px",
-                    overflow: "hidden",
+                    overflow: "auto",
                   }}
                 >
                   <h2>Sopa de cebada</h2>
