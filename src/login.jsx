@@ -66,20 +66,15 @@ function Login() {
         <div className="regLogContainer" style={{ width: "50%" }}>
           <div
             className="containerForm"
-            style={{
-              display: "grid",
-            }}
           >
             <LazyLoadImage
+           
               src="./static/Sumerios.jpg"
-              style={{
-                width: "400px",
-                margin: "auto",
-                padding: "40px",
-              }}
+              className="lazy-load-image"
               effect="blur"
               alt="Sumerios"
             ></LazyLoadImage>
+            
             <h2>Hey, bienvenido &#x1F44B;</h2>
             {error && (
               <div className="error-alert">
@@ -128,14 +123,7 @@ function Login() {
             </form>
           </div>
         </div>
-        <div
-          style={{
-            width: "50%",
-            backgroundImage: "url('./static/Lateral.jpg')",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-        ></div>
+        <div className="responsive-div"></div>
       </div>
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
