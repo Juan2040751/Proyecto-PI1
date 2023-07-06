@@ -9,6 +9,46 @@ body,
   overflow: hidden;
 }
 
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 768px) {
+  .responsive-div {
+    width: 50%;
+    background-image: url('/public/static/Lateral.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+  
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 767px) {
+  .responsive-div {
+    display: none; /* Oculta el div en pantallas pequeñas */
+  }
+  .regLogContainer{
+    display: flex;
+    width: 100% !important;
+  height: 100vh !important;
+  display: absolute;
+  justify-content: center;
+  align-items: center;
+  animation-duration: 2s;
+  transition-timing-function: linear;
+  transition-property: height;
+  }
+  .containerForm {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+  }
+  
+}
+
+.lazy-load-image {
+  width: 100%;
+  padding: 10px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
