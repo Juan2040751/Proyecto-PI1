@@ -63,6 +63,7 @@ function EventThree() {
           sentido opuesto.
         </p>
         <img
+        className="imagenes"
           src="https://consolaytablero.com/wp-content/uploads/2016/04/juego-real-de-ur-tablero.jpg"
           loading="lazy"
           alt="ejemplo"
