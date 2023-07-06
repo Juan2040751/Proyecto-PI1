@@ -37,7 +37,7 @@ export function DescriptionThree() {
         que a su vez fue conquistada por Sargón de Acadia.
       </p>
     </section>
-  </main>;
+  </main>
 }
 
 export function ObjectThree(props) {

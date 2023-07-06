@@ -1,11 +1,10 @@
-import { Alert, Button, Skeleton, Snackbar } from "@mui/material";
-import { Html } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
-import React, { useEffect, useState } from "react";
 import ReplayIcon from "@mui/icons-material/Replay";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import "./events/events.css";
+import { Alert, Button, Skeleton, Snackbar } from "@mui/material";
+import { Html } from "@react-three/drei";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import "./events/events.css";
 /**
  * Componente Test
  *
@@ -21,14 +20,13 @@ import axios from "axios";
  */
 function Test({ reference, lastCard, setSession, session }) {
   const questions = session?.questions || [];
-  const [presguntaActual, setPreguntaActual] = useState(0);
+  const [preguntaActual, setPreguntaActual] = useState(0);
   const [loading, setLoading] = useState(false);
   const [openFeedback, setOpenFeedback] = useState(false);
   const [puntuacion, setPuntuacion] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
   const [answerShown, setAnswerShown] = useState(false);
-  const { width } = useThree((state) => state.viewport);
   const [feedback, setFeedback] = useState({ message: "", state: "info" });
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -44,7 +42,7 @@ function Test({ reference, lastCard, setSession, session }) {
     if (lastCard && !isAnswerSelected && !loading) {
       setPreguntaActual(lastCard);
 
-      if (lastCard < 5) {
+      if (lastCard < 5 && session?.answers["answer" + (lastCard + 1)]) {
         setOpenFeedback(true);
         const isCorrect =
           session?.questions[lastCard].answer ===
@@ -73,6 +71,7 @@ function Test({ reference, lastCard, setSession, session }) {
       }
     }
   }, [lastCard, button]);
+
   function handleAnswerSubmit(isCorrect, e, optionSelected, index, correctOpt) {
     setOpenFeedback(true);
     if (isCorrect) {
@@ -102,7 +101,7 @@ function Test({ reference, lastCard, setSession, session }) {
 
   function handlerNextQuestion() {
     setOpenFeedback(false);
-    if (presguntaActual === questions?.length - 1) {
+    if (preguntaActual === questions?.length - 1) {
       let correctAnswersCount = 0;
       for (let i = 0; i < 5; i++) {
         if (
@@ -113,7 +112,7 @@ function Test({ reference, lastCard, setSession, session }) {
       setPuntuacion(correctAnswersCount);
       setIsFinished(true);
     } else {
-      setPreguntaActual(presguntaActual + 1);
+      setPreguntaActual(preguntaActual + 1);
       setIsAnswerSelected(false);
     }
   }
@@ -138,8 +137,6 @@ function Test({ reference, lastCard, setSession, session }) {
         setSession(session);
       })
       .catch((error) => {
-        console.log(error);
-        console.log("heyyyyy");
         if (previous === "answer") {
           setAnswerShown(true);
           setPreguntaActual(4);
@@ -155,7 +152,12 @@ function Test({ reference, lastCard, setSession, session }) {
       <Html
         fullscreen
         style={{
-          top: width > 13.2 ? "500vh" : width > 7.92 ? "600vh" : "650vh",
+          top:
+            document.body.offsetWidth > 1000
+              ? "500vh"
+              : document.body.offsetWidth > 400
+              ? "550vh"
+              : "600vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -168,21 +170,22 @@ function Test({ reference, lastCard, setSession, session }) {
         <div className="test" style={{ position: "relative" }}>
           <div className="lado-izquierdo">
             <div className="numero-pregunta">
-              <span> Pregunta {presguntaActual + 1} de </span>{" "}
+              <span> Pregunta {preguntaActual + 1} de </span>{" "}
               {questions?.length}
             </div>
             <div className="pregunta-titulo">
-              {questions[presguntaActual]?.utterance}
+              {questions[preguntaActual]?.utterance}
             </div>
+            {/**
             <div>
-              {
-                questions[presguntaActual]?.options[
-                  questions[presguntaActual]?.answer
-                ]
-              }
+              {"Respuesta correcta: " +
+                questions[preguntaActual]?.options[
+                  questions[preguntaActual]?.answer
+                ]}
             </div>
+             */}
             <div>
-              {presguntaActual === questions?.length - 1 ? (
+              {preguntaActual === questions?.length - 1 ? (
                 <Button
                   variant="contained"
                   color="primary"
@@ -195,13 +198,43 @@ function Test({ reference, lastCard, setSession, session }) {
                 <button
                   className="btn btn-outline-primary w-30 mb-3"
                   onClick={() => {
-                    setPreguntaActual(presguntaActual + 1);
+                    setPreguntaActual(preguntaActual + 1);
                   }}
                 >
                   Siguiente
                 </button>
               )}
             </div>
+          </div>
+          <div className="lado-derecho">
+            {questions[preguntaActual]?.options && (
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "5px" }}
+              >
+                {Object.entries(questions[preguntaActual]?.options).map(
+                  ([opt, option], index) => (
+                    <button
+                      className={
+                        session?.questions[preguntaActual].answer ===
+                        "opt" + (index + 1)
+                          ? "button-test correct"
+                          : session?.answers[
+                              "answer" + (preguntaActual + 1)
+                            ] ===
+                            "opt" + (index + 1)
+                          ? "button-test incorrect"
+                          : "button-test"
+                      }
+                      key={option}
+                      id={"opt" + (index + 1)}
+                      disabled={true}
+                    >
+                      {option}
+                    </button>
+                  )
+                )}
+              </div>
+            )}
           </div>
         </div>
       </Html>
@@ -213,7 +246,12 @@ function Test({ reference, lastCard, setSession, session }) {
       <Html
         fullscreen
         style={{
-          top: width > 13.2 ? "500vh" : width > 7.92 ? "600vh" : "650vh",
+          top:
+            document.body.offsetWidth > 1000
+              ? "500vh"
+              : document.body.offsetWidth > 400
+              ? "550vh"
+              : "600vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -258,7 +296,12 @@ function Test({ reference, lastCard, setSession, session }) {
     <Html
       fullscreen
       style={{
-        top: width > 13.2 ? "500vh" : width > 7.92 ? "600vh" : "650vh",
+        top:
+          document.body.offsetWidth > 1000
+            ? "500vh"
+            : document.body.offsetWidth > 400
+            ? "550vh"
+            : "600vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -271,7 +314,7 @@ function Test({ reference, lastCard, setSession, session }) {
       <div className="test">
         <div className="lado-izquierdo">
           <div className="numero-pregunta">
-            <span> Pregunta {presguntaActual + 1} de </span> {questions?.length}
+            <span> Pregunta {preguntaActual + 1} de </span> {questions?.length}
           </div>
           <div className="pregunta-titulo">
             {loading ? (
@@ -283,7 +326,7 @@ function Test({ reference, lastCard, setSession, session }) {
                 sx={{ fontSize: "1rem" }}
               />
             ) : (
-              questions[presguntaActual]?.utterance
+              questions[preguntaActual]?.utterance
             )}
           </div>
           <div>
@@ -297,7 +340,7 @@ function Test({ reference, lastCard, setSession, session }) {
                     sx={{ fontSize: "1rem" }}
                   />
                 ) : (
-                  questions[presguntaActual]?.feedback
+                  questions[preguntaActual]?.feedback
                 )}
               </span>
             ) : (
@@ -313,9 +356,11 @@ function Test({ reference, lastCard, setSession, session }) {
           </div>
         </div>
         <div className="lado-derecho">
-          {questions[presguntaActual]?.options && (
-            <>
-              {Object.entries(questions[presguntaActual]?.options).map(
+          {questions[preguntaActual]?.options && (
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "5px" }}
+            >
+              {Object.entries(questions[preguntaActual]?.options).map(
                 ([opt, option], index) =>
                   loading ? (
                     <Skeleton
@@ -331,14 +376,14 @@ function Test({ reference, lastCard, setSession, session }) {
                       id={"opt" + (index + 1)}
                       onClick={(e) =>
                         handleAnswerSubmit(
-                          questions[presguntaActual]?.options[
-                            questions[presguntaActual]?.answer
+                          questions[preguntaActual]?.options[
+                            questions[preguntaActual]?.answer
                           ] === option,
                           e,
                           opt,
-                          presguntaActual + 1,
-                          questions[presguntaActual]?.options[
-                            questions[presguntaActual]?.answer
+                          preguntaActual + 1,
+                          questions[preguntaActual]?.options[
+                            questions[preguntaActual]?.answer
                           ]
                         )
                       }
@@ -348,7 +393,7 @@ function Test({ reference, lastCard, setSession, session }) {
                     </button>
                   )
               )}
-            </>
+            </div>
           )}
         </div>
       </div>

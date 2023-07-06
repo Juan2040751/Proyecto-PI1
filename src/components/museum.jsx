@@ -73,7 +73,7 @@ function Museum({ reference, lastCard, setSession, session }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          arrows: true,
+          arrows: false,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         },

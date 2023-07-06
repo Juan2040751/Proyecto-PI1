@@ -39,6 +39,19 @@ function Arqitectura({ reference, lastCard, setSession, session }) {
         lastPage: "Arquitectura",
       });
     },
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+    ],
   };
 
   return (

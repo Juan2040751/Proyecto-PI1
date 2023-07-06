@@ -50,7 +50,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
           slidesToScroll: 1,
           initialSlide: 1,
           dots: true,
-          arrows: true,
+          arrows: false,
         },
       },
       {
@@ -60,7 +60,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
           slidesToScroll: 1,
           initialSlide: 1,
           dots: true,
-          arrows: true,
+          arrows: false,
         },
       },
     ],
