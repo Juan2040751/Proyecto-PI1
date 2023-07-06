@@ -1,10 +1,11 @@
-import { Alert, Button, Snackbar } from "@mui/material";
+import { Alert, Button, Skeleton, Snackbar } from "@mui/material";
 import { Html } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import React, { useEffect, useState } from "react";
 import ReplayIcon from "@mui/icons-material/Replay";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./events/events.css";
+import axios from "axios";
 /**
  * Componente Test
  *
@@ -21,8 +22,14 @@ import "./events/events.css";
 function Test({ reference, lastCard, setSession, session }) {
   const questions = session?.questions || [];
   const [presguntaActual, setPreguntaActual] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [openFeedback, setOpenFeedback] = useState(false);
-
+  const [puntuacion, setPuntuacion] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+  const [isAnswerSelected, setIsAnswerSelected] = useState(false);
+  const [answerShown, setAnswerShown] = useState(false);
+  const { width } = useThree((state) => state.viewport);
+  const [feedback, setFeedback] = useState({ message: "", state: "info" });
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -30,18 +37,11 @@ function Test({ reference, lastCard, setSession, session }) {
 
     setOpenFeedback(false);
   };
-
-  const [puntuacion, setPuntuacion] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
-  const [isAnswerSelected, setIsAnswerSelected] = useState(false);
-  const [answerShown, setAnswerShown] = useState(false);
-  const { width } = useThree((state) => state.viewport);
-  const [feedback, setFeedback] = useState({ message: "", state: "info" });
   const button = document.getElementById(
     session?.answers["answer" + (lastCard + 1)]
   );
   useEffect(() => {
-    if (lastCard && !isAnswerSelected) {
+    if (lastCard && !isAnswerSelected && !loading) {
       setPreguntaActual(lastCard);
 
       if (lastCard < 5) {
@@ -92,7 +92,7 @@ function Test({ reference, lastCard, setSession, session }) {
     e.target.classList.add(isCorrect ? "correct" : "incorrect");
     setSession({
       ...session,
-      Evaluacion: session.Evaluacion + 1,
+      Evaluacion: session.Evaluacion < 4 ? session.Evaluacion + 1 : 4,
       lastPage: "Evaluacion",
       answers: { ...session.answers, [`answer${index}`]: optionSelected },
     });
@@ -118,26 +118,53 @@ function Test({ reference, lastCard, setSession, session }) {
     }
   }
 
-  function handleRestartTest() {
-    setSession({
-      ...session,
-      Evaluacion: session.Evaluacion + 1,
-      lastPage: "Evaluacion",
-    });
+  async function handleRestartTest() {
+    setLoading(true);
+    const previous = answerShown ? "answer" : "finish";
+    setAnswerShown(false);
+    setIsFinished(false);
+    setPreguntaActual(0);
+    setIsAnswerSelected(false);
+    setOpenFeedback(false);
+    await axios
+      .put("http://localhost:8000/usuarios/sesion", {
+        ...session,
+        Evaluacion: 5,
+        lastPage: "Evaluacion",
+      })
+      .then(({ data }) => {
+        const { session } = data;
+        localStorage.setItem("session", JSON.stringify(session));
+        setSession(session);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("heyyyyy");
+        if (previous === "answer") {
+          setAnswerShown(true);
+          setPreguntaActual(4);
+        } else {
+          setIsFinished(true);
+        }
+      });
+    setLoading(false);
   }
 
   if (answerShown) {
     return (
       <Html
-        ref={reference}
         fullscreen
         style={{
-          top: "500vh",
+          top: width > 13.2 ? "500vh" : width > 7.92 ? "600vh" : "650vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: "column",
         }}
       >
+        <div className="titulo" ref={reference} id="Evaluacion">
+          <h1>Evaluacion</h1>
+        </div>
         <div className="test" style={{ position: "relative" }}>
           <div className="lado-izquierdo">
             <div className="numero-pregunta">
@@ -184,15 +211,18 @@ function Test({ reference, lastCard, setSession, session }) {
   if (isFinished) {
     return (
       <Html
-        ref={reference}
         fullscreen
         style={{
-          top: "500vh",
+          top: width > 13.2 ? "500vh" : width > 7.92 ? "600vh" : "650vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: "column",
         }}
       >
+        <div className="titulo" ref={reference} id="Evaluacion">
+          <h1>Evaluacion</h1>
+        </div>
         <div className="test" style={{ position: "relative" }}>
           <div className="juego-terminado">
             <span>
@@ -226,11 +256,9 @@ function Test({ reference, lastCard, setSession, session }) {
   }
   return (
     <Html
-      //ref={reference}
       fullscreen
       style={{
         top: width > 13.2 ? "500vh" : width > 7.92 ? "600vh" : "650vh",
-        //backgroundColor: "red",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -246,12 +274,31 @@ function Test({ reference, lastCard, setSession, session }) {
             <span> Pregunta {presguntaActual + 1} de </span> {questions?.length}
           </div>
           <div className="pregunta-titulo">
-            {questions[presguntaActual]?.utterance}
+            {loading ? (
+              <Skeleton
+                animation="wave"
+                width={305}
+                height={70}
+                variant="text"
+                sx={{ fontSize: "1rem" }}
+              />
+            ) : (
+              questions[presguntaActual]?.utterance
+            )}
           </div>
           <div>
             {!isAnswerSelected ? (
               <span className="pista">
-                Pista: {questions[presguntaActual]?.feedback}
+                Pista:{" "}
+                {loading ? (
+                  <Skeleton
+                    width={100}
+                    variant="text"
+                    sx={{ fontSize: "1rem" }}
+                  />
+                ) : (
+                  questions[presguntaActual]?.feedback
+                )}
               </span>
             ) : (
               <button
@@ -269,29 +316,37 @@ function Test({ reference, lastCard, setSession, session }) {
           {questions[presguntaActual]?.options && (
             <>
               {Object.entries(questions[presguntaActual]?.options).map(
-                ([opt, option], index) => (
-                  <button
-                    className="button-test"
-                    key={option}
-                    id={"opt" + (index + 1)}
-                    onClick={(e) =>
-                      handleAnswerSubmit(
-                        questions[presguntaActual]?.options[
-                          questions[presguntaActual]?.answer
-                        ] === option,
-                        e,
-                        opt,
-                        presguntaActual + 1,
-                        questions[presguntaActual]?.options[
-                          questions[presguntaActual]?.answer
-                        ]
-                      )
-                    }
-                    disabled={isAnswerSelected}
-                  >
-                    {option}
-                  </button>
-                )
+                ([opt, option], index) =>
+                  loading ? (
+                    <Skeleton
+                      key={option}
+                      variant="rounded"
+                      width={300}
+                      height={40}
+                    />
+                  ) : (
+                    <button
+                      className="button-test"
+                      key={option}
+                      id={"opt" + (index + 1)}
+                      onClick={(e) =>
+                        handleAnswerSubmit(
+                          questions[presguntaActual]?.options[
+                            questions[presguntaActual]?.answer
+                          ] === option,
+                          e,
+                          opt,
+                          presguntaActual + 1,
+                          questions[presguntaActual]?.options[
+                            questions[presguntaActual]?.answer
+                          ]
+                        )
+                      }
+                      disabled={isAnswerSelected}
+                    >
+                      {option}
+                    </button>
+                  )
               )}
             </>
           )}

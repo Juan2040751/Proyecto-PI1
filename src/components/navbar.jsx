@@ -122,7 +122,7 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
     "Evaluacion",
   ];
   const actualPage =
-    document.body.offsetWidth > 800
+    document.body.offsetWidth > 1000
       ? [
           0.17 < scroll && scroll < 0.34,
           0.34 < scroll && scroll < 0.51,
@@ -231,7 +231,6 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                     open={open}
                     onMouseLeave={handleClose}
                     onClose={handleClose}
-                    disableP
                     style={{
                       margin: 0,
                       padding: 0,
@@ -243,9 +242,8 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                     }}
                   >
                     {pages.map((page, index) => (
-                      <MenuItem style={{ margin: 0 }}>
+                      <MenuItem style={{ margin: 0 }} key={page}>
                         <Section
-                          key={page}
                           page={page}
                           style={{ margin: "0 !important" }}
                           reference={references[index]}

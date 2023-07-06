@@ -37,10 +37,10 @@ function Home({ references, LandingRef, setScroll, scroll }) {
   };
   useEffect(() => {
     setSession(JSON.parse(localStorage.getItem("session")));
-    const conectServer = async () => {
-      await axios.get("http://localhost:8000/usuarios/");
-    };
-    conectServer();
+    //const conectServer = async () => {
+    //await axios.get("http://localhost:8000/usuarios/");
+    //};
+    //conectServer();
   }, []);
 
   useEffect(() => {
