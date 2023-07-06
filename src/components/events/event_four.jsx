@@ -117,6 +117,7 @@ function EventFour() {
           </p>
           <div className="Imagen_desc">
             <img
+            className="imagenes"
               src="https://ulum.es/wp-content/uploads/2014/10/tabla.jpg"
               loading="lazy"
               alt=""
@@ -139,6 +140,7 @@ function EventFour() {
           </p>
           <div className="Imagen_desc">
             <img
+            className="imagenes"
               src="https://ulum.es/wp-content/uploads/2014/10/1-copia.jpg"
               loading="lazy"
               alt=""

@@ -45,7 +45,7 @@ function EventFive() {
           Construyeron canales y sistemas de riego que permitieron el cultivo eficiente de tierras agrícolas, 
           aumentando la producción de alimentos y el desarrollo de asentamientos urbanos. 
           </p>
-          <img style = {{display: "flex", margin: "auto"}}
+          <img className="imagenes" style = {{display: "flex", margin: "auto"}}
           src="https://asambleadigital.es/wp-content/uploads/2020/05/escena-1.jpg"
           loading="lazy"
           alt="ejemplo"
@@ -60,7 +60,9 @@ function EventFive() {
           donde construyeron estructuras masivas como los zigurats y los palacios. Utilizaron técnicas de construcción avanzadas, como el uso de ladrillos de arcilla y la utilización de arcos y bóvedas.
           En resumen, el legado tecnológico de la civilización sumeria abarca desde la escritura y la irrigación hasta la astronomía y la metalurgia. Sus innovaciones sentaron las bases para futuros avances en diversas áreas y su influencia perdura en la humanidad hasta el día de hoy. 
           </p>
-          <img style={{width: "600px",
+          <img
+          className="imagenes"
+           style={{width: "600px",
                 margin: "auto", display: "flex"}}
           src="https://cdn.discordapp.com/attachments/1090122205691658352/1121669436768780319/caracteristicas-de-los-sumerios.png"
           loading="lazy"
