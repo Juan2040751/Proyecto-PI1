@@ -45,7 +45,7 @@ function Home({ references, LandingRef, setScroll, scroll }) {
       JSON.stringify(session) !== localStorage.getItem("session")
     ) {
       const updateSession = async () => {
-        await axios.put("/api/usuarios/sesion", session).then(({ data }) => {
+        await axios.put("http://127.0.0.1:8000/usuarios/sesion", session).then(({ data }) => {
           const { session } = data;
           localStorage.setItem("session", JSON.stringify(session));
         });
