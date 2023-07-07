@@ -143,7 +143,7 @@ function Test({ reference, lastCard, setSession, session }) {
     setOpenFeedback(false);
     setShowPista(false);
     await axios
-      .put("http://localhost:8000/usuarios/sesion", {
+      .put("/api/usuarios/sesion", {
         ...session,
         Evaluacion: 5,
         lastPage: "Evaluacion",

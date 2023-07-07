@@ -37,10 +37,6 @@ function Home({ references, LandingRef, setScroll, scroll }) {
   };
   useEffect(() => {
     setSession(JSON.parse(localStorage.getItem("session")));
-    //const conectServer = async () => {
-    //await axios.get("http://localhost:8000/usuarios/");
-    //};
-    //conectServer();
   }, []);
 
   useEffect(() => {
@@ -49,13 +45,10 @@ function Home({ references, LandingRef, setScroll, scroll }) {
       JSON.stringify(session) !== localStorage.getItem("session")
     ) {
       const updateSession = async () => {
-        await axios
-          .put("http://localhost:8000/usuarios/sesion", session)
-          .then(({ data }) => {
-            const { session } = data;
-            localStorage.setItem("session", JSON.stringify(session));
-          })
-          .catch((error) => console.log(error));
+        await axios.put("/api/usuarios/sesion", session).then(({ data }) => {
+          const { session } = data;
+          localStorage.setItem("session", JSON.stringify(session));
+        });
       };
       updateSession();
     }
