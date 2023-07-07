@@ -71,14 +71,10 @@ function Register() {
         }}
       >
         <div className="regLogContainer" style={{ width: "50%" }}>
-          <div className="containerForm" style={{ display: "grid" }}>
+          <div className="containerForm" >
             <LazyLoadImage
               src="./static/Sumerios.jpg"
-              style={{
-                width: "400px",
-                margin: "auto",
-                padding: "40px",
-              }}
+              className="lazy-load-image"
               effect="blur"
               loading="lazy"
               alt="sumerios app logo"
@@ -155,12 +151,7 @@ function Register() {
           </div>
         </div>
         <div
-          style={{
-            width: "50%",
-            backgroundImage: "url('./static/Lateral.jpg')",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
+          className="responsive-div"
         ></div>
       </div>
       <Backdrop

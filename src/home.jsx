@@ -8,6 +8,7 @@ import Gastronomy from "./components/Gastronomy";
 import Featured from "./components/featured_event";
 import Landing from "./components/landing";
 import Museum from "./components/museum";
+import Test from "./components/evaluacion";
 
 /**
  * Componente Home
@@ -30,15 +31,12 @@ function Home({ references, LandingRef, setScroll, scroll }) {
       Arquitectura: references[1].current,
       Museo: references[2].current,
       Gastronomía: references[3].current,
+      Evaluacion: references[4].current,
     }[lastPage];
     page?.scrollIntoView({ behavior: "smooth" });
   };
   useEffect(() => {
     setSession(JSON.parse(localStorage.getItem("session")));
-    const conectServer = async () => {
-      await axios.get("/api/usuarios/")
-    };
-    conectServer();
   }, []);
 
   useEffect(() => {
@@ -47,20 +45,20 @@ function Home({ references, LandingRef, setScroll, scroll }) {
       JSON.stringify(session) !== localStorage.getItem("session")
     ) {
       const updateSession = async () => {
-        await axios
-          .put("/api/usuarios/sesion", session)
-          .then(({ data }) => {
-            const { session } = data;
-            localStorage.setItem("session", JSON.stringify(session));
-          })
-          .catch((error) => console.log(error));
+        await axios.put("/api/usuarios/sesion", session).then(({ data }) => {
+          const { session } = data;
+          localStorage.setItem("session", JSON.stringify(session));
+        });
       };
       updateSession();
     }
   }, [session]);
   return (
     <>
-      <ScrollControls pages={1} damping={0.1}>
+      <ScrollControls
+        pages={1}
+        damping={0.1}
+      >
         <Landing
           reference={LandingRef}
           setScroll={setScroll}
@@ -88,6 +86,12 @@ function Home({ references, LandingRef, setScroll, scroll }) {
         <Gastronomy
           reference={references[3]}
           lastCard={session?.Gastronomía}
+          setSession={setSession}
+          session={session}
+        />
+        <Test
+          reference={references[4]}
+          lastCard={session?.Evaluacion}
           setSession={setSession}
           session={session}
         />

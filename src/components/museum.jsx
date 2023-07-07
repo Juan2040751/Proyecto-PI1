@@ -73,7 +73,7 @@ function Museum({ reference, lastCard, setSession, session }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          arrows: true,
+          arrows: false,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         },
@@ -82,7 +82,7 @@ function Museum({ reference, lastCard, setSession, session }) {
   };
 
   return (
-    <Html fullscreen style={{ top: "300vh", padding: "2%" }}>
+    <Html fullscreen style={{ top: "300vh", padding: "2%", height: "100vh", overflowY: "auto" }}>
       <div className="titulo" ref={reference} id="Museo">
         <h1>MUSEO</h1>
       </div>
@@ -113,7 +113,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Soldado Sumerio</h2>
@@ -164,7 +164,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Tabla de Arcilla</h2>
@@ -215,7 +215,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Estandarte de Ur</h2>
@@ -265,7 +265,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               <CardContent
                 sx={{
                   height: "350px",
-                  overflow: "hidden",
+                  overflow: "auto",
                 }}
               >
                 <h2>Lista Real Sumeria</h2>
@@ -315,8 +315,8 @@ function Museum({ reference, lastCard, setSession, session }) {
           <h1> Soldado Sumerio</h1>
         </Modal.Header>
         <Modal.Body>
-          <div style={{ display: "flex" }}>
-            <main style={{ width: "50%" }}>
+          <div className="objetos">
+            <main className="objetos-main">
               <section className="hero">
                 <p>
                   Los soldados sumerios eran miembros del ejército en la antigua
@@ -338,7 +338,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               </section>
             </main>
 
-            <div style={{ width: "50%" }}>
+            <div className="objetos-main">
               <Suspense fallback={<Animation />}>
                 <Canvas
                   ref={canvasRef}
@@ -372,8 +372,8 @@ function Museum({ reference, lastCard, setSession, session }) {
           <h1>Tabla de Arcilla Sumeria</h1>
         </Modal.Header>
         <Modal.Body>
-          <div style={{ display: "flex" }}>
-            <main style={{ width: "50%" }}>
+          <div className="objetos">
+            <main className="objetos-main">
               <section className="hero">
                 <p>
                   Esta única tabla de arcilla está marcada con líneas de texto
@@ -404,7 +404,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               </section>
             </main>
             ;
-            <div style={{ width: "50%" }}>
+            <div className="objetos-main">
               <Suspense fallback={<Animation />}>
                 <Canvas
                   ref={canvasRef}
@@ -437,8 +437,8 @@ function Museum({ reference, lastCard, setSession, session }) {
           <h1>El Estandarte de Ur</h1>
         </Modal.Header>
         <Modal.Body>
-          <div style={{ display: "flex" }}>
-            <main style={{ width: "50%" }}>
+          <div className="objetos">
+            <main className="objetos-main">
               <section className="hero">
                 <p>
                   "El Estandarte de Ur", decorado en sus cuatro lados con
@@ -459,7 +459,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               </section>
             </main>
             ;
-            <div style={{ width: "50%" }}>
+            <div className="objetos-main">
               <Suspense fallback={<Animation />}>
                 <Canvas
                   ref={canvasRef}
@@ -492,8 +492,8 @@ function Museum({ reference, lastCard, setSession, session }) {
           <h1>Lista Real Sumeria</h1>
         </Modal.Header>
         <Modal.Body>
-          <div style={{ display: "flex" }}>
-            <main style={{ width: "50%" }}>
+          <div className="objetos">
+            <main className="objetos-main">
               <section className="hero">
                 <p>
                   La Lista Real Sumeria es una lista de reyes de la antigua
@@ -518,7 +518,7 @@ function Museum({ reference, lastCard, setSession, session }) {
               </section>
             </main>
             ;
-            <div style={{ width: "50%" }}>
+            <div className="objetos-main">
               <Suspense fallback={<Animation />}>
                 <Canvas
                   ref={canvasRef}

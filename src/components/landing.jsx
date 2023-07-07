@@ -2,7 +2,6 @@ import { Html, useGLTF, useScroll } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
 import gsap from "gsap";
 import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Animation from "./animation";
 import "./events/events.css";
 /**
@@ -14,7 +13,7 @@ import "./events/events.css";
  */
 function Landing({ reference, setScroll, session, setSession }) {
   //const { width, height } = useThree((state) => state.viewport);
-  const lamussu = useLoader(GLTFLoader, "/static/lamussu.glb");
+  const lamussu = useGLTF("/static/lamussu.glb");
   const polRef = useRef();
   const scroll = useScroll();
   const tl = useRef();

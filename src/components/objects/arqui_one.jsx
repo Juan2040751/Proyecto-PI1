@@ -13,16 +13,23 @@ export function ArquiOne(props) {
   return (
     <div
       style={{
-        //margin: '2%',
-        marginLeft: "2%",
+        margin: "5px",
         display: "flex",
         width: "95vw",
+        flexDirection: document.body.offsetWidth > 600 ? "row" : "column",
+        overflowX: "hidden",
+        overflowY: document.body.offsetWidth > 600 ? "hidden" : "auto",
         height: "80vh",
       }}
     >
       <div
         style={{
-          width: "60%", // El 60% del ancho de la ventana
+          width:
+            document.body.offsetWidth > 1000
+              ? "60%"
+              : document.body.offsetWidth > 600
+              ? "50%"
+              : "100%", // El 60% del ancho de la ventana
           height: "80vh", // El 100% de la altura de la ventana
           display: "flex",
           flexDirection: "column",
@@ -95,9 +102,13 @@ export function ArquiOne(props) {
       <div
         style={{
           padding: "2%",
-          width: "40%", // El 40% del ancho de la ventana
+          width:
+            document.body.offsetWidth > 1000
+              ? "40%"
+              : document.body.offsetWidth > 600
+              ? "50%"
+              : "100%", // El 40% del ancho de la ventana
           height: "40vh", // El 100% de la altura de la ventana
-          flex: 2,
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
@@ -114,7 +125,6 @@ export function ArquiOne(props) {
         </p>
         <div
           style={{
-            //width: "40%", // El 40% del ancho de la ventana
             height: "40vh", // El 100% de la altura de la ventana
             flex: 2,
             flexDirection: "column",

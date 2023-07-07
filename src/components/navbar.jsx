@@ -1,12 +1,20 @@
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Avatar, AvatarGroup, Box, Button } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  Avatar,
+  AvatarGroup,
+  Box,
+  Button,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import "intersection-observer";
-import React from "react";
+import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import logoapp from "../images/Sumerios.jpg";
@@ -106,14 +114,20 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
     localStorage.getItem("user") !== null
       ? localStorage.getItem("user")
       : "User";
-  const pages = ["Destacado", "Arquitectura", "Museo", "Gastronomía"];
-  const actualPage = [
-    0.2 < scroll && scroll < 0.4,
-    0.4 < scroll && scroll < 0.6,
-    0.6 < scroll && scroll < 0.8,
-    0.8 < scroll,
+  const pages = [
+    "Destacado",
+    "Arquitectura",
+    "Museo",
+    "Gastronomía",
+    "Evaluacion",
   ];
-
+  const actualPage = [
+    0.17 < scroll && scroll < 0.33,
+    0.33 < scroll && scroll < 0.5,
+    0.5 < scroll && scroll < 0.66,
+    0.66 < scroll && scroll < 0.83,
+    0.83 < scroll,
+  ];
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
@@ -123,6 +137,14 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
     navigate("/login");
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar color="inherit" sx={{ height: 60 }}>
@@ -157,14 +179,64 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
                 justifyContent: "right",
               }}
             >
-              {pages.map((page, index) => (
-                <Section
-                  key={page}
-                  page={page}
-                  reference={references[index]}
-                  isVisible={actualPage[index]}
-                />
-              ))}
+              {document.body.offsetWidth > 700 ? (
+                pages.map((page, index) => (
+                  <Section
+                    key={page}
+                    page={page}
+                    reference={references[index]}
+                    isVisible={actualPage[index]}
+                  />
+                ))
+              ) : (
+                <>
+                  <Button
+                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick}
+                    startIcon={<MenuIcon style={{ margin: 0 }} />}
+                    style={{
+                      animationDuration: "1s",
+                      backgroundColor: "#0d6efd",
+                      color: "white",
+                    }}
+                  >
+                    {actualPage.some((isCurrent) => isCurrent) ? (
+                      pages[actualPage.findIndex((isCurrent) => isCurrent)]
+                    ) : (
+                      <></>
+                    )}
+                  </Button>
+                  <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onMouseLeave={handleClose}
+                    onClose={handleClose}
+                    style={{
+                      margin: 0,
+                      padding: 0,
+                      paddingTop: 0,
+                      paddingBottom: 0,
+                    }}
+                    MenuListProps={{
+                      "aria-labelledby": "basic-button",
+                    }}
+                  >
+                    {pages.map((page, index) => (
+                      <MenuItem style={{ margin: 0 }} key={page}>
+                        <Section
+                          page={page}
+                          style={{ margin: "0 !important" }}
+                          reference={references[index]}
+                          isVisible={actualPage[index]}
+                        />
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </>
+              )}
               <AvatarGroup style={{ alignItems: "center" }}>
                 <Avatar {...stringAvatar(user)} />
                 <Avatar onClick={handleLogout} className="logout-avatar">

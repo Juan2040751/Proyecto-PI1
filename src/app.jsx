@@ -18,7 +18,8 @@ function App() {
   const MuseumRef = useRef(null);
   const GastronomyRef = useRef(null);
   const ArqitecturaRef = useRef(null);
-  const references = [FeaturedRef, ArqitecturaRef, MuseumRef, GastronomyRef];
+  const TestRef = useRef(null);
+  const references = [FeaturedRef, ArqitecturaRef, MuseumRef, GastronomyRef, TestRef];
   const [scroll, setScroll] = useState(0);
 
   return (

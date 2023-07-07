@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./events.css";
 
-import Tabs from "@mui/material/Tabs";
+import { Box } from "@mui/material";
 import Tab from "@mui/material/Tab";
-import { Box, Typography } from "@mui/material";
+import Tabs from "@mui/material/Tabs";
 /**
  * Componente Characters
  *

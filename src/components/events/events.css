@@ -1,64 +1,100 @@
 .container_events {
-    position: relative;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-
-  .lateral {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 200px;
-    background-image: url("http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg");
-    background-repeat: repeat-y;
-    
-  }
-
-  .contenido{
-    position: relative;
-    margin-left: 15%;
-  }
-
-  .img_lateral {
-    width: auto;
-    height: auto;
-  }
-
-  .titulo_events {
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .descripcion {
-    margin-top: 20px;
-  }
-
-  .Imagen_desc{
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .imagenes {
-    max-width: 100%;
-    height: 400px;
-  }
-
-  .titulo, .titulo_arqui{
-    text-align: center;
-    padding: 30px;
-    grid-area: n2;
-    color: #676867;
+  position: relative;
+  background-color: #f2f2f2;
+  padding: 20px;
 }
 
-.titulo_arqui{
+.lateral {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background-image: url("http://jphurtadoc.com/wp-content/uploads/2023/05/lateral11.jpg");
+  background-repeat: repeat-y;
+}
+
+.contenido {
+  position: relative;
+  margin-left: 15%;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .lateral {
+    display: none;
+  }
+
+  .contenido {
+    margin: 0;
+  }
+  .descripcion {
+    margin: 0px !important;
+  }
+  .objetos {
+    flex-direction: column-reverse;
+  }
+
+  .objetos-main {
+    width: 100% !important;
+  }
+  div.objetos-main {
+    height: 400px !important;
+  }
+}
+
+.img_lateral {
+  width: auto;
+  height: auto;
+}
+
+.titulo_events {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.descripcion {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.Imagen_desc {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.imagenes {
+  max-width: 100%;
+  height: 400px;
+}
+
+.titulo,
+.titulo_arqui {
+  text-align: center;
+  padding: 30px;
+  grid-area: n2;
+  color: #676867;
+}
+
+.titulo_arqui {
   padding: 15px;
 }
 
-.video{
-    text-align: center;
+.video {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .CardContent {
@@ -67,61 +103,70 @@
   white-space: nowrap;
 }
 
-
-  h2{
-    color: #33383b;
-    font-family: 'Tenor Sans', sans-serif;
+h2 {
+  color: #33383b;
+  font-family: "Tenor Sans", sans-serif;
 }
 
-h4{
-    font-family: 'Tenor Sans', sans-serif;
-    color: #33383b;
-    font-weight: 20;
+h4 {
+  font-family: "Tenor Sans", sans-serif;
+  color: #33383b;
+  font-weight: 20;
 }
 
-p{
-    padding-top: 40px;
-    text-align: justify;
-    font-size: 20px;
-    font-family: 'Tenor Sans', sans-serif;
+p {
+  padding-top: 40px;
+  text-align: justify;
+  font-size: 1.25em;
+  font-family: "Tenor Sans", sans-serif;
 }
 
-  li {
-    /* Estilos para las viñetas */
-    /* Por ejemplo: */
-    list-style-type: disc;
-    margin-left: 20px;
-  }
+li {
+  /* Estilos para las viñetas */
+  /* Por ejemplo: */
+  list-style-type: disc;
+  margin-left: 20px;
+}
 
-  iframe {
-    /* Estilos para el iframe de YouTube */
-    /* Por ejemplo: */
-    margin-top: 20px;
-  }
+iframe {
+  /* Estilos para el iframe de YouTube */
+  /* Por ejemplo: */
+  margin-top: 20px;
+}
 
-  .modal-fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    margin: 0 !important;
-  }
-  .modal-fullscreen .modal-dialog {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-  }
-  .modal-fullscreen .modal-content {
-    height: 100%;
-    border-radius: 0;
-  }
-  .modal-fullscreen .modal-body {
-    height: calc(100% - 56px); /* Ajusta el valor según el tamaño del encabezado del modal */
-  }
-  
-.canvas{
+.modal-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  margin: 0 !important;
+}
+.modal-fullscreen .modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.modal-fullscreen .modal-content {
+  height: 100%;
+  border-radius: 0;
+}
+.modal-fullscreen .modal-body {
+  height: calc(
+    100% - 56px
+  ); /* Ajusta el valor según el tamaño del encabezado del modal */
+}
+
+.objetos {
+  display: flex;
+}
+
+.objetos-main {
+  width: 50%;
+}
+
+.canvas {
   height: 800px;
   position: absolute !important;
   inset: 0 !important;
@@ -138,7 +183,7 @@ p{
   pointer-events: none;
 }
 
-.app .hero{
+.app .hero {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
@@ -146,16 +191,15 @@ p{
   flex-direction: column;
 }
 
-.a-class{
+.a-class {
   font-size: larger;
   color: #955f0c;
   text-decoration: none;
 }
-.a-class:hover{
+.a-class:hover {
   color: #0d6efd;
 }
-.sketchfab-embed-wrapper{
+.sketchfab-embed-wrapper {
   height: 100vh;
   width: 50vh;
 }
-

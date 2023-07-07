@@ -1,6 +1,4 @@
-import { Html } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Html, useGLTF } from "@react-three/drei";
 import "../events/events.css";
 
 /**
@@ -36,11 +34,11 @@ export function DescriptionOne() {
         que a su vez fue conquistada por Sargón de Acadia.
       </p>
     </section>
-  </main>;
+  </main>
 }
 
 export function ObjectOne() {
-  const guerrero = useLoader(GLTFLoader, "../static/my_sumarian_soldier.glb");
+  const guerrero = useGLTF("/static/my_sumarian_soldier.glb");
 
   return (
     <>

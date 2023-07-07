@@ -50,7 +50,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
           slidesToScroll: 1,
           initialSlide: 1,
           dots: true,
-          arrows: true,
+          arrows: false,
         },
       },
       {
@@ -60,13 +60,16 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
           slidesToScroll: 1,
           initialSlide: 1,
           dots: true,
-          arrows: true,
+          arrows: false,
         },
       },
     ],
   };
   return (
-    <Html fullscreen style={{ top: "400vh" }}>
+    <Html
+      fullscreen
+      style={{ top: "400vh", height: "100vh", overflowY: "auto" }}
+    >
       <div className="titulo" ref={reference} id="Gastronomía">
         <h1>GASTRONOMIA SUMERÍA</h1>
       </div>
@@ -127,7 +130,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
                 <CardContent
                   sx={{
                     height: "352px",
-                    overflow: "hidden",
+                    overflow: "auto",
                   }}
                 >
                   <h2>Pan de cebada</h2>
@@ -162,7 +165,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
                 <CardContent
                   sx={{
                     height: "352px",
-                    overflow: "hidden",
+                    overflow: "auto",
                   }}
                 >
                   <h2>Estofado de Cordero</h2>
@@ -196,7 +199,7 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
                 <CardContent
                   sx={{
                     height: "352px",
-                    overflow: "hidden",
+                    overflow: "auto",
                   }}
                 >
                   <h2>Sopa de cebada</h2>
