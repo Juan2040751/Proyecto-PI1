@@ -315,7 +315,7 @@ function Museum({ reference, lastCard, setSession, session }) {
           <h1> Soldado Sumerio</h1>
         </Modal.Header>
         <Modal.Body>
-          <div className="objetos" >
+          <div className="objetos">
             <main className="objetos-main">
               <section className="hero">
                 <p>

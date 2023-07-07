@@ -44,7 +44,6 @@ function Home({ references, LandingRef, setScroll, scroll }) {
   }, []);
 
   useEffect(() => {
-    console.log(session);
     if (
       session !== null &&
       JSON.stringify(session) !== localStorage.getItem("session")

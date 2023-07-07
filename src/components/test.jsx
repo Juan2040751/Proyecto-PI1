@@ -1,6 +1,13 @@
 import ReplayIcon from "@mui/icons-material/Replay";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import { Alert, Button, Skeleton, Snackbar } from "@mui/material";
+import {
+  Alert,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Skeleton,
+  Snackbar,
+} from "@mui/material";
 import { Html } from "@react-three/drei";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -27,7 +34,16 @@ function Test({ reference, lastCard, setSession, session }) {
   const [isFinished, setIsFinished] = useState(false);
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
   const [answerShown, setAnswerShown] = useState(false);
+  const [showPista, setShowPista] = useState(false);
   const [feedback, setFeedback] = useState({ message: "", state: "info" });
+  if (questions?.length === 0) {
+    setOpenFeedback(true);
+    setFeedback({
+      message:
+        "Hay un problema con tu sesión, prueba iniciando sesión nuevamente",
+      state: "info",
+    });
+  }
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -125,6 +141,7 @@ function Test({ reference, lastCard, setSession, session }) {
     setPreguntaActual(0);
     setIsAnswerSelected(false);
     setOpenFeedback(false);
+    setShowPista(false);
     await axios
       .put("http://localhost:8000/usuarios/sesion", {
         ...session,
@@ -155,9 +172,9 @@ function Test({ reference, lastCard, setSession, session }) {
           top:
             document.body.offsetWidth > 1000
               ? "500vh"
-              : document.body.offsetWidth > 400
-              ? "550vh"
-              : "600vh",
+              : document.body.offsetWidth > 500
+              ? "600vh"
+              : "650vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -176,14 +193,6 @@ function Test({ reference, lastCard, setSession, session }) {
             <div className="pregunta-titulo">
               {questions[preguntaActual]?.utterance}
             </div>
-            {/**
-            <div>
-              {"Respuesta correcta: " +
-                questions[preguntaActual]?.options[
-                  questions[preguntaActual]?.answer
-                ]}
-            </div>
-             */}
             <div>
               {preguntaActual === questions?.length - 1 ? (
                 <Button
@@ -249,9 +258,9 @@ function Test({ reference, lastCard, setSession, session }) {
           top:
             document.body.offsetWidth > 1000
               ? "500vh"
-              : document.body.offsetWidth > 400
-              ? "550vh"
-              : "600vh",
+              : document.body.offsetWidth > 500
+              ? "600vh"
+              : "650vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -261,7 +270,10 @@ function Test({ reference, lastCard, setSession, session }) {
         <div className="titulo" ref={reference} id="Evaluacion">
           <h1>Evaluacion</h1>
         </div>
-        <div className="test" style={{ position: "relative" }}>
+        <div
+          className="test"
+          style={{ position: "relative", width: "fit-content" }}
+        >
           <div className="juego-terminado">
             <span>
               {" "}
@@ -271,6 +283,7 @@ function Test({ reference, lastCard, setSession, session }) {
               variant="contained"
               color="primary"
               startIcon={<ReplayIcon />}
+              style={{ width: "inherent", paddingInline: "20px" }}
               onClick={handleRestartTest}
             >
               Volver a jugar
@@ -299,9 +312,9 @@ function Test({ reference, lastCard, setSession, session }) {
         top:
           document.body.offsetWidth > 1000
             ? "500vh"
-            : document.body.offsetWidth > 400
-            ? "550vh"
-            : "600vh",
+            : document.body.offsetWidth > 500
+            ? "600vh"
+            : "650vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -311,92 +324,105 @@ function Test({ reference, lastCard, setSession, session }) {
       <div className="titulo" ref={reference} id="Evaluacion">
         <h1>Evaluacion</h1>
       </div>
-      <div className="test">
-        <div className="lado-izquierdo">
-          <div className="numero-pregunta">
-            <span> Pregunta {preguntaActual + 1} de </span> {questions?.length}
-          </div>
-          <div className="pregunta-titulo">
-            {loading ? (
-              <Skeleton
-                animation="wave"
-                width={305}
-                height={70}
-                variant="text"
-                sx={{ fontSize: "1rem" }}
-              />
-            ) : (
-              questions[preguntaActual]?.utterance
-            )}
-          </div>
-          <div>
-            {!isAnswerSelected ? (
-              <span className="pista">
-                Pista:{" "}
-                {loading ? (
-                  <Skeleton
-                    width={100}
-                    variant="text"
-                    sx={{ fontSize: "1rem" }}
-                  />
-                ) : (
-                  questions[preguntaActual]?.feedback
-                )}
-              </span>
-            ) : (
-              <button
-                type="primary"
-                className="btn btn-outline-primary w-30 mb-3"
-                onClick={handlerNextQuestion}
-              >
-                {" "}
-                Siguiente
-              </button>
-            )}
-          </div>
-        </div>
-        <div className="lado-derecho">
-          {questions[preguntaActual]?.options && (
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "5px" }}
-            >
-              {Object.entries(questions[preguntaActual]?.options).map(
-                ([opt, option], index) =>
-                  loading ? (
-                    <Skeleton
-                      key={option}
-                      variant="rounded"
-                      width={300}
-                      height={40}
-                    />
-                  ) : (
-                    <button
-                      className="button-test"
-                      key={option}
-                      id={"opt" + (index + 1)}
-                      onClick={(e) =>
-                        handleAnswerSubmit(
-                          questions[preguntaActual]?.options[
-                            questions[preguntaActual]?.answer
-                          ] === option,
-                          e,
-                          opt,
-                          preguntaActual + 1,
-                          questions[preguntaActual]?.options[
-                            questions[preguntaActual]?.answer
-                          ]
-                        )
-                      }
-                      disabled={isAnswerSelected}
-                    >
-                      {option}
-                    </button>
-                  )
+      {questions?.length === 0 ? (
+        <></>
+      ) : (
+        <div className="test">
+          <div className="lado-izquierdo">
+            <div className="numero-pregunta">
+              <span> Pregunta {preguntaActual + 1} de </span>{" "}
+              {questions?.length}
+            </div>
+            <div className="pregunta-titulo">
+              {loading ? (
+                <Skeleton
+                  animation="wave"
+                  width={305}
+                  height={70}
+                  variant="text"
+                  sx={{ fontSize: "1rem" }}
+                />
+              ) : (
+                questions[preguntaActual]?.utterance
               )}
             </div>
-          )}
+            <div>
+              {!isAnswerSelected ? (
+                <span className="pista">
+                  <FormControlLabel
+                    value="end"
+                    control={
+                      <Checkbox
+                        size="small"
+                        onChange={() => setShowPista(!showPista)}
+                      />
+                    }
+                    label={
+                      showPista
+                        ? loading
+                          ? "Loading..."
+                          : "Pista: " + questions[preguntaActual]?.feedback
+                        : "Pista"
+                    }
+                    labelPlacement="end"
+                  />
+                </span>
+              ) : (
+                <button
+                  type="primary"
+                  className="btn btn-outline-primary w-30 mb-3"
+                  onClick={handlerNextQuestion}
+                >
+                  {" "}
+                  Siguiente
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="lado-derecho">
+            {questions[preguntaActual]?.options && (
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "5px" }}
+              >
+                {Object.entries(questions[preguntaActual]?.options).map(
+                  ([opt, option], index) =>
+                    loading ? (
+                      <Skeleton
+                        key={option}
+                        variant="rounded"
+                        width={300}
+                        height={40}
+                      />
+                    ) : (
+                      <button
+                        className="button-test"
+                        key={option}
+                        id={"opt" + (index + 1)}
+                        onClick={(e) =>
+                          handleAnswerSubmit(
+                            questions[preguntaActual]?.options[
+                              questions[preguntaActual]?.answer
+                            ] === option,
+                            e,
+                            opt,
+                            preguntaActual + 1,
+                            questions[preguntaActual]?.options[
+                              questions[preguntaActual]?.answer
+                            ]
+                          )
+                        }
+                        disabled={isAnswerSelected}
+                      >
+                        {option}
+                      </button>
+                    )
+                )}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
+
       <div style={{ position: "absolute", bottom: "0vh", left: "0vh" }}>
         <Snackbar
           open={openFeedback}
