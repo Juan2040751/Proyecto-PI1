@@ -11,6 +11,7 @@
     }
   },
   "private": true,
+  "proxy": "https://pi1-backend.onrender.com",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",

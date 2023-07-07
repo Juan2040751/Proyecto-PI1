@@ -29,7 +29,7 @@ function Test({ reference, lastCard, setSession, session }) {
   const questions = session?.questions || [];
   const [preguntaActual, setPreguntaActual] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [openFeedback, setOpenFeedback] = useState(false);
+  const [openFeedback, setOpenFeedback] = useState(true);
   const [puntuacion, setPuntuacion] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
@@ -406,7 +406,13 @@ function Test({ reference, lastCard, setSession, session }) {
         </div>
       )}
 
-      <div style={{ position: "absolute", bottom: "0vh", left: "0vh" }}>
+      <div
+        style={{
+          position: "absolute",
+          bottom: document.body.offsetWidth > 400 ? "0vh" : "2vh",
+          left: "0vh",
+        }}
+      >
         <Snackbar
           open={openFeedback}
           autoHideDuration={60000}

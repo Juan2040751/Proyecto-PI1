@@ -7,15 +7,15 @@ import ReactThreeTestRenderer from '@react-three/test-renderer';
 import '@testing-library/jest-dom';
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from 'react-router-dom';
+import Arqitectura from './components/Arqitectura';
 import Gastronomy from './components/Gastronomy';
+import Test from './components/evaluacion';
 import EventOne from './components/events/event_one';
+import EventSix from './components/events/event_six';
 import Featured from "./components/featured_event";
 import Museum from './components/museum';
 import Login from './login';
 import Register from './registro';
-import Arqitectura from './components/Arqitectura';
-import EventSix from './components/events/event_six';
-
 describe("Pruebas HU Sprint 1", () => {
 
     test('PI1-11', async () => {
@@ -89,5 +89,32 @@ describe("Pruebas HU Sprint 3", () => {
     test('PI1-26', async () => {
         render(<EventSix />)
         expect(screen.getByText("La literara sumeria, la más antigua del mundo.")).toBeInTheDocument();
+    })
+})
+
+describe("Pruebas HU Sprint 4", () => {
+    test('PI1-28 scene object type', async () => {
+        const renderer = await ReactThreeTestRenderer.create(
+            <Test />
+        )
+        expect(renderer.getInstance().type).toBe("Group")
+    })
+    test('PI1-28 scene up ', async () => {
+        const renderer = await ReactThreeTestRenderer.create(
+            <Test />
+        )
+        expect(renderer.getInstance().up).toEqual({ x: 0, y: 1, z: 0 })
+    })
+    test('PI1-28 scene child ', async () => {
+        const renderer = await ReactThreeTestRenderer.create(
+            <Test />
+        )
+        expect(renderer.scene._fiber.children.length).toBe(1)
+    })
+    test('PI1-28 scene without parent ', async () => {
+        const renderer = await ReactThreeTestRenderer.create(
+            <Test />
+        )
+        expect(renderer.scene.parent).toBe(null)
     })
 })

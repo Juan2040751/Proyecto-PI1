@@ -1,7 +1,6 @@
-import { useLoader } from "@react-three/fiber";
 import React from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "../events/events.css";
+import { useGLTF } from "@react-three/drei";
 
 /**
  * Componente Object_two
@@ -37,14 +36,11 @@ export function DescriptionTwo() {
         que a su vez fue conquistada por Sargón de Acadia.
       </p>
     </section>
-  </main>
+  </main>;
 }
 
 export function ObjectTwo(props) {
-  const { nodes, materials } = useLoader(
-    GLTFLoader,
-    "../static/arcilla_tablemit.glb"
-  );
+  const { nodes, materials } = useGLTF("/static/arcilla_tablemit.glb");
   return (
     <group {...props} dispose={null} position={[0, 1, 0]}>
       <directionalLight

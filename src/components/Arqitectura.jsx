@@ -9,6 +9,7 @@ import {
   SamplePrevArrow,
 } from "./objects/arqui_general";
 import { ArquiUruk } from "./objects/arqui_uruk";
+import { Grid } from "@mui/material";
 
 /**
  * Componente Arquitectura
@@ -46,7 +47,7 @@ function Arqitectura({ reference, lastCard, setSession, session }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          arrows: false
+          arrows: false,
         },
       },
     ],
@@ -69,10 +70,18 @@ function Arqitectura({ reference, lastCard, setSession, session }) {
           }}
         >
           <Slider {...settings}>
-            <ArquiGeneral />
-            <ArquiOne />
-            <ArquiTwo />
-            <ArquiUruk />
+            <Grid item xs={10} sm={4} md={2}>
+              <ArquiGeneral />
+            </Grid>
+            <Grid item xs={10} sm={4} md={2}>
+              <ArquiOne />
+            </Grid>
+            <Grid item xs={10} sm={4} md={2}>
+              <ArquiTwo />
+            </Grid>
+            <Grid item xs={10} sm={4} md={2}>
+              <ArquiUruk />
+            </Grid>
           </Slider>
         </div>
       </Html>

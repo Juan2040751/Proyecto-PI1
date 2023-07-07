@@ -1,7 +1,6 @@
-import { useLoader } from "@react-three/fiber";
 import React from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "../events/events.css";
+import { useGLTF } from "@react-three/drei";
 
 /**
  * Componente Object_three
@@ -37,11 +36,12 @@ export function DescriptionThree() {
         que a su vez fue conquistada por Sargón de Acadia.
       </p>
     </section>
-  </main>
+  </main>;
 }
 
 export function ObjectThree(props) {
-  const ur = useLoader(GLTFLoader, "../static/standard_of_ur.glb");
+  const ur = useGLTF("/static/standard_of_ur.glb");
+
   return (
     <group position={[-1.8, 3, -9]}>
       <directionalLight

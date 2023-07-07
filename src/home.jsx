@@ -8,7 +8,7 @@ import Gastronomy from "./components/Gastronomy";
 import Featured from "./components/featured_event";
 import Landing from "./components/landing";
 import Museum from "./components/museum";
-import Test from "./components/test";
+import Test from "./components/evaluacion";
 
 /**
  * Componente Home
