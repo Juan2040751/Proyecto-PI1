@@ -166,6 +166,8 @@ function Test({ reference, lastCard, setSession, session }) {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
+          height: "100vh",
+          overflowY: "auto",
         }}
       >
         <div className="titulo" ref={reference} id="Evaluacion">
@@ -247,6 +249,8 @@ function Test({ reference, lastCard, setSession, session }) {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
+          height: "100vh",
+          overflowY: "auto",
         }}
       >
         <div className="titulo" ref={reference} id="Evaluacion">
@@ -296,6 +300,8 @@ function Test({ reference, lastCard, setSession, session }) {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        height: "100vh",
+        overflowY: "auto",
       }}
     >
       <div className="titulo" ref={reference} id="Evaluacion">

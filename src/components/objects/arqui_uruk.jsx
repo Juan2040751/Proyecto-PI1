@@ -34,18 +34,26 @@ export function ArquiUruk(props) {
   return (
     <div
       style={{
-        //padding: "2%",
+        margin: "5px",
         display: "flex",
         width: "95vw",
         height: "80vh",
+        flexDirection: document.body.offsetWidth > 600 ? "row" : "column",
+        overflowX: "hidden",
+        overflowY: document.body.offsetWidth > 600 ? "hidden" : "auto",
       }}
     >
       <div
         style={{
           padding: "2%",
-          width: "40%", 
+          width:
+            document.body.offsetWidth > 1000
+              ? "40%"
+              : document.body.offsetWidth > 600
+              ? "50%"
+              : "100%",
           height: "40vh",
-          flex: 2,
+          position: "relative",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
@@ -59,7 +67,10 @@ export function ArquiUruk(props) {
                 src={link}
                 loading="lazy"
                 alt={`Imagen ${index + 1}`}
-                style={{ width: "100%", height: "60vh" }}
+                style={{
+                  width: "100%",
+                  height: document.body.offsetWidth > 600 ? "60vh" : "34vh",
+                }}
               />
             </div>
           ))}
@@ -83,9 +94,16 @@ export function ArquiUruk(props) {
       </div>
       <div
         style={{
-          width: "60%", // El 60% del ancho de la ventana
+          padding: "2%",
+          width:
+            document.body.offsetWidth > 1000
+              ? "60%"
+              : document.body.offsetWidth > 600
+              ? "50%"
+              : "100%",
           height: "80vh", // El 100% de la altura de la ventana
           display: "flex",
+          position: "relative",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",

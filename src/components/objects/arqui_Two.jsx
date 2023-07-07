@@ -12,15 +12,23 @@ export function ArquiTwo(props) {
   return (
     <div
       style={{
-        marginLeft: "2%",
+        margin: "5px",
         display: "flex",
         width: "95vw",
         height: "80vh",
+        flexDirection: document.body.offsetWidth > 600 ? "row" : "column",
+        overflowX: "hidden",
+        overflowY: document.body.offsetWidth > 600 ? "hidden" : "auto",
       }}
     >
       <div
         style={{
-          width: "60%",
+          width:
+            document.body.offsetWidth > 1000
+              ? "60%"
+              : document.body.offsetWidth > 600
+              ? "50%"
+              : "100%",
           height: "80vh",
           display: "flex",
           flexDirection: "column",
@@ -91,7 +99,12 @@ export function ArquiTwo(props) {
       <div
         style={{
           padding: "2%",
-          width: "40%",
+          width:
+            document.body.offsetWidth > 1000
+              ? "40%"
+              : document.body.offsetWidth > 600
+              ? "50%"
+              : "100%",
           height: "80vh",
           flex: 2,
           flexDirection: "column",

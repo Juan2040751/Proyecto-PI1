@@ -47,7 +47,7 @@ export function ArquiGeneral(props) {
     <>
       <div
         style={{
-          marginLeft: "2%",
+          margin: "5px",
           display: "flex",
           width: "95vw",
           height: "80vh",
