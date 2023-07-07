@@ -36,19 +36,11 @@ function Test({ reference, lastCard, setSession, session }) {
   const [answerShown, setAnswerShown] = useState(false);
   const [showPista, setShowPista] = useState(false);
   const [feedback, setFeedback] = useState({ message: "", state: "info" });
-  if (questions?.length === 0) {
-    setOpenFeedback(true);
-    setFeedback({
-      message:
-        "Hay un problema con tu sesión, prueba iniciando sesión nuevamente",
-      state: "info",
-    });
-  }
+
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpenFeedback(false);
   };
   const button = document.getElementById(
@@ -325,7 +317,16 @@ function Test({ reference, lastCard, setSession, session }) {
         <h1>Evaluacion</h1>
       </div>
       {questions?.length === 0 ? (
-        <></>
+        (() => {
+          if (questions?.length === 0) {
+            setOpenFeedback(true);
+            setFeedback({
+              message:
+                "Hay un problema con tu sesión, prueba iniciando sesión nuevamente",
+              state: "info",
+            });
+          }
+        })()
       ) : (
         <div className="test">
           <div className="lado-izquierdo">
