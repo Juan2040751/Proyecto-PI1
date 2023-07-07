@@ -29,7 +29,7 @@ function Test({ reference, lastCard, setSession, session }) {
   const questions = session?.questions || [];
   const [preguntaActual, setPreguntaActual] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [openFeedback, setOpenFeedback] = useState(true);
+  const [openFeedback, setOpenFeedback] = useState(false);
   const [puntuacion, setPuntuacion] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
