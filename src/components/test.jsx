@@ -316,17 +316,8 @@ function Test({ reference, lastCard, setSession, session }) {
       <div className="titulo" ref={reference} id="Evaluacion">
         <h1>Evaluacion</h1>
       </div>
-      {questions?.length === 0 ? (
-        (() => {
-          if (questions?.length === 0) {
-            setOpenFeedback(true);
-            setFeedback({
-              message:
-                "Hay un problema con tu sesión, prueba iniciando sesión nuevamente",
-              state: "info",
-            });
-          }
-        })()
+      {questions !== null && questions?.length === 0 ? (
+        <></>
       ) : (
         <div className="test">
           <div className="lado-izquierdo">
