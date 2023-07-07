@@ -55,7 +55,10 @@ function Home({ references, LandingRef, setScroll, scroll }) {
   }, [session]);
   return (
     <>
-      <ScrollControls pages={1} damping={0.1}>
+      <ScrollControls
+        pages={1}
+        damping={0.1}
+      >
         <Landing
           reference={LandingRef}
           setScroll={setScroll}

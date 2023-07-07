@@ -56,7 +56,10 @@ function Arqitectura({ reference, lastCard, setSession, session }) {
 
   return (
     <>
-      <Html fullscreen style={{ top: "200vh" }}>
+      <Html
+        fullscreen
+        style={{ top: "200vh", height: "100vh", overflowY: "auto" }}
+      >
         <div className="titulo_arqui" ref={reference} id="Arqitectura">
           <h1>ARQUITECTURA</h1>
         </div>

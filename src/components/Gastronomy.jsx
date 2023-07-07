@@ -66,7 +66,10 @@ function Gastronomy({ reference, lastCard, setSession, session }) {
     ],
   };
   return (
-    <Html fullscreen style={{ top: "400vh" }}>
+    <Html
+      fullscreen
+      style={{ top: "400vh", height: "100vh", overflowY: "auto" }}
+    >
       <div className="titulo" ref={reference} id="Gastronomía">
         <h1>GASTRONOMIA SUMERÍA</h1>
       </div>

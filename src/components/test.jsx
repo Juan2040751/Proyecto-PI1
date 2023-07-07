@@ -161,12 +161,7 @@ function Test({ reference, lastCard, setSession, session }) {
       <Html
         fullscreen
         style={{
-          top:
-            document.body.offsetWidth > 1000
-              ? "500vh"
-              : document.body.offsetWidth > 500
-              ? "600vh"
-              : "650vh",
+          top: "500vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -247,12 +242,7 @@ function Test({ reference, lastCard, setSession, session }) {
       <Html
         fullscreen
         style={{
-          top:
-            document.body.offsetWidth > 1000
-              ? "500vh"
-              : document.body.offsetWidth > 500
-              ? "600vh"
-              : "650vh",
+          top: "500vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -301,12 +291,7 @@ function Test({ reference, lastCard, setSession, session }) {
     <Html
       fullscreen
       style={{
-        top:
-          document.body.offsetWidth > 1000
-            ? "500vh"
-            : document.body.offsetWidth > 500
-            ? "600vh"
-            : "650vh",
+        top: "500vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

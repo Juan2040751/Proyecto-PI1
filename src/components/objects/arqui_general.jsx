@@ -53,7 +53,7 @@ export function ArquiGeneral(props) {
           height: "80vh",
           flexDirection: document.body.offsetWidth > 600 ? "row" : "column",
           overflowX: "hidden",
-          overflowY: "auto",
+          overflowY: document.body.offsetWidth > 600 ? "hidden" : "auto",
         }}
       >
         <div
@@ -119,7 +119,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "460px",
+                    height: "410px",
                     overflow: "hidden",
                   }}
                 >
@@ -135,7 +135,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "460px",
+                    height: "410px",
                     overflow: "hidden",
                   }}
                 >
@@ -152,7 +152,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "460px",
+                    height: "410px",
                     overflow: "hidden",
                   }}
                 >
@@ -170,7 +170,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "460px",
+                    height: "410px",
                     overflow: "hidden",
                   }}
                 >
@@ -187,7 +187,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "460px",
+                    height: "410px",
                     overflow: "hidden",
                   }}
                 >
@@ -204,7 +204,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "460px",
+                    height: "410px",
                     overflow: "hidden",
                   }}
                 >
@@ -221,7 +221,7 @@ export function ArquiGeneral(props) {
               <Card>
                 <CardContent
                   sx={{
-                    height: "460px",
+                    height: "410px",
                     overflow: "hidden",
                   }}
                 >

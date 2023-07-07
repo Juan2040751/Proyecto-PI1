@@ -78,7 +78,15 @@ function Featured({ reference, lastCard, setSession, session }) {
   };
 
   return (
-    <Html fullscreen style={{ top: "100vh", padding: "2%" }}>
+    <Html
+      fullscreen
+      style={{
+        top: "100vh",
+        height: "100vh",
+        overflowY: "auto",
+        padding: "2%",
+      }}
+    >
       <div className="titulo" ref={reference} id="Destacado">
         <h1>EVENTOS HISTORICOS</h1>
       </div>
@@ -443,12 +451,14 @@ function Featured({ reference, lastCard, setSession, session }) {
                 <button
                   className="btn btn-outline-primary mx-2 mb-3"
                   type="button"
-                  onClick={() => {setEvents({ ...events, siete: true })
-                  setSession({
-                    ...session,
-                    Destacado: 6,
-                    lastPage: "Destacado",
-                  });}}
+                  onClick={() => {
+                    setEvents({ ...events, siete: true });
+                    setSession({
+                      ...session,
+                      Destacado: 6,
+                      lastPage: "Destacado",
+                    });
+                  }}
                 >
                   Conocer más
                 </button>
@@ -611,7 +621,7 @@ function Featured({ reference, lastCard, setSession, session }) {
           <h6 style={{ marginRight: "10px" }}>Destacado /</h6>
           <h1>Personajes Importantes</h1>
         </Modal.Header>
-        <Modal.Body >{<Characters />}</Modal.Body>
+        <Modal.Body>{<Characters />}</Modal.Body>
       </Modal>
     </Html>
   );

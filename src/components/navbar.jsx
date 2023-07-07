@@ -121,30 +121,13 @@ function NavbarApp({ window, references, LandingRef, scroll }) {
     "Gastronomía",
     "Evaluacion",
   ];
-  const actualPage =
-    document.body.offsetWidth > 1000
-      ? [
-          0.17 < scroll && scroll < 0.34,
-          0.34 < scroll && scroll < 0.51,
-          0.51 < scroll && scroll < 0.68,
-          0.68 < scroll && scroll < 0.85,
-          0.85 < scroll,
-        ]
-      : document.body.offsetWidth > 600
-      ? [
-          0.17 < scroll && scroll < 0.34,
-          0.34 < scroll && scroll < 0.5,
-          0.5 < scroll && scroll < 0.68,
-          0.68 < scroll && scroll < 0.9,
-          0.9 < scroll,
-        ]
-      : [
-          0.17 < scroll && scroll < 0.34,
-          0.34 < scroll && scroll < 0.46,
-          0.46 < scroll && scroll < 0.6,
-          0.6 < scroll && scroll < 0.9,
-          0.9 < scroll,
-        ];
+  const actualPage = [
+    0.17 < scroll && scroll < 0.33,
+    0.33 < scroll && scroll < 0.5,
+    0.5 < scroll && scroll < 0.66,
+    0.66 < scroll && scroll < 0.83,
+    0.83 < scroll,
+  ];
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
