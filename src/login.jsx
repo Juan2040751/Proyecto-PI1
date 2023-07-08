@@ -43,7 +43,7 @@ function Login() {
   };
   useEffect(() => {
     const conectServer = async () => {
-      await axios.get("http://127.0.0.1:8000/usuarios/")
+      await axios.get("/api/usuarios/")
     };
     conectServer();
   }, []);
